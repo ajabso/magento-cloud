@@ -1,5 +1,0 @@
-"Name","Value","Path"
-Default currency,CAD,currency/options/base
-Default country id,CA,shipping/origin/country_id
-Default region id,77,shipping/origin/region_id
-Default locale,en_CA,general/locale/code
