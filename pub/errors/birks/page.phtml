@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title><?php echo $this->pageTitle ?></title>
+    <base href="<?php echo $this->getViewFileUrl()?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="*"/>
+    <link rel="stylesheet" href="/build/Birks/birks/styles/main.css" type="text/css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body class="maintenance-page">
+    <header class="page-header">
+        <div class="header content with-padding">
+            <span class="logo" title="Birks">
+                <img src="/pub/errors/birks/images/logo-birks.png" alt="Birks" width="178" height="37">
+            </span>
+        </div>
+    </header>
+    <main class="page-main">
+        <?php require_once $contentTemplate; ?>
+    </main>
+</body>
+</html>

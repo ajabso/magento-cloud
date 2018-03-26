@@ -1,0 +1,28 @@
+{
+    "name": "absolunet/language-en-ca",
+    "description": "Magento2 English Language Pack (en_CA)",
+    "version": "1.0.1",
+    "type": "magento2-language",
+    "homepage": "https://bitbucket.org/absolunet/boutik-language-en-ca",
+    "keywords": [
+        "magento",
+        "magento2",
+        "magento 2",
+        "plugin",
+        "module",
+        "english",
+        "language pack",
+        "en_CA",
+        "i18n",
+        "en"
+    ],
+    "license": [
+        "MIT"
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+version: "2"
+services:
+  bcloud-app:
+    volumes:
+       - bcloud-sync:/srv/www:nocopy
+  bcloud-phpfpm:
+    volumes:
+       - bcloud-sync:/srv/www:nocopy
+
+volumes:
+  bcloud-sync:
+    external: true

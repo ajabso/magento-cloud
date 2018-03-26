@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento2 English Language Pack (en_CA)
+ *
+ * @author      Ronan Capitaine rcapitaine@absolunet.com>
+ * @copyright   Copyright (c) 2017 Absolunet (http://www.absolunet.com)
+ * @link        http://www.absolunet.com
+ */
+-->
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/Language/package.xsd">
+    <code>en_CA</code>
+    <vendor>Absolunet</vendor>
+    <package>en_CA</package>
+    <use vendor="magento" package="en_us"/>
+</language>

@@ -1,0 +1,6 @@
+[submodule "app/code/Cli"]
+	path = app/code/Cli
+	url = git@bitbucket.org:absolunet/boutik-cli.git
+[submodule "app/code/Absolunet/Cli"]
+	path = app/code/Absolunet/Cli
+	url = git@bitbucket.org:absolunet/boutik-cli.git

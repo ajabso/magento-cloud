@@ -1,0 +1,139 @@
+version: "2"
+services:
+  bcloud-app:
+    # See https://hub.docker.com/r/absolunet/nginx/ for all available Nginx images
+    image: absolunet/nginx:1.10-xenial
+    # Do not change container_name !
+    container_name: bcloud-nginx
+    links:
+      - bcloud-phpfpm
+      - bcloud-db
+      - bcloud-elasticsearch
+    volumes_from:
+      - bcloud-appdata
+    ports:
+      - 80:80
+      #- 8080:8080 # port 8080 if using [image]*-varnish
+      - 443:443
+
+  bcloud-appdata:
+    image: tianon/true
+    container_name: bcloud-appdata
+    volumes:
+      - ~/absostation/common/app/docker-bash:/var/www/.absolabs-bash:ro
+      - ~/absostation/common/app/docker-bash/init:/var/www/.bashrc:ro
+      - ~/absostation/common/app/docker-bash/init:/root/.bashrc:ro
+      - ./conf/:/etc/nginx/conf.d/:delegated
+      - ./includes/:/etc/nginx/includes/:delegated
+      - ./magicento2/:/srv/www/pub/magicento2/:delegated
+      - ./../../../src/store/pub/build:/srv/www/pub/build:delegated
+      - ./../../../src/store/generated:/srv/www/generated:delegated
+
+  bcloud-phpfpm:
+    # See https://hub.docker.com/r/absolunet/php/ for all available PHP images
+    image: absolunet/php:7.0-fpm-xenial
+    # Do not change container_name !
+    container_name: bcloud-phpfpm
+    links:
+      - bcloud-db
+      - bcloud-mq
+      - bcloud-elasticsearch
+    environment:
+      # Add all the php extensions you need that are not in the php container by default
+      # Needs to be separated by only a space
+      # Ex : CUSTOM_PHP_EXT=php7.0-json vim curl
+      - CUSTOM_PACKAGES=
+    volumes:
+      - ~/absostation/common/app/docker-bash:/var/www/.absolabs-bash:ro
+      - ~/absostation/common/app/docker-bash/init:/var/www/.bashrc:ro
+      - ~/absostation/common/app/docker-bash/init:/root/.bashrc:ro
+      - ~/.ssh:/var/www/.ssh:delegated
+      - ~/.composer_cache:/var/www/.composer_cache:delegated
+      - ~/absostation/common/app/composer:/var/www/.composer:delegated
+      - ./postfix/main.cf:/etc/postfix/main.cf:delegated
+      - ./../../../src/store/pub/build:/srv/www/pub/build:delegated
+      - ./../../../src/store/generated:/srv/www/generated:delegated
+
+  bcloud-composer:
+      # See https://hub.docker.com/r/absolunet/php/ for all available PHP images
+      image: absolunet/php:7.0-fpm-xenial
+      # Do not change container_name !
+      container_name: bcloud-composer
+      links:
+        - bcloud-db
+        - bcloud-elasticsearch
+      environment:
+        # Add all the php extensions you need that are not in the php container by default
+        # Needs to be separated by only a space
+        # Ex : CUSTOM_PHP_EXT=php7.0-json vim curl
+        - CUSTOM_PACKAGES=
+      volumes:
+        - ~/absostation/common/app/docker-bash:/var/www/.absolabs-bash:ro
+        - ~/absostation/common/app/docker-bash/init:/var/www/.bashrc:ro
+        - ~/absostation/common/app/docker-bash/init:/root/.bashrc:ro
+        - ~/.ssh:/var/www/.ssh:delegated
+        - ~/.composer_cache:/var/www/.composer_cache:delegated
+        - ~/absostation/common/app/composer:/var/www/.composer:delegated
+        - ./../../../src/store:/srv/www:delegated
+
+  bcloud-db:
+    image: mysql:5.7
+    # Do not change container_name !
+    container_name: bcloud-db
+    volumes_from:
+      - bcloud-dbdata
+    ports:
+      # Port mapping for the database
+      - 8001:3306
+    environment:
+      # Set your own mysql settings
+      - MYSQL_HOST=bcloud-db    # DB Host
+      - MYSQL_ROOT_PASSWORD=bcloud1234  # Password for root user
+      - MYSQL_DATABASE=bcloud   # Database name
+      - MYSQL_USER=bcloud       # User name
+      - MYSQL_PASSWORD=bcloud1234       # User password
+    volumes:
+      # Mounting custom mysql config (see vm/docker/mysql/custom.cnf to add your custom config)
+      - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+
+  bcloud-dbdata:
+    image: tianon/true
+    container_name: bcloud-dbdata
+    volumes:
+      - ~/absostation/common/app/docker-bash:/var/www/.absolabs-bash:ro
+      - ~/absostation/common/app/docker-bash/init:/var/www/.bashrc:ro
+      - ~/absostation/common/app/docker-bash/init:/root/.bashrc:ro
+      - /var/lib/mysql
+
+  bcloud-mq:
+    image: rabbitmq:3-management
+    container_name: bcloud-mq
+    hostname: "bcloud-mq"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "bcloud-mq"
+    volumes:
+      - "./enabled_plugins:/etc/rabbitmq/enabled_plugins"
+
+  bcloud-elasticsearch:
+     image: elasticsearch:2.4
+     container_name: bcloud-elasticsearch
+     environment:
+          - bootstrap.memory_lock=true
+          - network.publish_host = 127.0.0.1
+     ulimits:
+          memlock:
+            soft: -1
+            hard: -1
+     mem_limit: 1g
+     volumes:
+         - /usr/share/elasticsearch/data
+     ports:
+       - "9200:9200"      

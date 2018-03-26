@@ -1,0 +1,19 @@
+##
+# Misc
+##
+.DS_Store
+
+##
+# Zend Studio
+##
+.settings
+.buildpath
+.project
+.externalToolBuilders
+
+
+##
+# PHPstorm
+##
+.idea
+.idea/*

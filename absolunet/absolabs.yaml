@@ -1,0 +1,7 @@
+name: bcloud
+git: git@bitbucket.org:absolunet/boutik-cloud.git
+platform:
+  magento2:
+    deployment: magento-cloud
+    domain: boutik-cloud.local
+    path: store
