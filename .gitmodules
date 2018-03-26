@@ -1,3 +1,3 @@
 [submodule "app/code/Absolunet/Cli"]
 	path = app/code/Absolunet/Cli
-	url = https://bitbucket.org/absolunet/boutik-cli.git
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-cli.git
