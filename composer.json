@@ -6,12 +6,16 @@
     "license": [
         "proprietary"
     ],
-    "repositories": [
-        {
+    "repositories": {
+        "repo": {
             "type": "composer",
-            "url": "https://repo.magento.com/"
+            "url": "https://repo.magento.com"
+        },
+        "absolunet-boutik-cli": {
+            "type": "git",
+            "url": "https://boutikpuller:uY5FB4F6JXXhyPRWsfUM@bitbucket.org/absolunet/boutik-cli.git"
         }
-    ],
+    },
     "require": {
         "magento/magento-cloud-metapackage": "2.2.3",
         "composer/composer": "@alpha",
