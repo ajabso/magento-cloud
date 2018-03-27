@@ -31,7 +31,7 @@ web:
     locations:
         "/":
             # The public directory of the app, relative to its root.
-            root: "pub"
+            root: "src/store/pub"
             # The front-controller script to send non-static requests to.
             passthru: "/index.php"
             index:
@@ -46,12 +46,12 @@ web:
                 /robots\.txt$:
                     allow: true
         "/media":
-            root: "pub/media"
+            root: "src/store/pub/media"
             allow: true
             scripts: false
             passthru: "/index.php"
         "/static":
-            root: "pub/static"
+            root: "str/store/pub/static"
             allow: true
             scripts: false
             passthru: "/front-static.php"
@@ -74,13 +74,13 @@ mounts:
 hooks:
     # We run build hooks before your application has been packaged.
     build: |
-        php ./vendor/bin/m2-ece-build
+        php .src/store/vendor/bin/m2-ece-build
     # We run deploy hook after your application has been deployed and started.
     deploy: |
-        php ./vendor/bin/m2-ece-deploy
+        php .src/store/vendor/bin/m2-ece-deploy
 
 # Default Magento 2 cron jobs
 crons:
     cronrun:
         spec: "*/5 * * * *"
-        cmd: "php bin/magento cron:run && php bin/magento cron:run"
+        cmd: "php src/store/bin/magento cron:run && php src/store/bin/magento cron:run"
