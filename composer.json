@@ -10,10 +10,6 @@
         "repo": {
             "type": "composer",
             "url": "https://repo.magento.com"
-        },
-        "absolunet-boutik-cli": {
-            "type": "git",
-            "url": "https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-cli.git"
         }
     },
     "require": {
