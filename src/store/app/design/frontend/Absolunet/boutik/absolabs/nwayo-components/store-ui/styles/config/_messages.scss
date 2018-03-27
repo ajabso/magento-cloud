@@ -1,0 +1,41 @@
+//-------------------------------------
+//-- Store UI - Config - Messages
+//-------------------------------------
+
+//-- Messages
+@mixin storeui-messages-block-styles($type:default) {
+	$color: $common-warning-text-color;
+
+	@if $type == error {
+		$color: $common-error-text-color;
+	} @else if $type == success {
+		$color: $common-success-text-color;
+	}
+
+	//
+	position: relative;
+	display: block;
+	padding: 1em 1.5em 1em 3em;
+	border: common-border($color:$color);
+	margin-bottom: .8em;
+	color: $color;
+	font-size: $common-text-small-size;
+
+	> :first-child::before {
+		@if $type == error {
+			@include store-error-image();
+		} @else if $type == success {
+			@include store-success-image();
+		} @else {
+			@include store-warning-image();
+		}
+
+		@include nwayo-pseudo-image-styles(1.7em);
+		position: absolute;
+		top: .9em;
+		left: .5em;
+		display: block;
+	}
+}
+
+

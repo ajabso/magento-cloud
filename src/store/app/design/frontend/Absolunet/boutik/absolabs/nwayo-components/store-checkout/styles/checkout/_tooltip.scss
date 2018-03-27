@@ -1,0 +1,111 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Tooltip
+//-------------------------------------
+
+.field-tooltip {
+	position: absolute;
+	top: 1em;
+	right: 0;
+	cursor: pointer;
+
+	// stylelint-disable selector-class-pattern
+	&._active {
+		z-index: common-zindex(accessibilty);
+
+		.field-tooltip-content {
+			display: block;
+		}
+
+		.field-tooltip-action::before {
+			color: $common-alt-color;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	.field-tooltip-action {
+		display: inline-block;
+
+		&::before {
+			@include nwayo-pseudo-image-styles(1.33em);
+			@include store-help-image();
+			display: inline-block;
+			overflow: hidden;
+		}
+
+		&:hover::before {
+			@include store-help-image(hover);
+		}
+
+		> span {
+			@include nwayo-visually-hidden-styles();
+		}
+
+		// stylelint-disable selector-class-pattern
+		._keyfocus &:focus {
+			z-index: common-zindex(accessibilty);
+
+			&::before {
+				color: $common-alt-color;
+			}
+
+			+ .field-tooltip-content {
+				display: block;
+			}
+		}
+		// stylelint-enable selector-class-pattern
+	}
+
+	.field-tooltip-content {
+		position: absolute;
+		top: -.66em;
+		left: 2.5em;
+		z-index: common-zindex(accessibilty);
+		display: none;
+		width: 16.8em;
+		padding: $common-column-gutter-size;
+		border: common-border();
+		border-radius: .06em;
+		background: $common-bg-var1-color;
+		font-size: $common-text-base-size;
+		text-transform: none;
+		word-wrap: break-word;
+
+		&::before {
+			@include nwayo-arrow-styles(left, $common-text-nano-size, $common-border-color);
+			content: '';
+			position: absolute;
+			top: .6em;
+			left: -.6em;
+			z-index: common-zindex(accessibilty);
+			display: block;
+			width: .06em;
+
+			@media #{bp(medium down)} {
+				display: none;
+			}
+		}
+
+		@media #{bp(medium down)} {
+			top: -.6em;
+			right: 2em;
+			left: auto;
+
+			&::after {
+				@include nwayo-arrow-styles(right, $common-text-nano-size, $common-border-color);
+				content: '';
+				position: absolute;
+				top: .6em;
+				right: -.6em;
+				z-index: common-zindex(accessibilty);
+				display: block;
+				width: .06em;
+			}
+		}
+	}
+}
+
+@media #{$common-xsmall-down-media} {
+	.modal-popup .field-tooltip .field-tooltip-content {
+		width: 4em;
+	}
+}

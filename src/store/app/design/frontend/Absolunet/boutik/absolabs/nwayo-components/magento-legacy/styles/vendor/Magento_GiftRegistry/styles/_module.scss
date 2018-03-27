@@ -1,0 +1,286 @@
+.form-giftregistry-share,
+.form-giftregistry-edit {
+	@include storeui-form-add-fields-styles();
+	.actions-toolbar:not(:last-child) {
+		margin-bottom: rem-calc(40);
+	}
+	.fieldset {
+		.nested {
+			.field:not(.choice) {
+				.control {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.form.giftregistry.items {
+	.actions-toolbar {
+		margin-left: 0;
+	}
+}
+
+.giftregisty-dropdown {
+	@include storeui-form-dropdown-styles(giftregisty-wishlist);
+}
+
+.table-giftregistry-items {
+	.field.qty .qty {
+		width: 3em;
+		text-align: center;
+	}
+
+	.product-image {
+		float: left;
+		margin-right: rem-calc(10);
+	}
+}
+
+.form.giftregistry .fieldset {
+	.cart-summary & {
+		margin: rem-calc(25 0 5);
+
+		.field {
+			margin: rem-calc(0 0 10);
+
+			.control {
+				float: none;
+				width: auto;
+			}
+		}
+
+		.action.primary {
+			@include common-button-styles();
+			font-size: $common-text-base-size;
+			line-height: 1.2;
+			padding: rem-calc(7 15);
+			margin-bottom: 0;
+		}
+	}
+}
+
+.form-giftregistry-search {
+	margin-bottom: rem-calc(30) * 2;
+
+	.fields-specific-options {
+		.field {
+			&:nth-last-of-type(1) {
+				margin-bottom: 0;
+			}
+		}
+
+		.datetime-picker {
+			width: calc(100% - #{rem-calc(33)});
+			margin-right: rem-calc(10);
+		}
+	}
+}
+
+.block-giftregistry-results {
+	.block-title {
+		@include store-block-title-styles();
+	}
+
+	.toolbar-giftregistry-results {
+		text-align: center;
+	}
+}
+
+.block-giftregistry {
+	.actions-toolbar {
+		margin: rem-calc(17 0 0);
+	}
+}
+
+.block-giftregistry-shared {
+	.item-options {
+		.item-value {
+			margin: rem-calc(0 0 25);
+		}
+	}
+}
+
+.block-giftregistry-shared-items {
+	.block-title {
+		@include store-block-title-styles();
+	}
+
+	.product-image-wrapper {
+		@include store-imagewrapper-reset-styles();
+	}
+
+	.item {
+		border-bottom: common-border();
+	}
+
+	.qty {
+		.qty {
+			width: 3em;
+			text-align: center;
+		}
+	}
+
+	.col {
+		padding: rem-calc(20 8 10);
+
+		.price-box {
+			display: inline-block;
+		}
+
+		.price-wrapper {
+			font-size: rem-calc(18);
+			display: block;
+			font-weight: $common-text-fatter-weight;
+			white-space: nowrap;
+		}
+	}
+
+	.product {
+		.item-options {
+			@include store-product-options-list-styles();
+			@include nwayo-clearfix-styles();
+			margin-bottom: 0;
+		}
+
+		&-item-photo {
+			display: block;
+			max-width: rem-calc(65);
+			padding: rem-calc(10 0);
+		}
+
+		&-item-name {
+			display: block;
+			margin: rem-calc(0 0 5);
+		}
+	}
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@media #{bp(small down)} {
+	.table-giftregistry-items {
+		.col.product {
+			&::before {
+				@include nwayo-visually-hidden-styles();
+			}
+			@include nwayo-clearfix-styles();
+		}
+
+		.field.choice,
+		.field.qty {
+			display: inline-block;
+		}
+	}
+
+	.form-giftregistry-search {
+		.fieldset {
+			margin-bottom: rem-calc(15);
+		}
+	}
+
+	.toolbar-giftregistry-results {
+		.toolbar-amount,
+		.limiter,
+		.pages {
+			margin-bottom: rem-calc(25);
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.form-giftregistry-share,
+	.form-giftregistry-edit {
+		@include storeui-form-add-fields-large-styles();
+	}
+
+	.form-giftregistry-search {
+		.fieldset {
+			margin-bottom: rem-calc(29);
+		}
+	}
+
+	.toolbar-giftregistry-results {
+		@include nwayo-clearfix-styles();
+		position: relative;
+		margin-bottom: 1.25em;
+
+		.limiter {
+			position: relative;
+			z-index: 1;
+			float: right;
+		}
+
+		.toolbar-amount {
+			position: relative;
+			z-index: 1;
+			float: left;
+			padding: .5em 0 0;
+			line-height: normal;
+		}
+
+		.pages {
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+		}
+	}
+
+	.block-giftregistry-shared {
+		.item-options {
+			@include store-product-options-list-styles();
+			@include nwayo-clearfix-styles();
+		}
+	}
+
+	.block-giftregistry-shared-items {
+		.column.main & {
+			.actions-toolbar {
+				margin-left: 0;
+			}
+		}
+
+		.product {
+			&-item-photo {
+				display: table-cell;
+				max-width: 100%;
+				padding: rem-calc(0 20 0 0);
+				vertical-align: top;
+				width: 1%;
+			}
+
+			&-item-details {
+				display: table-cell;
+				vertical-align: top;
+				width: 99%;
+				word-break: normal;
+			}
+		}
+
+		.col {
+			&.product {
+				width: 48%;
+			}
+
+			&:not(.product) {
+				text-align: center;
+			}
+
+			&.price {
+				padding-top: rem-calc(17);
+			}
+		}
+
+		.input-text {
+			&.qty {
+				margin-top: rem-calc(-4);
+			}
+		}
+	}
+}

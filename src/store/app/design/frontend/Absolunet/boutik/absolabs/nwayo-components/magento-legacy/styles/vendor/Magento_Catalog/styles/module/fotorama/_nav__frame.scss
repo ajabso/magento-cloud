@@ -1,0 +1,57 @@
+.fotorama__nav__frame {
+	@extend .fotorama-auto-margin;
+	@extend .fotorama-focus;
+	@extend .fotorama-inline-block;
+	@extend .fotorama-no-tap;
+	position: relative;
+	box-sizing: content-box;
+
+	.fotorama__nav--dots & {
+		width: rem-calc(18);
+		height: rem-calc(30);
+		&--thumb {
+			display: none;
+		}
+	}
+
+	.fotorama__nav--thumbs & {
+		padding-left: 0 !important;
+
+		&:last-child {
+			padding-right: 0 !important;
+		}
+
+		&--dot {
+			display: none;
+		}
+	}
+
+	&.fotorama__active & {
+		width: 0;
+		height: 0;
+		border-width: rem-calc(3);
+
+		&::after {
+			top: rem-calc(-3);
+			left: rem-calc(-3);
+			padding: rem-calc(3);
+		}
+	}
+
+	&:focus {
+		@extend .fotorama-focus-overlay;
+		box-shadow: none;
+
+		// Check this in magento/blank css
+		::after {
+			top: rem-calc(-1);
+			left: rem-calc(-1);
+			padding: rem-calc(1);
+		}
+	}
+
+	.fotorama__nav-wrap--vertical .fotorama__nav__shaft &--thumb {
+		display: block;
+		padding-bottom: inherit !important;
+	}
+}

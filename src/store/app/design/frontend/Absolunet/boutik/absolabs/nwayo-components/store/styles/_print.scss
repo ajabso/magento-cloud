@@ -1,0 +1,129 @@
+//-------------------------------------
+//-- Store - Print
+//-------------------------------------
+
+$store-print-color: $konstan-color-black;
+
+@media print {
+	@page {
+		margin: 1cm; // stylelint-disable-line unit-whitelist
+	}
+
+	.page-print .logo {
+		display: block;
+		float: none;
+		text-align: left;
+	}
+
+	a, a:visited {
+		text-decoration: underline !important;
+	}
+
+	pre, blockquote {
+		border: common-border($color:$store-print-color);
+		page-break-inside: avoid;
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	.table-wrapper table {
+		width: 100%;
+		table-layout: fixed;
+
+		td {
+			width: auto;
+		}
+
+		> tfoot > tr:first-child {
+			border-top: common-border($color:$store-print-color);
+		}
+	}
+
+	.box, tr, img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	.block-content, p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	.block-content {
+		page-break-before: avoid;
+	}
+
+	.block-title, h2, h3 {
+		page-break-after: avoid;
+	}
+
+	.nav-toggle {
+		display: none !important;
+	}
+
+	// stylelint-disable selector-max-universal
+	.sidebar,
+	.nav-sections,
+	.header.content > *[class],
+	.panel.wrapper > *[class],
+	.footer.content > *[class] {
+		display: none;
+	}
+	// stylelint-enable selector-max-universal
+
+	.logo, .footer .copyright {
+		display: block !important;
+		margin: .625em;
+	}
+
+	.order-details-items .order-items .order-gift-message:not(.expanded-content) {
+		visibility: visible;
+		height: auto;
+	}
+
+	.column.main {
+		float: none !important;
+		width: 100% !important;
+	}
+
+	.breadcrumbs {
+		margin: 0 auto;
+		text-align: right;
+	}
+
+	.footer.content {
+		padding: 0;
+	}
+
+	.body {
+		width: 100%;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	//-- Reset what hasn't been redefined
+	// stylelint-disable selector-max-universal
+	* {
+		position: static !important;
+		overflow: visible !important;
+		border-color: $store-print-color !important;
+		box-shadow: none !important;
+		background: transparent !important;
+		color: $store-print-color !important;
+		text-indent: 0 !important;
+		text-shadow: none !important;
+		filter: none !important;
+
+		&::before, &::after {
+			display: none !important;
+		}
+	}
+	// stylelint-enable selector-max-universal
+}

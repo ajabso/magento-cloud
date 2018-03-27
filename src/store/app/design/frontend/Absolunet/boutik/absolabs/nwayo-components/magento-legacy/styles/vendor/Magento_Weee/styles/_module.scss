@@ -1,0 +1,16 @@
+.minilist {
+	.weee {
+		display: table-row;
+		font-size: rem-calc(11);
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.price-container.weee {
+	&::before {
+		display: none;
+	}
+}

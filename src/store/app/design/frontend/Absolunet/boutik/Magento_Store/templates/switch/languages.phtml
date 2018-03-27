@@ -1,0 +1,53 @@
+<?php
+/** @var \Magento\Store\Block\Switcher $block */
+?>
+
+<?php if (count($block->getStores()) > 1): ?>
+    <?php $tag = $block->getIdModifier() ? 'div' : 'li'; ?>
+
+    <?php if (count($block->getStores()) == 2): ?>
+
+        <<?=$tag?> class="switcher language switcher-language uni-language">
+            <ul class="dropdown switcher-dropdown">
+                <?php foreach ($block->getStores() as $_lang): ?>
+                    <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                        <li class="view-<?= $block->escapeHtml($_lang->getCode()); ?> switcher-option">
+                            <a href="<?=$_lang->getCurrentUrl(false)?>" rel="alternate" hreflang="<?=strtolower(str_replace('_', '-', $_lang->getLocaleCode()))?>" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_lang) ?>'>
+                                <span class="lang-desktop" ><?= $block->escapeHtml($_lang->getName()); ?></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </<?=$tag?>>
+
+    <?php elseif (count($block->getStores()) > 2): ?>
+
+        <?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '' ?>
+        <<?=$tag?> class="switcher language switcher-language multi-language" data-ui-id="language-switcher" id="switcher-language<?= $block->escapeHtmlAttr($id) ?>">
+            <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Language')) ?></span></strong>
+            <div class="actions dropdown options switcher-options">
+                <button type="button" class="action toggle switcher-trigger"
+                     id="switcher-language-trigger<?= $block->escapeHtmlAttr($id) ?>"
+                     data-mage-init='{"dropdown":{}}'
+                     data-toggle="dropdown"
+                     data-trigger-keypress-button="true">
+                    <?= $block->escapeHtml($block->getStoreName()) ?>
+                </button>
+                <ul class="dropdown switcher-dropdown"
+                    data-target="dropdown">
+                    <?php foreach ($block->getStores() as $_lang): ?>
+                        <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                            <li class="view-<?= $block->escapeHtml($_lang->getCode()) ?> switcher-option">
+                                <a href="<?=$_lang->getCurrentUrl(false)?>"  rel="alternate" hreflang="<?=strtolower(str_replace('_', '-', $_lang->getLocaleCode()))?>" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_lang) ?>'>
+                                    <?= $block->escapeHtml($_lang->getName()) ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </<?=$tag?>>
+
+    <?php endif; ?>
+<?php endif; ?>

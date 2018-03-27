@@ -1,0 +1,15 @@
+//-------------------------------------
+//-- Store UI - Config - Sections
+//-------------------------------------
+
+$storeui-sections-text-color:          $common-text-color;
+$storeui-sections-link-color:          $common-text-color;
+
+$storeui-sections-border-color:        $common-border-color;
+$storeui-sections-border:              common-border($color:$storeui-sections-border-color);
+
+$storeui-sections-bg-color:            $common-bg-var1-color;
+$storeui-sections-bg-var1-color:       lighten($common-bg-var1-color, 5%);
+$storeui-sections-bg-var2-color:       lighten($common-bg-var1-color, 15%);
+
+$storeui-sections-large-tabs-height:   2.2em;

@@ -1,0 +1,130 @@
+//-------------------------------------
+//-- Store UI - Sections
+//-------------------------------------
+
+.product.data.items {
+	padding: 0;
+	margin: 0 0 1.25em;
+
+	> .item.title {
+		float: none;
+		box-sizing: border-box;
+		width: 100%;
+		margin: 0 0 .3125em;
+
+		&:not(.disabled) {
+			> .switch:focus, > .switch:hover {
+				background: $storeui-sections-bg-var1-color;
+			}
+		}
+
+		&:not(.disabled) > .switch:active, &.active > .switch, &.active > .switch:focus, &.active > .switch:hover {
+			padding-bottom: .3125em;
+			background: $storeui-sections-bg-var2-color;
+		}
+
+		> .switch {
+			display: block;
+			height: 2.2em;
+			padding: .25em 1.1em;
+			border: $storeui-sections-border;
+			background: $storeui-sections-bg-color;
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-fat-weight;
+
+			&, &:visited, &:hover, &:active {
+				color: $storeui-sections-link-color;
+				text-decoration: none;
+			}
+		}
+	}
+
+	> .item.content {
+		@include nwayo-clearfix-styles();
+		display: block;
+		float: none;
+		box-sizing: border-box;
+		padding: 1.25em;
+		border: $storeui-sections-border;
+		margin: 0 0 .3em;
+		background: $storeui-sections-bg-var2-color;
+
+		&.active {
+			display: block;
+		}
+	}
+}
+
+//-- Desktop
+@media #{bp(large)} {
+	.product.data.items {
+		@include nwayo-clearfix-styles();
+		position: relative;
+		z-index: 1;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+
+		> .item.title {
+			float: left;
+			width: auto;
+			margin: 0 .3em 0 0;
+
+			&:not(.disabled) {
+				> .switch:focus, > .switch:hover {
+					background: $storeui-sections-bg-var1-color;
+				}
+			}
+
+			&:not(.disabled) > .switch:active, &.active > .switch, &.active > .switch:focus, &.active > .switch:hover {
+				background: $storeui-sections-bg-var2-color;
+				color: $storeui-sections-text-color;
+			}
+
+			&.active {
+				> .switch, > .switch:focus, > .switch:hover {
+					padding-bottom: .4em;
+				}
+			}
+
+			> .switch {
+				position: relative;
+				z-index: 2;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+				display: block;
+				height: $storeui-sections-large-tabs-height;
+				padding: .3em 1.25em;
+				border: $storeui-sections-border;
+				border-bottom: 0;
+				background: $storeui-sections-bg-color;
+				font-size: $common-text-base-size;
+				font-weight: $common-text-fat-weight;
+
+				&, &:visited, &:hover, &:active {
+					color: $storeui-sections-link-color;
+					text-decoration: none;
+				}
+			}
+		}
+
+		> .item.content {
+			@include nwayo-clearfix-styles();
+			float: right;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 1.25em;
+			border: common-border();
+			margin-top: $storeui-sections-large-tabs-height + .3em;
+			margin-left: -100%;
+			background: $storeui-sections-bg-var2-color;
+
+			&.active {
+				display: block;
+			}
+		}
+	}
+}
+
+
+//-- Mobile
+@media #{bp(medium down)} {
+	.product.data.items .data.item {
+		display: block;
+	}
+}

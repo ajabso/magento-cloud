@@ -1,0 +1,193 @@
+//  The contents of this file will get split into two output files: email.less and email-inline.less.
+//
+//  email.less
+//  Styles contained in the .email-non-inline() and .media-width() mixins will be output in the email.less file
+//  and will be included in a <style> tag in emails. Non-inline styles should be used for styles that can't be applied
+//  as inline CSS, such as media queries.
+//
+//  email-inline.less
+//  Styles not included in the mixins mentioned above will be included in the email-inline.less file.
+//  Since email client support for CSS in <style> tags is limited, the majority of styles should be added as "inline"
+//  styles. CSS will be applied to transactional email HTML via the Emogrifier library, which only has support for
+//  certain CSS selectors (source: https://github.com/jjriv/emogrifier#supported-css-selectors):
+//
+//  Supported selectors (examples in parenthesis):
+//      * ID (#logo)
+//      * class (.logo)
+//      * type (h1)
+//      * descendant (.logo > a)
+//      * child (.logo a)
+//      * adjacent (.logo + .second-example)
+//      * attribute presence (a[title])
+//      * attribute value (a[title="example"])
+//      * attribute only ([title="example"])
+//
+//  Unsupported selectors (examples in parenthesis):
+//      * first-child (div:first-child)
+//      * last-child (div:last-child)
+//      * nth-child (div:nth-child(3n+1))
+//      * universal (*)
+//      * pseudo (a:hover, a:active, a:focus, span::before, span::after, etc)
+
+//
+//  Variables
+//  _____________________________________________
+
+//
+//  Resets
+//  ---------------------------------------------
+
+@import 'components/store/styles/reset';
+
+
+//  Generic resets
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+	height: auto;
+	line-height: 100%;
+	outline: none;
+	text-decoration: none;
+}
+
+table {
+	border-collapse: collapse;
+
+	td {
+		vertical-align: top;
+	}
+}
+
+//
+//  Typography
+//  ---------------------------------------------
+
+body {
+	font-family: $storeemail-text-font;
+	font-weight: $storeemail-text-base-weight;
+	text-align: left;
+}
+
+th,
+td {
+	font-family: $storeemail-text-font;
+}
+
+a {
+	color: $storeemail-link-color;
+	text-decoration: none;
+}
+
+//
+//  Layout
+//  ---------------------------------------------
+
+html,
+body {
+	background-color: $storeemail-bg-color;
+}
+
+.wrapper {
+	margin: 0 auto;
+}
+
+.wrapper-inner {
+	padding-bottom: $storeemail-padding * 3;
+	width: 100%;
+}
+
+.main {
+	margin: 0 auto;
+	text-align: left; // Necessary to prevent all text from centering in Outlook 2003
+	width: 650px;
+}
+
+.header {
+	padding: $storeemail-padding $storeemail-padding 0;
+}
+
+.main-content {
+	background-color: $storeemail-bgcontent-color;
+	padding: $storeemail-padding;
+}
+
+.footer {
+	padding: 0 $storeemail-padding $storeemail-padding; // Reduce space between body of email and closing text
+}
+
+//
+//  Buttons
+//  ---------------------------------------------
+
+.button {
+	& > tr > td {
+		padding-bottom: 10px;
+	}
+
+	.inner-wrapper {
+		td {
+			border-radius: .375em;
+			background-color: $storeemail-button-bg-color;
+
+			a {
+				border-radius: .375em;
+				color: $storeemail-button-text-color;
+				display: inline-block;
+				font-size: $storeemail-text-base-size;
+				padding: .5em 1em;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+//
+//  Messages
+//  ---------------------------------------------
+
+.message-info,
+.message-gift {
+	width: 100%;
+
+	td {
+		border: common-border($color:$storeemail-message-text-color);
+		color: $storeemail-message-text-color;
+		margin: 0;
+		padding: $storeemail-padding;
+
+		a {
+			color: $storeemail-link-color;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 0;
+		}
+	}
+}
+
+.message-details {
+    margin-bottom: 10px;
+
+    b {
+        font-weight: $storeemail-text-fat-weight;
+    }
+
+    td {
+        padding-bottom: 5px;
+
+        b {
+            margin-right: 10px;
+        }
+    }
+}
+

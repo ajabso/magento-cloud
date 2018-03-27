@@ -1,0 +1,37 @@
+<?php
+
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+
+$url = $block->getReviewsUrl() . '#reviews';
+$urlForm = $block->getReviewsUrl() . '#review-form';
+?>
+<?php if ($block->getReviewsCount()): ?>
+<?php $rating = $block->getRatingSummary(); ?>
+<div class="product-reviews-summary short<?= !$rating ? ' no-rating' : '' ?>">
+    <?php if ($rating):?>
+    <div class="rating-summary">
+        <span class="label"><span><?= $block->escapeHtml(__('Rating')) ?>:</span></span>
+        <?php // Absolunet Custom Code ?>
+        <a class="action view" href="<?= $block->escapeUrl($url) ?>">
+            <?php // /Absolunet Custom Code ?>
+            <div class="rating-result" title="<?= $block->escapeHtmlAttr($rating) ?>%">
+                <span style="width:<?= $block->escapeHtmlAttr($rating) ?>%"><span><?= $block->escapeHtml($rating) ?>%</span></span>
+            </div>
+        </a>
+    </div>
+    <?php endif;?>
+    <div class="reviews-actions">
+        <?php // Absolunet Custom Code ?>
+        <a class="action view" href="<?= $block->escapeUrl($url) ?>"><?= $block->escapeHtml($block->getReviewsCount()) ?>&nbsp;<span><?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></span></a>
+        <?php // /Absolunet Custom Code ?>
+    </div>
+</div>
+<?php elseif ($block->getDisplayIfEmpty()): ?>
+<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+            <?= $block->escapeHtml(__('Be the first to review this product')) ?>
+        </a>
+    </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+//
+//  RMA table styles
+//  _____________________________________________
+
+@media #{bp(small down)} {
+    //  Shrink table size on small screens to fit as much as possible without requiring horizontal scrolling
+    .rma-items td,
+    .rma-items th {
+        font-size: $common-text-tiny-size !important;
+        padding: 5px !important;
+    }
+}

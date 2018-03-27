@@ -1,0 +1,82 @@
+//-------------------------------------
+//-- Store UI - Loaders
+//-------------------------------------
+
+@keyframes storeui-loaders-loading-animation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+.load.indicator {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9999;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+	background-color: $storeui-loaders-indicator-color;
+
+	&::before {
+		@include store-loader-image();
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		box-sizing: border-box;
+		width: 10em;
+		height: 10em;
+		border-radius: .3em;
+		margin: auto;
+		background-color: transparent;
+		background-size: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	> span {
+		display: none;
+	}
+}
+
+.loading-mask {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: common-zindex(min);
+	margin: auto;
+	background-color: $storeui-loaders-mask-color;
+
+	.loader {
+		@include storeui-loaders-loading-image();
+		position: relative;
+		top: 50%;
+		left: 50%;
+		width: 2em;
+		height: 2em;
+		margin-top: -1em;
+		margin-left: -1em;
+
+		> img, > p {
+			display: none;
+		}
+	}
+}
+
+body > .loading-mask {
+	z-index: common-zindex(overlay);
+}
+
+// stylelint-disable selector-class-pattern
+._block-content-loading {
+	position: relative;
+}
+// stylelint-enable selector-class-pattern

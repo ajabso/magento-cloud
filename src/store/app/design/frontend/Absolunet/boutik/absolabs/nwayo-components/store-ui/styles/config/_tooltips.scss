@@ -1,0 +1,91 @@
+//-------------------------------------
+//-- Store UI - Config - Tooltips
+//-------------------------------------
+
+$storeui-tooltips-border-color: $common-border-color;
+$storeui-tooltips-bg-color:     $common-bg-color;
+
+
+//-- Tooltip (lib-tooltip)
+@mixin storeui-tooltips-base-styles($type:default) {
+	$toggle:  '.tooltip.toggle';
+	$content: '.tooltip.content';
+
+	@if ($type == form) {
+		$toggle:   '.tooltip-toggle';
+		$content:  '.tooltip-content';
+	}
+
+	//
+	position: relative;
+
+	#{$content} {
+		position: absolute;
+		z-index: 100;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+		display: none;
+		min-width: 13em;
+		max-width: 22.5em;
+		padding: .75em 1em;
+		border: common-border($color:$storeui-tooltips-border-color);
+		background: $storeui-tooltips-bg-color;
+		color: $common-text-color;
+		text-align: left;
+		line-height: 1.4;
+
+		&::before, &::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border: common-border(5, solid, transparent);
+		}
+
+		@if $type == default {
+			top: 100%;
+			left: 0;
+			margin-top: .3125em;
+
+			&::before, &::after {
+				bottom: 100%;
+				left: 1em;
+				margin-left: -.3125em;
+			}
+
+			&::before {
+				border-bottom-color: $storeui-tooltips-border-color;
+			}
+
+			&::after {
+				border-bottom-color: $storeui-tooltips-bg-color;
+			}
+
+		} @else if $type == form {
+			top: 0;
+			left: 100%;
+			margin-left: .3125em;
+
+			&::before, &::after {
+				top: 1em;
+				right: 100%;
+				margin-top: -.3125em;
+			}
+
+			&::before {
+				border-right-color: $storeui-tooltips-border-color;
+			}
+
+			&::after {
+				border-right-color: $storeui-tooltips-bg-color;
+			}
+		}
+	}
+
+
+	#{$toggle} {
+		cursor: help;
+	}
+
+	#{$toggle}:hover + #{$content}, #{$toggle}:focus + #{$content}, &:hover #{$content} {
+		display: block;
+	}
+}

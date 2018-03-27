@@ -1,0 +1,396 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Payments
+//-------------------------------------
+
+.checkout-payment-method {
+	.step-title {
+		border-bottom: 0;
+		margin-bottom: 0;
+	}
+
+	.payment-method {
+		@media #{bp(medium down)} {
+			margin: 0 -1em;
+		}
+
+		&:first-child .payment-method-title {
+			border-top: 0;
+		}
+
+		// stylelint-disable selector-class-pattern
+		&._active .payment-method-content {
+			display: block;
+		}
+		// stylelint-enable selector-class-pattern
+
+		+ .payment-method .payment-method-title {
+			border-top: common-border();
+		}
+	}
+
+	.payment-method-content {
+		display: none;
+		padding: 0 0 1.33em 2em;
+
+		@media #{bp(medium down)} {
+			padding: 0 1em 1.33em;
+		}
+
+		> .actions-toolbar {
+			text-align: center;
+
+			.primary {
+				float: none;
+
+				button {
+					@include common-button-styles($type: cta);
+				}
+			}
+		}
+
+		.fieldset {
+			&:not(:last-child) {
+				margin: 0 0 1.33em;
+			}
+
+			@media #{bp(large)} {
+				> .field {
+					margin: 0 0 1.33em;
+
+					&.type {
+						.control {
+							margin-left: 25.8%;
+						}
+
+						&.no-detection .control {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.payment-method-title {
+		padding: 1.33em 0;
+		margin: 0;
+
+		@media #{bp(medium down)} {
+			padding: 1em;
+		}
+
+		.payment-icon {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: .33em;
+		}
+
+		.action-help {
+			display: inline-block;
+			margin-left: .33em;
+		}
+	}
+
+	.payment-group + .payment-group .step-title {
+		margin: 1.33em 0 0;
+	}
+
+	.field-select-billing, .billing-address-form {
+		max-width: 37.5em;
+	}
+
+	.billing-address-same-as-shipping-block {
+		margin: 0 0 .66em;
+	}
+
+	.checkout-billing-address {
+		margin: 0 0 1.33em;
+
+		.actions-toolbar {
+			text-align: center;
+
+			.primary {
+				float: none;
+
+				@media #{bp(large)} {
+					float: left;
+				}
+
+				.action-update {
+					@media #{bp(large)} {
+						margin-right: 1em;
+					}
+				}
+
+				.action {
+					margin-top: 1em;
+
+					@media #{bp(large)} {
+						margin-top: 0;
+					}
+				}
+
+				button {
+					@include store-button-as-link-styles();
+				}
+			}
+		}
+
+		.billing-address-details {
+			a, a:hover {
+				color: $common-text-color;
+				text-decoration: none;
+				cursor: default;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.payment-method-note + .checkout-billing-address {
+		margin-top: 1.33em;
+	}
+
+	.field-select-billing > .label {
+		@include nwayo-visually-hidden-styles();
+	}
+
+	.payment-method-iframe {
+		display: none;
+		width: 100%;
+		background-color: transparent;
+	}
+
+	.no-payments-block {
+		margin: 1.33em 0;
+	}
+
+	.payments .legend {
+		@include nwayo-visually-hidden-styles();
+	}
+
+	.checkout-payment-options-container {
+		display: inline-block;
+		width: 100%;
+		padding: 2em 1em;
+		border-bottom: common-border();
+
+		@media #{bp(medium down)} {
+			padding: 1em;
+		}
+
+		.checkout-payment-options-content {
+			@include xy-cell(100%);
+
+			.step-title {
+				margin-bottom: 1em;
+			}
+		}
+	}
+
+	.payment-option {
+		.payment-option-title {
+			@media #{bp(medium down)} {
+				padding: 1em;
+			}
+		}
+
+		.payment-option-content {
+			@media #{bp(medium down)} {
+				padding: 0 1em 1.33em;
+			}
+
+			.payment-option-inner + .actions-toolbar {
+				@media #{bp(large)} {
+					margin-left: 0;
+				}
+			}
+
+			.actions-toolbar > .primary .action {
+				@include common-button-styles(large);
+			}
+
+			.actions-toolbar > .secondary .action {
+				vertical-align: middle;
+				margin-right: 1em;
+				line-height: 2.5;
+			}
+		}
+
+		// stylelint-disable selector-class-pattern
+		&._collapsible {
+			.payment-option-title {
+				cursor: pointer;
+			}
+
+			.payment-option-content {
+				display: none;
+			}
+		}
+		// stylelint-enable selector-class-pattern
+
+		&.discount-code, &.giftcardaccount {
+			@include xy-cell(1 of 2);
+			float: left;
+			padding: 1em;
+			border: common-border(4, solid, transparent);
+			border-radius: 1em;
+			transition: border $common-hover-transition ease-in-out;
+
+			@media #{bp(medium down)} {
+				width: grid-column(100%);
+				padding: .5em;
+				margin: 0;
+			}
+
+			// stylelint-disable selector-class-pattern
+			&._active {
+				border: common-border(4, solid, $storecheckout-cartsummary-bg-color);
+
+				@media #{bp(medium down)} {
+					margin-bottom: 1em;
+				}
+			}
+			// stylelint-enable selector-class-pattern
+
+			.payment-option-title {
+				padding: 0 0 1em;
+			}
+
+			.payment-option-content {
+				padding: 1em 3em;
+			}
+
+			.actions-toolbar {
+				text-align: center;
+
+				.primary {
+					float: none;
+				}
+			}
+		}
+	}
+
+	.payment-option-title {
+		padding: 1em 0;
+
+		.action-toggle {
+			display: inline-block;
+			color: $common-text-color;
+			font-weight: $common-text-fat-weight;
+
+			&::before {
+				@include nwayo-pseudo-image-styles(1em);
+				@include store-expand-image();
+				display: inline-block;
+				overflow: hidden;
+				width: 1.66em;
+				height: 1.66em;
+				margin: 0 1em -.5em 0;
+			}
+
+			&:hover::after {
+				@include store-expand-image(hover);
+			}
+		}
+
+		&[aria-expanded='true'] {
+			.action-toggle {
+				&::before {
+					@include store-unexpand-image();
+				}
+
+				&:hover::after {
+					@include store-unexpand-image(hover);
+				}
+			}
+		}
+	}
+
+	.payment-option-content {
+		padding: 0 0 1em 1em;
+	}
+
+	.payment-option-inner {
+		margin: 1.5em 0;
+	}
+
+	.credit-card-types {
+		padding: 0;
+
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			list-style: none;
+			margin: 0 .33em 0 0;
+
+			// stylelint-disable selector-class-pattern
+			&._active {
+				font-weight: $common-text-fatter-weight;
+
+				img {
+					filter: grayscale(0%);
+				}
+			}
+			// stylelint-enable selector-class-pattern
+
+			// stylelint-disable selector-class-pattern
+			&._inactive {
+				opacity: .4;
+			}
+			// stylelint-enable selector-class-pattern
+
+			span {
+				display: inline-block;
+				vertical-align: top;
+				padding-top: .33em;
+			}
+		}
+
+		img {
+			filter: grayscale(100%);
+			transition: grayscale $common-hover-transition ease;
+		}
+	}
+
+	.ccard {
+		.legend {
+			@include nwayo-visually-hidden-styles();
+		}
+
+		.fields {
+			> .year {
+				padding-left: .33em;
+			}
+
+			.select {
+				padding-right: .33em;
+				padding-left: .33em;
+			}
+		}
+
+		.month .select {
+			width: 8.75em;
+		}
+
+		.year .select {
+			width: 5em;
+		}
+
+		.number .input-text {
+			width: 14em;
+		}
+
+		> .field.cvv > .control {
+			width: auto;
+			padding-right: 1.33em;
+		}
+
+		.cvv .input-text {
+			width: 3.4em;
+		}
+
+		&.fieldset > .field .fields.group.group-2 .field {
+			width: auto;
+		}
+	}
+}

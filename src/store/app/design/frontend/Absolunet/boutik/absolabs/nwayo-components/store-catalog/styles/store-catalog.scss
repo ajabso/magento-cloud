@@ -1,0 +1,22 @@
+//-------------------------------------
+//-- Store catalog
+//-------------------------------------
+
+// Product
+@import 'components/store-catalog/styles/product';
+@import 'components/store-catalog/styles/sizechart';
+@import 'components/store-catalog/styles/prices';
+@import 'components/store-catalog/styles/popup-addtocart';
+
+// Listing
+@import 'components/store-catalog/styles/listing';
+@import 'components/store-catalog/styles/compare';
+@import 'components/store-catalog/styles/toolbar';
+
+// Filters
+@import 'components/store-catalog/styles/amasty-shopby';
+@import 'components/store-catalog/styles/layered-navigation';
+@import 'components/store-catalog/styles/offcanvas';
+
+// Misc.
+@import 'components/store-catalog/styles/widgets';

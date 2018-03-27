@@ -1,0 +1,79 @@
+.map-popup-wrapper.popup {
+	.action.close {
+		top: rem-calc(10);
+	}
+}
+
+.map-popup {
+	@include storeui-popups-base-styles(msrp);
+	box-sizing: border-box;
+
+	.map-info-price {
+		@include nwayo-clearfix-styles();
+		margin-bottom: rem-calc(15);
+
+		.price-box {
+			margin: rem-calc(0 0 20);
+
+			.label {
+				&::after {
+					content: ': ';
+				}
+			}
+		}
+	}
+
+	.regular-price {
+		.price-label {
+			display: none;
+		}
+	}
+}
+
+.map-old-price,
+.product-info-price .map-show-info {
+	&:not(:last-child) {
+		margin-right: rem-calc(10);
+	}
+}
+
+.map-old-price {
+	text-decoration: none;
+
+	.price-wrapper {
+		text-decoration: line-through;
+	}
+}
+
+.map-form-addtocart {
+	display: inline-block;
+	text-align: center;
+
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+button.map-show-info {
+	@include m2legacy-button-link-styles();
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@media #{bp(medium down)} {
+	.map-popup {
+		max-width: 100%;
+	}
+
+	.map-old-price,
+	.map-show-info {
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-bottom: rem-calc(10);
+		}
+	}
+}

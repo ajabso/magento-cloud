@@ -1,0 +1,47 @@
+//-------------------------------------
+//-- Store - Configuration
+//-------------------------------------
+
+// Magento legacy
+@import 'components/magento-legacy/styles/config';
+
+// Common
+@import 'components/common/styles/config';
+@import 'components/form/styles/config';
+
+
+
+
+
+
+// Store
+@import 'components/store/styles/config/design';
+@import 'components/store/styles/config/design-editable';
+@import 'components/store/styles/config/selectors';
+@import 'components/store/styles/config/mixins';
+
+
+// Store UI
+@import 'components/store-ui/styles/config';
+
+
+// Store components
+@import 'components/store-catalog/styles/config';
+@import 'components/store-checkout/styles/config';
+@import 'components/store-customer/styles/config';
+@import 'components/store-widget/styles/config';
+
+
+
+
+
+
+
+
+
+
+//-- Magento vendors (Keep at the end)
+@import 'components/magento-legacy/styles/vendor/config';
+
+//-- Foundation (Keep at the end)
+@import 'components/foundation/styles/config';

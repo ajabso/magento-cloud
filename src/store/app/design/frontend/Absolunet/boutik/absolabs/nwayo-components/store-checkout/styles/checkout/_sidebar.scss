@@ -1,0 +1,61 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Sidebar
+//-------------------------------------
+
+@media #{bp(large)} {
+	.opc-sidebar {
+		@include xy-cell(1 of 3);
+		display: inline-block;
+		float: right;
+		vertical-align: top;
+		margin-bottom: 1.25em;
+	}
+}
+
+.opc-block-shipping-information {
+	.ship-to, .ship-via {
+		position: relative;
+		padding: $common-column-gutter-size;
+		margin-bottom: 0;
+		background-color: $storecheckout-cartsummary-bg-color;
+
+		@media #{bp(large)} {
+			margin-bottom: 1em;
+		}
+
+		.shipping-information-title {
+			@include store-h4-styles();
+			position: relative;
+			padding: .5em;
+		}
+
+		.shipping-information-content {
+			padding: 1em 0 2.5em;
+			border-top: common-border();
+			margin: .5em .5em 0;
+			font-size: $common-text-medium-size;
+			line-height: $common-content-lineheight;
+
+			a, a:hover {
+				color: $common-text-color;
+				text-decoration: none;
+			}
+
+			.actions-toolbar {
+				margin-left: 0;
+			}
+		}
+
+		.action-edit {
+			@include store-button-as-link-styles();
+			position: absolute;
+			right: 1.5em;
+			bottom: 1.5em;
+			margin: 0;
+			color: $common-link-color;
+			font-size: $common-text-small-size;
+			font-weight: $common-text-fat-weight;
+			text-transform: uppercase;
+		}
+	}
+}

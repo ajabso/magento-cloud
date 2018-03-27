@@ -1,0 +1,43 @@
+#-------------------------------------
+#-- Store - Email
+#-------------------------------------
+
+#-- Output paths (relative to nwayo folder) and output url
+output:
+  konstan: ../src/store/app/design/frontend/Btp/btp/web/build/email
+  build:   ../src/store/app/design/frontend/Btp/btp/web/build/email
+  url:     dot/not/use # ne pas utiliser d'image d'arrière-plan dans les emails
+
+
+#-- Scripts
+scripts:
+  options:
+    minify: false
+    babel:
+      - '> 1%'
+      - 'last 2 versions'
+      - 'ie 11'
+
+  allowBabel:
+    - bower_components/foundation-sites
+    - bower_components/nwayo-toolbox
+
+
+#-- Styles
+styles:
+  options:
+    minify: false
+    sourcemaps: false
+    autoprefixer:
+      - '> 1%'
+      - 'last 2 versions'
+      - 'ie 11'
+
+  collections:
+    email:
+      - components/store/styles/config
+      - components/store-email/styles/store-email
+
+    email-inline:
+      - components/store/styles/config
+      - components/store-email/styles/store-email-inline

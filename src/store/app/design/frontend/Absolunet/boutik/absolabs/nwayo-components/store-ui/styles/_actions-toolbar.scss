@@ -1,0 +1,70 @@
+//-------------------------------------
+//-- Store UI - Actions toolbar
+//-------------------------------------
+
+.actions-toolbar {
+	> .primary, > .secondary {
+		margin-bottom: .625em;
+		text-align: center;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.action {
+			width: 100%;
+			margin-bottom: .625em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+
+//-- Desktop
+@media #{bp(large)} {
+	.actions-toolbar {
+		@include nwayo-clearfix-styles();
+
+		.primary, .secondary {
+			display: inline-block;
+
+			a.action {
+				display: inline-block;
+			}
+		}
+
+		> .primary, > .secondary {
+			margin-bottom: 0;
+
+			.action {
+				width: auto;
+				margin-bottom: 0;
+			}
+		}
+
+		.primary {
+			float: left;
+
+			.action {
+				margin: 0 1em 0 0;
+			}
+		}
+
+		.secondary {
+			float: right;
+
+			a.action {
+				margin-top: .375em;
+			}
+		}
+	}
+
+	form .actions-toolbar {
+		.column:not(.sidebar-additional) &, .column:not(.sidebar-main) & {
+			margin-left: 0;
+		}
+	}
+}

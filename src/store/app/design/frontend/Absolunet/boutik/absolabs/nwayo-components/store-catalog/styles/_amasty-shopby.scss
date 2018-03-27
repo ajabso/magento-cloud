@@ -1,0 +1,165 @@
+//---------------------------------------------------
+//-- Store catalog - ShopBy (Amasty)
+//---------------------------------------------------
+
+#amasty-shopby-product-list {   // stylelint-disable-line selector-id-pattern
+	z-index: auto;
+
+	#am_shopby_container {   // stylelint-disable-line selector-id-pattern
+		display: block;
+
+		@media #{bp(medium)} {
+			display: none;
+		}
+	}
+
+}
+
+.wrapper.products {
+	position: relative;
+
+	#amasty-shopby-overlay {   // stylelint-disable-line selector-id-pattern
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: common-zindex(overlay, 1) !important;
+		display: none;
+		opacity: .75 !important;
+		width: 100%;
+		background-color: $common-bg-color !important;
+
+		.loader {
+			@include storeui-loaders-loading-image();
+			width: 2em;
+			height: 2em;
+			margin: 1em auto;
+		}
+	}
+}
+
+.filter-options .amshopby-search-box {
+	margin-bottom: ($storecatalog-filter-spacing / 2);
+
+	// stylelint-disable selector-class-pattern
+	[class^='am_shopby_filter_search_box'] {
+		@include storecatalog-filter-search-image();
+		opacity: .25;
+		padding-right: 2.5em;
+		background-position: calc(100% - .5em) center;
+		background-size: 1.5em;
+		transition: opacity $common-ui-transition, background-image $common-hover-transition;
+
+		&:hover,
+		&:focus {
+			@include storecatalog-filter-search-image(hover);
+			opacity: 1;
+			background-position: calc(100% - .5em) center;
+			background-size: 1.5em;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+}
+
+.filter-options .items {
+
+	// Selected item
+	// stylelint-disable selector-class-pattern
+	.am_shopby_link_selected {
+		display: block;
+
+		&::after {
+			@include nwayo-pseudo-image-styles(1.5em);
+			@include store-remove-image();
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: inline-block;
+			overflow: hidden;
+
+			@media #{bp(medium down)} {
+				@include nwayo-pseudo-image-styles(2.5em);
+				top: -.35em;
+				right: -.75em;
+			}
+		}
+
+		#{$nwayo-hover-selector} {
+			background: $common-bg-var1-color;
+		}
+
+		.label {
+			color: $common-alt-color;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	// Slider
+	// stylelint-disable selector-class-pattern
+	.am_shopby_slider_container {
+		margin-top: $storecatalog-filter-spacing;
+		margin-bottom: $storecatalog-filter-spacing;
+
+		.ui-slider-horizontal {
+			background-color: $common-bg-var1-color;
+		}
+
+		.ui-slider-handle {
+			background-color: $common-base-color;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	.slider-from-to-widget {
+		.range {
+			display: table;
+			margin-bottom: $storecatalog-filter-spacing;
+			text-align: left;
+
+			> div {
+				&:first-child {
+					display: table-cell;
+					text-align: left;
+				}
+
+				&:last-child {
+					display: table-cell;
+					text-align: right;
+				}
+			}
+
+			input[type='number'] {
+				text-align: center;
+			}
+		}
+
+		.currency {
+			font-size: $common-text-small-size;
+		}
+	}
+
+	// More button
+	+ .amshopby-more-button {
+		margin-top: $storecatalog-filter-spacing;
+
+		a {
+			color: $common-text-color;
+			font-size: $common-text-base-size;
+			font-weight: $common-text-base-weight;
+			text-decoration: none;
+			line-height: $common-text-lineheight;
+
+			&::before {
+				content: '+ ';
+			}
+
+			#{$nwayo-hover-selector} {
+				color: $common-text-color;
+				text-decoration: none;
+			}
+
+			&[data-is-hide='false']::before {
+				content: '– ';
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<ul class="opc-progress-bar">
+    <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+    <!-- Absolunet custom code -->
+    <li class="opc-progress-bar-item-container">
+        <div class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+            <span data-bind="i18n: item.title, click: $parent.navigateTo"></span>
+        </div>
+    </li>
+    <!-- /Absolunet custom code -->
+    <!-- /ko -->
+</ul>

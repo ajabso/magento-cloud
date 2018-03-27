@@ -1,0 +1,160 @@
+//-------------------------------------
+//-- Store UI - Tables
+//-------------------------------------
+
+.table-wrapper {
+	margin-bottom: 1.25em;
+}
+
+table > caption {
+	@include nwayo-visually-hidden-styles();
+}
+
+.table:not(.cart):not(.totals):not(.table-totals) {
+	border: 0;
+
+	> thead, > tbody, > tfoot {
+		> tr {
+			> th, > td {
+				border: 0;
+			}
+		}
+	}
+
+	> thead > tr {
+		> th, > td {
+			border-bottom: $storeui-tables-border;
+		}
+	}
+
+	tfoot {
+		> tr:first-child {
+			th, td {
+				padding-top: 1.25em;
+				border-top: $storeui-tables-border;
+			}
+		}
+
+		.mark {
+			font-weight: $common-text-base-weight;
+			text-align: right;
+		}
+	}
+}
+
+//-- Mobile
+@media #{bp(small down)} {
+	.table-wrapper {
+		position: relative;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		-webkit-overflow-scrolling: touch;
+		width: 100%;
+
+		.table:not(.totals):not(.table-comparison) {
+			&:not(.cart) {
+				display: block;
+				border: 0;
+
+				> thead > tr > th {
+					display: none;
+				}
+
+				> tbody {
+					display: block;
+
+					> tr {
+						display: block;
+
+						td, th {
+							display: block;
+							padding: .3125em 0;
+							border-bottom: 0;
+
+							&::before {
+								content: attr(data-th) ': ';
+								display: inline-block;
+								padding-right: .625em;
+								color: $storeui-tables-text-color;
+								font-weight: $common-text-fatter-weight;
+							}
+						}
+					}
+				}
+
+				tbody > tr > td {
+					&:first-child {
+						padding-top: 1.25em;
+					}
+
+					&:last-child {
+						padding-bottom: 1.25em;
+					}
+				}
+
+				&.additional-attributes tbody {
+					th {
+						display: none;
+					}
+
+					td:last-child {
+						padding: 0 0 .3125em;
+						border: 0;
+					}
+				}
+			}
+
+			tfoot {
+				display: block;
+
+				tr {
+					@include nwayo-clearfix-styles();
+					display: block;
+
+					&:first-child {
+						th, td {
+							padding-top: 1.25em;
+						}
+					}
+				}
+
+				th {
+					float: left;
+					box-sizing: border-box;
+					width: 70%;
+					padding-right: 0;
+					padding-left: 0;
+					text-align: left;
+				}
+
+				td {
+					float: left;
+					box-sizing: border-box;
+					width: 30%;
+					padding-right: 0;
+					padding-left: 0;
+					text-align: right;
+				}
+			}
+		}
+	}
+
+	.data-table-definition-list {
+		thead {
+			display: none;
+		}
+
+		tbody {
+			th {
+				padding-bottom: 0;
+			}
+
+			th, td {
+				display: block;
+				padding-right: 0;
+				padding-left: 0;
+			}
+		}
+	}
+}

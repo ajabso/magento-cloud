@@ -1,0 +1,226 @@
+//---------------------------------------------------
+//-- Store catalog - Off-canvas
+//---------------------------------------------------
+
+.off-canvas-toggle {
+	display: block;
+	padding-bottom: $common-column-gutter-size;
+	margin: 0;
+
+	.action {
+		@include common-button-styles($type:secondary, $action:toggle);
+
+		&:last-child {
+			float: right;
+		}
+
+		@media #{bp(large)} {
+			display: none;
+		}
+	}
+
+	@media #{bp(xlarge)} {
+		display: none;
+	}
+}
+
+.off-canvas {
+	.block-title {
+		display: block;
+		padding: $common-column-gutter-size ($common-column-gutter-size * 2);
+		border-bottom: common-border();
+		margin-top: -$common-column-gutter-size;
+		margin-right: -$common-column-gutter-size;
+		margin-left: -$common-column-gutter-size;
+		font-family: $common-title-font;
+		font-size: $common-text-base-size;
+		font-weight: $common-text-fat-weight;
+		text-align: left;
+		line-height: 2;
+	}
+
+	.block-subtitle {
+		display: block;
+		padding: $common-column-gutter-size ($common-column-gutter-size * 2) 0;
+		border-bottom: 0;
+		margin-bottom: 0;
+		text-align: left;
+		text-transform: none;
+	}
+
+	.close-button {
+		position: absolute;
+		top: $common-column-gutter-size + .2rem; // stylelint-disable-line unit-whitelist
+		right: $common-column-gutter-size;
+		width: 1rem;  // stylelint-disable-line unit-whitelist
+		height: 1rem;  // stylelint-disable-line unit-whitelist
+		padding: .75em;
+		border: common-border();
+		border-radius: 100%;
+		background: none;
+		color: $closebutton-color;
+		font-size: $common-text-base-size;
+		line-height: $closebutton-lineheight;
+
+		&::before {
+			@include store-close-image();
+			content: '';
+			position: absolute;
+			top: calc(50% - .3em);
+			right: calc(50% - .3em);
+			display: inline-block;
+			opacity: .5;
+			width: .6em;
+			height: .6em;
+		}
+
+		&:hover {
+			color: $closebutton-color-hover;
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	@media #{bp(medium down)} {
+		padding: $common-column-gutter-size;
+
+		> .filter-wrapper {
+			visibility: visible;
+			transform: translateX(0) !important;
+		}
+	}
+
+	@media #{bp(large)} {
+		&.in-canvas-for-large {
+			width: auto;
+
+			.block-title,
+			.block-subtitle {
+				display: none;
+			}
+		}
+	}
+}
+
+.off-canvas-block {
+	@media #{bp(medium down)} {
+		border-top: common-border();
+		margin-right: -$common-column-gutter-size;
+		margin-left: -$common-column-gutter-size;
+
+		&:last-child {
+			border-bottom: common-border();
+		}
+
+		.block-title + & {
+			border-top: 0;
+		}
+
+		&.toolbar-modes {
+			border-top: 0;
+			margin-top: -$common-column-gutter-size;
+		}
+	}
+
+	.off-canvas-block-select {
+		@media #{bp(medium down)} {
+			display: none;
+		}
+	}
+
+	.off-canvas-block-links {
+		@media #{bp(large)} {
+			display: none;
+		}
+	}
+
+	.actions-toolbar {
+		display: flex;
+
+		.action {
+			flex-grow: 1;
+			width: 0;
+			padding: .5em 1em;
+			border-width: .1em;
+			border-radius: .5em;
+			margin: 0;
+			font-size: $common-text-tiny-size;
+			text-transform: none;
+		}
+
+		.action:not(:first-child) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.action:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		.action.secondary {
+			border-color: $common-border-color;
+		}
+	}
+}
+
+.off-canvas-subblock {
+	@media #{bp(medium down)} {
+		padding: $common-column-gutter-size * 1.5 $common-column-gutter-size * 2;
+
+		&.off-canvas-subblock-icons {
+			padding-top: $common-column-gutter-size;
+			padding-bottom: $common-column-gutter-size;
+		}
+
+		&.off-canvas-subblock-actions {
+			padding-top: $common-column-gutter-size;
+			padding-bottom: ($common-column-gutter-size / 2);
+		}
+	}
+}
+
+.off-canvas-block-links {
+	.off-canvas-block-links-options {
+		padding: 0;
+		margin: 0;
+
+		li {
+			list-style-type: none;
+			margin-bottom: $common-column-gutter-size;
+			line-height: 1.7;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.off-canvas-links {
+			color: $common-text-var3-color;
+
+			&.selected {
+				position: relative;
+				display: block;
+				padding-right: ($common-column-gutter-size * 3);
+				color: $common-text-color;
+
+				&::after {
+					@include store-checkmark-image();
+					content: '';
+					position: absolute;
+					top: calc(50% - 1em);
+					right: $common-column-gutter-size;
+					display: inline-block;
+					width: 2em;
+					height: 2em;
+				}
+			}
+		}
+
+		@media #{bp(large)} {
+			display: none;
+		}
+	}
+}

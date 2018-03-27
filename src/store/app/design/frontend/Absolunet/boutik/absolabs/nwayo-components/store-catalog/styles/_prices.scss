@@ -1,0 +1,131 @@
+//---------------------------------------------------
+//-- Store catalog - Prices
+//---------------------------------------------------
+
+//-- BASE
+
+.price-container {
+	display: inline-block;
+	font-size: $common-text-base-size;
+	text-align: center;
+
+	.price-label {
+		display: none;
+		font-size: $common-text-tiny-size;
+
+		&::after {
+			content: ':';
+		}
+
+		+ .price-wrapper {
+			display: inline-block;
+		}
+
+		@media #{bp(medium)} {
+			font-size: $common-text-small-size;
+		}
+	}
+
+	.price {
+		color: $common-text-color;
+		font-size: $common-title-small-size;
+		font-weight: $common-text-base-weight;
+		line-height: $common-title-lineheight;
+		white-space: nowrap;
+
+		@media #{bp(medium)} {
+			font-size: $common-title-size;
+		}
+	}
+}
+
+.price-box {
+	display: block;
+	margin: 1em 0;
+
+	.actual-price,
+	.minimal-price,
+	.special-price {
+		display: inline-block;
+		margin: 0;
+
+		.price {
+			font-weight: $common-text-fatter-weight;
+		}
+	}
+
+	.old-price {
+		display: inline-block;
+		vertical-align: super;
+
+		.price {
+			color: $common-alt-color;
+			font-size: $common-text-tiny-size;
+			font-weight: $common-text-base-weight;
+			text-decoration: line-through solid $common-alt-color;
+
+			@media #{bp(medium)} {
+				font-size: $common-text-base-size;
+			}
+		}
+	}
+
+	.price-excluding-tax,
+	.price-including-tax {
+		display: block;
+		white-space: nowrap;
+	}
+
+	.special-price .price-label,
+	.old-price .price-label,
+	.minimal-price-link {
+		display: none;
+	}
+
+	.price-from,
+	.price-to {
+		margin: 0 .5em;
+
+		@media #{bp(medium)} {
+			display: inline-block;
+		}
+	}
+}
+
+//-- Tier price
+
+.tier-price {
+	@include nwayo-list-reset-styles();
+
+	> .items {
+		@include storecatalog-pricing-details-styles();
+	}
+
+	.price {
+		color: $common-text-color;
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+	}
+}
+
+//-- Labels
+
+.price-box .price-label,
+.starting-at {
+	display: block;
+	font-size: $common-text-tiny-size;
+	font-weight: $common-text-fatter-weight;
+
+	@media #{bp(medium)} {
+		font-size: $common-text-small-size;
+	}
+
+	+ .price-box .price-wrapper .price {
+		font-weight: $common-text-fatter-weight;
+	}
+}
+
+.price-notice {
+	@include store-incl-excl-tax-styles();
+}

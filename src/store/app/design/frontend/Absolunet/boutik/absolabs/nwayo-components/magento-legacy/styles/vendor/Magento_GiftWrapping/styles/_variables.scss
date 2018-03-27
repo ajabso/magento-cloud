@@ -1,0 +1,16 @@
+//
+//  Variables
+//  _____________________________________________
+
+$gift-wrapping__border-color                 : $m2legacy-color-gray-light4;
+$gift-wrapping__border-width                 : rem-calc(1);
+
+$gift-wrapping-preview__active__border-color : $m2legacy-color-gray20;
+$gift-wrapping-preview__active__border-width : rem-calc(3);
+
+$gift-wrapping-thumbnail__height             : rem-calc(40);
+$gift-wrapping-thumbnail__width              : $gift-wrapping-thumbnail__height;
+
+$gift-wrapping-no-image__background          : $m2legacy-color-gray95;
+$gift-wrapping-no-image-icon__color          : $m2legacy-color-gray-dark;
+$gift-wrapping-no-image-icon__font-size      : rem-calc(38);

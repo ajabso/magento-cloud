@@ -1,0 +1,37 @@
+#-------------------------------------
+#-- Store - Main
+#-------------------------------------
+
+#-- Assets
+assets:
+  components:
+    - common
+    - form
+    - magento-legacy
+    - store
+
+
+
+#-- Scripts
+scripts:
+  collections:
+    main:
+      - bower_components/nwayo-toolbox/toolbox/scripts/collection-starter
+      - components/common/scripts/common
+      - components/form/scripts/form
+      - components/store/scripts/store
+
+
+
+#-- Styles
+styles:
+  collections:
+    main:
+      - components/store/styles/config
+      - components/foundation/styles/foundation
+      - components/store/styles/reset
+      - components/store-ui/styles/store-ui
+      - components/magento-legacy/styles/magento-legacy
+      - components/common/styles/common
+      - components/store/styles/store
+      - components/form/styles/form

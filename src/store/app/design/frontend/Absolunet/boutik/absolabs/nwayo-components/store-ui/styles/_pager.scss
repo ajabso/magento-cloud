@@ -1,0 +1,134 @@
+//-------------------------------------
+//-- Store UI - Pager
+//-------------------------------------
+
+.pages {
+	> .label {
+		@include nwayo-visually-hidden-styles();
+	}
+
+	.items {
+		@include nwayo-list-reset-styles();
+		display: inline-block;
+		font-size: 0;  // stylelint-disable-line scale-unlimited/declaration-strict-value
+		font-weight: $common-text-fatter-weight;
+		line-height: 0;
+		letter-spacing: -.0625em;
+		white-space: nowrap;
+	}
+
+	.item {
+		display: inline-block;
+		margin: 0 .15em 0 0;
+		font-size: $common-text-tiny-size;
+		line-height: 2.5;
+		letter-spacing: normal;
+
+		.label {
+			@include nwayo-visually-hidden-styles();
+		}
+	}
+
+	a.page {
+		display: inline-block;
+		padding: 0 .25em;
+		color: $storeui-pager-link-color;
+		text-decoration: none;
+
+		&:visited {
+			color: $storeui-pager-link-color;
+		}
+
+		&:hover {
+			color: $storeui-pager-link-hover-color;
+			text-decoration: none;
+		}
+
+		&:active {
+			color: $storeui-pager-link-hover-color;
+		}
+	}
+
+	strong.page {
+		display: inline-block;
+		padding: 0 .25em;
+		color: $storeui-pager-text-color;
+		font-size: $common-text-tiny-size;
+		font-weight: $common-text-fatter-weight;
+		line-height: 2.5;
+		letter-spacing: normal;
+	}
+
+	.action {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 2em;
+		height: 2em;
+		padding: 0;
+		border-radius: 50%;
+		background: $common-base-color;
+		color: $storeui-pager-link-color;
+		font-size: $common-text-base-size;
+		text-decoration: none;
+
+		&:visited {
+			color: $storeui-pager-link-color;
+		}
+
+		&:hover {
+			background: $common-base-color;
+			color: $storeui-pager-link-hover-color;
+			text-decoration: none;
+		}
+
+		&:active {
+			background: $common-base-color;
+			color: $storeui-pager-link-hover-color;
+		}
+
+		&.next {
+			display: inline-block;
+			margin-left: .75em;
+
+			&::before {
+				@include nwayo-pseudo-image-styles(1.5em);
+				@include store-arrowhead-image(right, $state:alt);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				display: block;
+				overflow: hidden;
+				vertical-align: top;
+				margin: 0;
+				transform: translate(-50%, -50%);
+			}
+
+			> span {
+				@include nwayo-visually-hidden-styles();
+			}
+		}
+
+		&.previous {
+			display: inline-block;
+			margin-right: .75em;
+
+			&::before {
+				@include nwayo-pseudo-image-styles(1.5em);
+				@include store-arrowhead-image(left, $state:alt);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				display: block;
+				overflow: hidden;
+				vertical-align: top;
+				margin: 0;
+				transform: translate(-50%, -50%) rotate(180deg);
+			}
+
+			> span {
+				@include nwayo-visually-hidden-styles();
+			}
+		}
+	}
+}

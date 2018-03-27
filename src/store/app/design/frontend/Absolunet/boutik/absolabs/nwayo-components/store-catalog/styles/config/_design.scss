@@ -1,0 +1,43 @@
+//---------------------------------------------------
+//-- Store catalog - Config - Design
+//---------------------------------------------------
+
+
+// Listing
+$storecatalog-listing-margin:  1em;
+$storecatalog-listing-padding: .5em;
+
+// Filters
+$storecatalog-filter-spacing: 1em;
+
+// Toolbar
+$storecatalog-toolbar-spacing: 1em;
+
+$storecatalog-toolbar-modes-display-top:      false;
+$storecatalog-toolbar-modes-display-bottom:   false;
+
+$storecatalog-toolbar-sorter-display-top:     true;
+$storecatalog-toolbar-sorter-display-bottom:  false;
+
+$storecatalog-toolbar-amount-display-top:     true;
+$storecatalog-toolbar-amount-display-bottom:  false;
+
+$storecatalog-toolbar-limiter-display-top:    false;
+$storecatalog-toolbar-limiter-display-bottom: true;
+
+$storecatalog-toolbar-pager-display-top:      false;
+$storecatalog-toolbar-pager-display-bottom:   true;
+
+
+//-- Product
+$storecatalog-swatches-size: 3em;
+$storecatalog-swatches-border-radius: 50%;
+$storecatalog-swatches-border-width: .1em;
+
+//-- Images
+@mixin storecatalog-filter-search-image($type:default) {
+	@include store-search-image($type, (
+		default: $common-text-color,
+		hover:   $common-link-hover-color
+	));
+}

@@ -1,0 +1,154 @@
+//-------------------------------------
+//-- Magento legacy - Config - Mixins
+//-------------------------------------
+
+// Abstract block title (abs-block-title)
+@mixin m2legacy-block-title-styles {
+	margin-bottom: 1em;
+
+	> strong {
+		@include store-h3-styles();
+	}
+}
+
+
+
+// Account blocks (abs-account-blocks)
+@mixin m2legacy-account-blocks-styles {
+	.block-title {
+		padding-bottom: .5em;
+		border-bottom: common-border(2);
+		margin-bottom: .8125em;
+
+		> strong {
+			color: $common-text-color;
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-fattest-weight;
+			text-transform: uppercase;
+			line-height: 1.15;
+
+			@media #{bp(small down)} {
+				font-size: $common-text-base-size;
+			}
+		}
+
+		> .action {
+			float: right;
+			margin-left: 1.35em;
+			font-size: $common-text-small-size;
+		}
+	}
+
+	.box-title {
+		display: inline-block;
+
+		> span {
+			@include store-h4-styles();
+		}
+
+		> .action {
+			margin-left: .625em;
+			font-weight: $common-text-base-weight;
+		}
+	}
+
+	.block-content {
+		font-size: $common-text-small-size;
+
+		p {
+			font-size: $common-text-small-size;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		.box {
+			margin-bottom: 1.65em;
+		}
+
+		.table-wrapper {
+			table {
+				margin-top: -1em;
+
+				thead {
+					th, td {
+						padding-left: 0;
+						font-size: $common-text-base-size;
+						font-weight: $common-text-fattest-weight;
+						line-height: 1.125;
+					}
+				}
+
+				tbody td {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	.box-actions {
+		margin-top: 0;
+
+		a + a {
+			margin-left: 1em;
+		}
+	}
+}
+
+
+
+// Excl/Incl tax (abs-adjustment-incl-excl-tax)
+@mixin m2legacy-adjustment-incl-excl-tax-styles {
+	.price-including-tax, .price-excluding-tax, .weee {
+		display: inline-block;
+		font-size: $common-text-small-size;
+		white-space: nowrap;
+	}
+
+	.price-including-tax + .price-excluding-tax {
+		display: inline-block;
+		font-size: $common-text-micro-size;
+
+		&::before {
+			content: '(' attr(data-label) ': ';
+		}
+
+		&::after {
+			content: ')';
+		}
+	}
+}
+
+
+
+//-- Button link
+@mixin m2legacy-button-link-styles {
+	@include common-button-reset-styles();
+	display: inline;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	background: none;
+	line-height: $common-text-lineheight;
+
+	&, &:visited {
+		border: 0;
+		color: $common-link-color;
+		text-decoration: none;
+	}
+
+	&:hover, &:active {
+		border: 0;
+		color: $common-link-hover-color;
+		text-decoration: none;
+	}
+
+	&.disabled, &[disabled], fieldset[disabled] & {
+		opacity: .5;
+		color: $common-link-color;
+		text-decoration: underline;
+		cursor: default;
+		pointer-events: none;
+	}
+}

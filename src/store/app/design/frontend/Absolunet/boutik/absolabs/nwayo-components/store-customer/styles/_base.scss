@@ -1,0 +1,543 @@
+//-------------------------------------
+//-- Store customer - Customer
+//-------------------------------------
+
+.login-container {
+	.block {
+		&-new-customer .actions-toolbar {
+			margin-top: 1.5em;
+		}
+
+		.block-title {
+			padding-bottom: .6em;
+			border-bottom: $storecustomer-border;
+			margin-bottom: .8em;
+			font-size: $common-text-medium-size;
+			text-transform: uppercase;
+
+			strong {
+				font-weight: $nwayo-extrabold-weight;
+			}
+		}
+	}
+
+	.fieldset::after {
+		content: attr(data-hasrequired);
+		display: block;
+		margin: 1em 0 0;
+		color: $storecustomer-required-color;
+		font-size: $common-text-tiny-size;
+		letter-spacing: normal;
+		word-spacing: normal;
+	}
+}
+
+
+.form-create-account {
+	.legend {
+		width: 100%;
+		padding-bottom: .75em;
+		border-bottom: $storecustomer-border;
+		margin-bottom: 1em;
+		font-size: $common-text-medium-size;
+		text-transform: uppercase;
+
+		strong {
+			font-weight: $nwayo-extrabold-weight;
+		}
+	}
+
+	.fieldset:last-of-type::after {
+		content: attr(data-hasrequired);
+		display: block;
+		margin: 1em 0 0;
+		color: $storecustomer-required-color;
+		font-size: $common-text-tiny-size;
+		letter-spacing: normal;
+		word-spacing: normal;
+	}
+}
+
+.block-addresses-list .items.addresses > .item {
+	margin-bottom: 1.25em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-address-edit {
+	#region_id, .region select { // stylelint-disable-line selector-id-pattern
+		display: none;
+	}
+
+	.actions-toolbar .action.primary {
+		@include common-button-styles();
+	}
+}
+
+.form-edit-account .fieldset.password {
+	display: none;
+}
+
+//  Full name fieldset
+.fieldset .fullname {
+	&.field > .label {
+		@include nwayo-visually-hidden-styles();
+
+		+ .control {
+			width: 100%;
+		}
+	}
+
+	.field {
+		@include nwayo-clearfix-styles();
+	}
+}
+
+
+
+
+//-- My account
+.account {
+	.column.main {
+		h2 {
+			margin-top: 0;
+		}
+
+		.toolbar {
+			text-align: center;
+
+			.limiter-options {
+				width: auto;
+			}
+		}
+
+		.limiter > .label {
+			@include nwayo-visually-hidden-styles();
+		}
+
+		.block:not(.widget) {
+			@include m2legacy-account-blocks-styles();  // TODO: Convertir le m2legacy
+		}
+	}
+
+	.sidebar-additional {
+		margin-top: 2.5em;
+	}
+
+	.table-wrapper {
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.action {
+			margin-right: 1em;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.table-return-items .qty .input-text {
+		width: 3em;
+		text-align: center;
+	}
+}
+
+//  Checkout address (create shipping address)
+.field.street .field.additional .label {
+	@include nwayo-visually-hidden-styles();
+}
+
+
+
+
+
+//-- Account navigation
+.account-nav {
+	.title {
+		padding: .9em 1.1em;
+		margin: 0 !important;
+		color: $common-text-color;
+		font-size: $common-text-medium-size;
+		font-weight: $common-text-fattest-weight;
+		text-transform: uppercase;
+	}
+
+	.content {
+		border-bottom: $storecustomer-border;
+		background: $storecustomer-bg-color;
+	}
+
+	.items {
+		padding: 0;
+		margin: 0;
+	}
+
+	.item {
+		position: relative;
+		border-top: $storecustomer-border;
+		margin: 0;
+		text-transform: uppercase;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		a, > strong {
+			display: block;
+			padding: .8em 1.6em;
+			color: $common-text-color;
+			font-size: $common-text-tiny-size;
+			font-weight: $common-text-fatter-weight;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		&.current {
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				width: 0;
+				height: 0;
+				border-width: .4375em 0 .4375em .5em;
+				border-style: solid;
+				border-color: transparent transparent transparent $common-text-color;
+				margin-top: -.5em;
+			}
+
+			strong {
+				color: $common-text-color;
+			}
+		}
+
+		.delimiter {
+			display: block;
+			border-top: common-border($color:$storecustomer-delimiter-color);
+			margin: .625em 1.875em;
+		}
+	}
+}
+
+
+
+
+
+//-- Blocks & Widgets
+.block {
+	margin-bottom: 2.5em;
+
+	.column.main &:last-child {
+		margin-bottom: 0;
+	}
+
+	.title {
+		margin-bottom: .625em;
+
+		strong {
+			@include store-h4-styles();
+
+			.column.main & {
+				font-size: $common-text-medium-size;
+			}
+		}
+	}
+
+	p:last-child {
+		margin: 0;
+	}
+
+	.box-actions {
+		margin-top: .3125em;
+	}
+}
+
+
+
+
+//-- Password strength meter
+.field.password .control {
+	display: flex;
+	flex-direction: column;
+
+	.mage-error {
+		order: 2;
+	}
+
+	.input-text {
+		z-index: 2;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+		order: 0;
+	}
+}
+
+.password-strength-meter {
+	position: relative;
+	z-index: 1;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+	height: 2em;
+	padding: 0 .5em;
+	background-color: $storecustomer-password-default-color;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		height: 100%;
+	}
+
+	#password-strength-meter-label { // stylelint-disable-line selector-id-pattern
+		margin-left: .3125em;
+	}
+
+	.password-none &::before {
+		width: 100%;
+		background-color: $storecustomer-password-default-color;
+	}
+
+	.password-weak &::before {
+		width: 25%;
+		background-color: $storecustomer-password-weak-color;
+	}
+
+	.password-medium &::before {
+		width: 50%;
+		background-color: $storecustomer-password-medium-color;
+	}
+
+	.password-strong &::before {
+		width: 75%;
+		background-color: $storecustomer-password-strong-color;
+	}
+
+	.password-very-strong &::before {
+		width: 100%;
+		background-color: $storecustomer-password-verystrong-color;
+	}
+}
+
+.control.captcha-image {
+	margin-top: .625em;
+
+	.captcha-img {
+		vertical-align: middle;
+	}
+}
+
+
+
+
+//-- Mobile
+@media #{bp(small down)} {
+	.account {
+		.column.main, .sidebar-additional {
+			margin: 0;
+		}
+	}
+}
+
+@media #{bp(medium down)} {
+	.login-container .fieldset::after {
+		text-align: center;
+	}
+
+	.account {
+		.page-main {
+			position: relative;
+			padding-top: 4.5em;
+		}
+
+		.page.messages {
+			margin-bottom: 2.5em;
+		}
+
+		.toolbar {
+			.toolbar-amount, .limiter, .pages {
+				float: none;
+				margin-bottom: 1.5em;
+			}
+		}
+	}
+
+	.control.captcha-image .captcha-img {
+		display: block;
+		margin-bottom: .625em;
+	}
+
+	.customer-account-index .page-title-wrapper {
+		position: relative;
+	}
+}
+
+
+
+//-- Desktop
+@media #{bp(large)} {
+	.login-container {
+		@include nwayo-clearfix-styles();
+		text-align: center;
+
+		.block {
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+			width: 20em;
+			margin: 0 1em 1.25em;
+			text-align: left;
+
+			.actions-toolbar {
+				margin-left: 0;
+				text-align: center;
+
+				> .primary {
+					float: none;
+					width: 100%;
+					margin-right: 0;
+					margin-bottom: 0;
+
+					.action {
+						width: 100%;
+						margin-right: 0;
+					}
+				}
+
+				> .secondary {
+					float: none;
+				}
+			}
+		}
+
+		.fieldset {
+			&::after {
+				margin-left: 0;
+			}
+
+			> .field > .control {
+				width: 100%;
+			}
+		}
+	}
+
+	.form-create-account .fieldset {
+		> .field, > .fields > .field {
+			float: left;
+			width: calc(50% - .625em);
+			margin: 0 1.25em 1em 0;
+
+			&:last-of-type {
+				margin-right: 0;
+				margin-bottom: 0;
+			}
+
+			&:not(.field-full) + .field {
+				margin-right: 0;
+			}
+
+			&.note, &.field-full {
+				width: 100%;
+				margin: 0 1.25em 1em 0;
+			}
+		}
+
+		.fullname .field {
+			.label {
+				float: left;
+				box-sizing: border-box;
+				width: 0;
+				padding: .375em 1em 0 0;
+				margin: 0 .625em .625em 0;
+				text-align: right;
+			}
+
+			.control {
+				float: left;
+				width: 74.2%;
+			}
+		}
+	}
+
+
+	//-- My account
+	.account.page-layout-2columns-left {
+		.sidebar-main, .sidebar-additional {
+			width: 22.3%;
+		}
+
+		.column.main {
+			width: 77.7%;
+		}
+	}
+
+	.account {
+		.column.main .block:not(.widget) .block-content {
+			@include nwayo-clearfix-styles();
+
+			.box {
+				width: 48.8%;
+
+				&:nth-child(odd) {
+					float: left;
+					clear: left;
+				}
+
+				&:nth-child(even) {
+					float: right;
+				}
+			}
+		}
+
+		.toolbar {
+			width: 48.8%;
+
+			&:nth-child(odd) {
+				float: left;
+				clear: left;
+			}
+
+			&:nth-child(even) {
+				float: right;
+			}
+		}
+	}
+
+	.block-addresses-list .items.addresses {
+		@include nwayo-clearfix-styles();
+		font-size: 0;  // stylelint-disable-line scale-unlimited/declaration-strict-value
+
+		> .item {
+			display: inline-block;
+			vertical-align: top;
+			width: 48.8%;
+			margin-bottom: 1.25em;
+			font-size: $common-text-base-size;
+
+			&:nth-child(odd) {
+				float: left;
+				clear: left;
+			}
+
+			&:nth-child(even) {
+				float: right;
+				margin-left: 2.4%;
+			}
+
+			&:nth-last-child(1), &:nth-last-child(2) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	//-- Welcome block
+	.dashboard-welcome-toggler {
+		@include nwayo-visually-hidden-styles();
+	}
+
+	.control.captcha-image .captcha-img {
+		margin: 0 .625em .625em 0;
+	}
+}

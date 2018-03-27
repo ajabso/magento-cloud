@@ -1,0 +1,36 @@
+//-------------------------------------
+//-- Common - Config - Functions
+//-------------------------------------
+
+@function common-zindex($scope, $delta:0) {
+	@return nwayo-zindex((
+		max:          2147483647,  // For reference only do not use - 2,147,483,647
+
+		reveal:       1000000000,
+
+		offcanvas:     100000000,
+
+		accessibilty:   50000000,
+
+		overlay:        10000000,
+
+		fotorama:        1000000,
+
+		nav:              500000,
+
+		header:           100000,
+
+		control:           50000,  // For slider (or other module) controls, such as 'next' 'prev' buttons
+
+		content:              10,
+
+		min:                   0   // For reference only do not use - 0
+	), $scope, $delta);
+}
+
+
+
+
+@function common-border($width:1, $style:solid, $color:$common-border-color) {
+	@return rem-calc($width) $style $color;
+}

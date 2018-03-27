@@ -1,0 +1,23 @@
+<?php
+/**
+ *
+ * @copyright   Copyright (c) 2017 Absolunet (http://www.absolunet.com)
+ * @link        http://www.absolunet.com
+ *
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php
+    $_helper    = $this->helper('Magento\Catalog\Helper\Output');
+    $_category  = $block->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        // Absolunet Custom Code / Boutik / Category banner
+        $_imgHtml = '<div class="category-image" style="background-image: url(' . $_imgUrl . ');" title="' . $block->escapeHtml($_category->getName()) . '"></div>';
+        // END Absolunet Custom Code / Boutik / Category banner
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+        /* @escapeNotVerified */ echo $_imgHtml;
+    }
+?>

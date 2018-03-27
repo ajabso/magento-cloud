@@ -1,0 +1,42 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				".nwayo-cache",
+				"node_modules",
+				".editorconfig",
+				".eslintrc.yaml",
+				".gitattributes",
+				".gitignore",
+				".scss-lint.yml",
+				".sublimelinterrc",
+				"*.sublime-project"
+			],
+			"follow_symlinks": true,
+			"folder_exclude_patterns":
+			[
+				".nwayo-cache",
+				"node_modules"
+			],
+			"path": "."
+		},
+		{
+			"path": "../src/store/app/code/Absolunet"
+		}
+	],
+	"settings":
+	{
+		"todoreview":
+		{
+			"exclude_folders":
+			[
+				"*.git*",
+				"*nwayo/.nwayo-cache*",
+				"*nwayo/bower_components*",
+				"*nwayo/node_modules*"
+			]
+		}
+	}
+}

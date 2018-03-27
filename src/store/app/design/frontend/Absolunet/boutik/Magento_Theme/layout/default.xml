@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- ############## Move part -->
+        <move element="store_language" destination="top.links" after="-" /> <!-- Move the Store Picker -->
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/> <!-- Move the Navigation -->
+        <move element="wish-list-link" destination="customer-links-list" before="authorization-link-login"/> <!-- Move to customer sub -->
+        <move element="multiple-wish-list-link" destination="customer-links-list" before="authorization-link-login"/> <!-- Move to customer sub -->
+        <!-- ############## /Move part -->
+
+        <!-- ############## Remove part-->
+        <referenceBlock name="top.links">
+            <referenceBlock name="register-link" remove="true" />
+            <referenceBlock name="invitation_link_top" remove="true" />
+            <referenceBlock name="catalog.compare.link" remove="true" />
+        </referenceBlock>
+
+        <!-- Remove the welcome message -->
+        <referenceBlock name="header" remove="true" />
+
+        <!-- Remove currency bloc -->
+        <referenceContainer name="header.panel">
+            <referenceBlock name="currency" remove="true" />
+        </referenceContainer>
+
+        <referenceBlock name="store.settings">
+            <referenceBlock name="store.settings.currency" remove="true" />
+        </referenceBlock>
+
+        <!-- Remove element in footer -->
+        <referenceContainer name="footer">
+            <referenceBlock name="form.subscribe" remove="true" />
+            <referenceBlock name="footer_links" remove="true" />
+            <referenceBlock name="report.bugs" remove="true" />
+        </referenceContainer>
+
+        <!--Unwanted additionnal sidebar dashboard-->
+        <referenceContainer name="sidebar.additional" remove="true" />
+        <!-- ############## /Remove part-->
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_img_width" xsi:type="string">auto</argument>
+                <argument name="logo_img_height" xsi:type="string">auto</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="header.panel">
+            <block class="Magento\Framework\View\Element\Template" name="quick-contact" template="Magento_Theme::html/header/quick-contact.phtml" before="-"/>
+        </referenceBlock>
+
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Text" name="jquery_global_for_nwayo">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<script type="text/x-magento-init">{ "*": { "jqueryGlobal": {} } }</script>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Text" name="dependency_nwayo">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<script src="/build/store/scripts/dependencies.js" defer></script>]]></argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Text" name="main_nwayo">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<script src="/build/store/scripts/main.js" defer></script>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

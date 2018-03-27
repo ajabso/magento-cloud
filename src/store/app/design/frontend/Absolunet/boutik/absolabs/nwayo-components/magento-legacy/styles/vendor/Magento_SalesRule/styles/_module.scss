@@ -1,0 +1,10 @@
+.opc-wrapper {
+    .form-discount {
+        max-width: rem-calc(500);
+        .field {
+            .label {
+                @include nwayo-visually-hidden-styles();
+            }
+        }
+    }
+}

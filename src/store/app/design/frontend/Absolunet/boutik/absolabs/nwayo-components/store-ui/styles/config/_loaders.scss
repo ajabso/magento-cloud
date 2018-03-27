@@ -1,0 +1,11 @@
+//-------------------------------------
+//-- Store UI - Config - Loaders
+//-------------------------------------
+
+$storeui-loaders-indicator-color: rgba($common-bg-color, .7);
+$storeui-loaders-mask-color:      rgba($common-bg-color, .5);
+
+@mixin storeui-loaders-loading-image {
+	@include nwayo-scalable-icon-styles('ico-loader.svg', 'store-ui', $color:$common-alt-color);
+	animation: storeui-loaders-loading-animation 1.25s cubic-bezier(.2, .4, .9, .6) infinite;
+}

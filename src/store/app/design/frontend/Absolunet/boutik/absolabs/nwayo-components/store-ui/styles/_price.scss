@@ -1,0 +1,57 @@
+//-------------------------------------
+//-- Store UI - Prices
+//-------------------------------------
+
+// stylelint-disable selector-class-pattern
+.price {
+	&-tier_price .price-excluding-tax, &-tier_price .price-including-tax {
+		display: inline;
+	}
+}
+// stylelint-enable selector-class-pattern
+
+.price-including-tax, .price-excluding-tax {
+	display: block;
+	font-size: $common-text-medium-size;
+	line-height: 1;
+
+	.price {
+		font-weight: $common-text-fatter-weight;
+	}
+
+	.cart-tax-total {
+		position: relative;
+		display: inline-block;
+		padding-right: .65em;
+		cursor: pointer;
+
+		&::after {
+			@include nwayo-pseudo-image-styles(1.45em);
+			@include store-arrowhead-image(down);
+			position: absolute;
+			top: .15em;
+			right: -.55em;
+			display: inline-block;
+			overflow: hidden;
+			margin: .15em 0 0;
+		}
+
+		&-expanded::after {
+			@include store-arrowhead-image(up);
+		}
+	}
+}
+
+.price-including-tax + .price-excluding-tax, .weee[data-label] {
+	display: block;
+	font-size: $common-text-medium-size;
+
+	&::before {
+		content: attr(data-label) ': ';
+		font-size: $common-text-nano-size;
+	}
+
+	.price {
+		font-size: $common-text-nano-size;
+	}
+}

@@ -1,0 +1,39 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Fields
+//-------------------------------------
+
+.field {
+
+	// stylelint-disable selector-class-pattern
+	.control._with-tooltip {
+		position: relative;
+		box-sizing: border-box;
+
+		input {
+			width: calc(100% - 2em);
+			margin-right: .66em;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	&.choice {
+		.field-tooltip {
+			position: relative;
+			top: -.25em;
+			display: inline-block;
+			margin-left: .66em;
+		}
+
+		.field-tooltip-action {
+			line-height: 1.5;
+		}
+	}
+
+	// stylelint-disable selector-class-pattern
+	&._error .control {
+		input, select, textarea {
+			border-color: $common-border-color;
+		}
+	}
+	// stylelint-enable selector-class-pattern
+}

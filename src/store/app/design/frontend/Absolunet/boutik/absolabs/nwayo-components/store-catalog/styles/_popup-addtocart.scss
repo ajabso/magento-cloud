@@ -1,0 +1,91 @@
+//---------------------------------------------------
+//-- Store catalog - Popup minicart
+//---------------------------------------------------
+
+.addtocart-popup {
+	padding: 1.75em;
+
+	@media #{bp(medium)} {
+		padding: 1.875em;
+	}
+
+	p {
+		margin-bottom: 0;
+		font-size: $common-text-small-size;
+		font-weight: $common-text-fat-weight;
+	}
+
+	.addtocart-popup-content {
+		.addtocart-popup-body {
+			padding-bottom: 1.75em;
+
+			@media #{bp(medium)} {
+				padding-bottom: 1.875em;
+			}
+		}
+
+		.addtocart-popup-title {
+			position: relative;
+			padding-left: 1.5em;
+			color: $common-success-text-color;
+			font-size: $common-title-size;
+			font-weight: $common-text-fattest-weight;
+
+			&::before {
+				@include store-success-image();
+				@include nwayo-pseudo-image-styles(1.2em);
+				position: absolute;
+				top: .1em;
+				left: 0;
+				display: block;
+
+				@media #{bp(medium)} {
+					@include nwayo-pseudo-image-styles(.7em);
+					top: .35em;
+				}
+			}
+
+			@media #{bp(medium)} {
+				font-size: $common-title-bigger-size;
+			}
+		}
+
+		.addtocart-popup-title + .absolunet-promotion-freeshipping-product {
+			margin-top: 1.875em;
+		}
+
+		.actions {
+			padding: 1.75em;
+			border-top: common-border();
+			margin: 0 -1.75em -1.75em -1.75em;
+			text-align: center;
+
+			@media #{bp(medium)} {
+				padding: 1.875em;
+				margin: 0 -1.875em -1.875em -1.875em;
+				text-align: left;
+			}
+
+			.action {
+				min-width: 15em;
+				margin-top: 1.875em;
+				font-size: $common-text-tiny-size;
+				font-weight: $common-text-fat-weight;
+
+				&:first-child {
+					margin-top: 0;
+					margin-left: 0;
+				}
+
+				&.action-secondary {
+					border-color: $common-border-color;
+				}
+
+				@media #{bp(medium)} {
+					margin-top: 0;
+					margin-left: 1.875em;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+.my-credit-cards {
+	.status {
+		font-style: italic;
+	}
+
+	.action.delete {
+		@include m2legacy-button-link-styles();
+	}
+}
+
+.my-credit-cards-popup {
+	.modal-footer {
+		text-align: right;
+	}
+
+	.action.secondary {
+		@include m2legacy-button-link-styles();
+		margin-right: rem-calc(20);
+	}
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@media #{bp(medium down)} {
+	.my-credit-cards {
+		.table:not(.totals):not(.cart):not(.table-comparison) {
+			.status {
+				display: none;
+
+				&::before {
+					display: none;
+				}
+
+				&._default {
+					display: block;
+				}
+			}
+		}
+
+		.card-type {
+			img {
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.my-credit-cards {
+		.card-type {
+			img {
+				display: block;
+			}
+		}
+	}
+}

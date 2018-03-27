@@ -1,0 +1,100 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Progress bar
+//-------------------------------------
+
+.opc-progress-bar {
+	display: table;
+	list-style: none;
+	counter-reset: i;
+	width: grid-column(100%);
+	padding: 2em 1em 0;
+	margin: 0 0 1em;
+
+	@media #{bp(medium down)} {
+		padding: 1em 1em 0;
+		border-bottom: common-border(3, solid, $common-base-color);
+	}
+}
+
+.opc-progress-bar-item-container {
+	@include xy-cell(100%, $gutter-type:padding);
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+
+	@media #{bp(large)} {
+		@include xy-cell(50%, $gutter-type:padding);
+		display: table-cell;
+	}
+
+	.opc-progress-bar-item {
+		padding-bottom: 1.5em;
+		border-bottom: common-border(2, solid, $storecheckout-progressbar-item-color);
+		text-align: center;
+
+		@media #{bp(medium down)} {
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+
+		&::before {
+			content: counter(i) '. ';
+			counter-increment: i;
+		}
+
+		&::before, > span {
+			color: $storecheckout-progressbar-item-color;
+			font-family: $common-title-font;
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-fat-weight;
+			text-transform: uppercase;
+
+			@media #{bp(medium down)} {
+				font-size: $common-text-base-size;
+			}
+		}
+
+		// stylelint-disable selector-class-pattern
+		&._active {
+			border-bottom: common-border(5, solid, $storecheckout-progressbar-item-active-color);
+
+			@media #{bp(medium down)} {
+				border-bottom: 0;
+			}
+
+			&::before, > span {
+				color: $storecheckout-progressbar-item-active-color;
+			}
+		}
+		// stylelint-enable selector-class-pattern
+
+		// stylelint-disable selector-class-pattern
+		&._complete {
+			border-bottom: common-border(2, solid, $storecheckout-progressbar-item-complete-color);
+			cursor: pointer;
+
+			&::after {
+				@include store-valid-image();
+				content: ' ';
+				display: inline-block;
+				width: 1.5em;
+				height: 1.5em;
+				margin-bottom: -.3em;
+				margin-left: 1em;
+
+				@media #{bp(medium down)} {
+					display: none;
+				}
+			}
+
+			@media #{bp(medium down)} {
+				border-bottom: 0;
+			}
+
+			&::before, > span {
+				color: $storecheckout-progressbar-item-complete-color;
+			}
+		}
+		// stylelint-enable selector-class-pattern
+	}
+}

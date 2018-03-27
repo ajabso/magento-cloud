@@ -1,0 +1,139 @@
+//-------------------------------------
+//-- Form - Base
+//-------------------------------------
+
+//-- Placeholder
+input::placeholder {
+	color: $form-input-placeholder-color;
+	font-style: italic;
+}
+
+
+//-- Textfields
+#{$nwayo-textfields-selector}, textarea, select {
+	/* ... */
+}
+
+textarea, textarea[rows] {
+	/* ... */
+}
+
+#{$nwayo-textfields-selector},
+select {
+	height: $form-input-height;
+	border-radius: .3em;
+}
+
+//-- Labels
+
+.fieldset {
+	> .field {
+		> label, > .label {
+			position: relative;
+			padding-right: 1em;
+			color: $common-input-label-color;
+
+			&::after {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
+}
+
+//-- Errors
+
+.mage-error {
+	&::before {
+		@include store-error-image();
+		content: ' ';
+		display: inline-block;
+		width: 1.6em;
+		height: 1.6em;
+		margin-right: .5em;
+		margin-bottom: -.4em;
+	}
+}
+
+//-- Reset select
+/*
+@include nwayo-select-reset-styles {
+	background-image: none;
+}
+select {
+	box-sizing: border-box;
+	border-radius: 0;
+	appearance: none;
+}
+*/
+
+
+//-- File upload
+/*
+input[type='file'] {
+	//@include form-element;
+	height: auto;
+
+	@include nwayo-input-file-button-styles {
+		//@include button();
+		margin: 0;
+	}
+}
+*/
+
+
+//-- Radio / Checkbox
+/*
+$_choice-input-size: 1.125em;
+$_choice-input-selection-size: .5em;
+$_choice-input-position-size: ($_choice-input-size - $_choice-input-selection-size) / 2;
+$_choice-input-margin-size: .625em;
+
+input[type='checkbox'], input[type='radio'] {
+	position: absolute;
+	clip: rect(.0625em, .0625em, .0625em, .0625em);
+
+	+ label {
+		position: relative;
+		padding-left: $_choice-input-size + $_choice-input-margin-size;
+		cursor: pointer;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			width: $_choice-input-size;
+			height: $_choice-input-size;
+			border: common-border(1, solid, $common-text-color);
+			margin-top: .0625em - ($_choice-input-size / 2);
+		}
+	}
+
+	&:checked + label {
+		&::after, &:hover::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: $_choice-input-position-size;
+			display: block;
+			width: $_choice-input-selection-size;
+			height: $_choice-input-selection-size;
+			margin-top: .0625em - ($_choice-input-selection-size / 2);
+			background-color: $common-text-color;
+		}
+	}
+
+	&:focus + label::before {
+		outline: common-border(1, dotted, $common-text-color);
+	}
+}
+
+input[type='radio'] + label {
+	&::before, &::after {
+		border-radius: 50%;
+	}
+}
+*/

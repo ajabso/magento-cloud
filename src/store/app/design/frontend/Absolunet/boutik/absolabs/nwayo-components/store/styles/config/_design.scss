@@ -1,0 +1,224 @@
+//-------------------------------------
+//-- Store - Config - Design
+//-------------------------------------
+
+//-- Colors
+$store-collapsiblenav-bg-color:             $common-bg-color;
+$store-collapsiblenav-text-color:           $common-text-color;
+$store-collapsiblenav-current-border-color: $common-link-color;
+$store-collapsiblenav-current-color:        $common-text-color;
+$store-collapsiblenav-current-weight:       $common-text-fat-weight;
+$store-collapsiblenav-delimiter:            $common-border-color;
+$store-collapsiblenav-hover-color:          $common-bg-var1-color;
+
+
+
+//-- Icons
+@mixin store-more-image {
+	@include nwayo-scalable-icon-styles('ico-more.svg', 'store', $color:$common-text-color);
+}
+
+@mixin store-cart-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-cart.svg',  'store', $state, $states);
+}
+
+@mixin store-close-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-close.svg', 'store', $state, $states);
+}
+
+@mixin store-search-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-search.svg', 'store', $state, $states);
+}
+
+@mixin store-trash-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-trash.svg',  'store', $state, $states);
+}
+
+@mixin store-valid-image($state:default, $states: (
+	default: ($common-success-text-color, $common-bg-color),
+	hover:   ($common-link-color, $common-bg-color)
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-valid.svg', 'store', $state, $states);
+}
+
+@mixin store-error-image($state:default, $states: (
+	default: ($common-error-text-color, $common-error-bg-color),
+	hover:   ($common-link-color, $common-bg-color)
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-error.svg', 'store', $state, $states);
+}
+
+@mixin store-settings-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-settings.svg',  'store', $state, $states);
+}
+
+@mixin store-expand-image($state:default, $states: (
+	default: ($common-text-var3-color, $common-text-var3-color),
+	hover:   ($common-text-var3-color, $common-text-color)
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-expand_on.svg', 'store', $state, $states);
+}
+
+@mixin store-unexpand-image($state:default, $states: (
+	default: ($common-text-var3-color, $common-text-var3-color),
+	hover:   ($common-text-var3-color, $common-text-color)
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-expand_off.svg', 'store', $state, $states);
+}
+
+@mixin store-arrow-image($direction, $state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-text-var1-color,
+	alt:   $common-text-var2-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-arrow.svg', 'store', $state, $states);
+
+	@if $direction == down {
+		transform: rotate(90deg);
+	} @else if $direction == up {
+		transform: rotate(-90deg);
+	} @else if $direction == left {
+		transform: rotate(180deg);
+	} @else if $direction != right {
+		@warn 'Specify a $direction';
+	}
+}
+
+@mixin store-arrowhead-image($direction, $state:default, $states: (
+	default:   $common-text-color,
+	hover:     $common-text-var1-color,
+	alt:       $common-text-var2-color,
+	control:   $common-border-var2-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('ico-arrow-head.svg', 'store', $state, $states);
+
+	@if $direction == down {
+		transform: rotate(90deg);
+	} @else if $direction == up {
+		transform: rotate(-90deg);
+	} @else if $direction == left {
+		transform: rotate(180deg);
+	} @else if $direction != right {
+		@warn 'Specify a $direction';
+	}
+}
+
+
+
+//-- Legacy
+@mixin store-loader-image {
+	@include nwayo-bg-image-styles('legacy/loader-2.gif', 'store');
+}
+
+@mixin store-calendar-image {
+	@include nwayo-scalable-icon-styles('legacy/calendar.svg', 'store', $color:$common-link-color);
+}
+
+@mixin store-envelope-image {
+	@include nwayo-scalable-icon-styles('legacy/envelope.svg', 'store', $color:$common-text-color);
+}
+
+@mixin store-grid-image {
+	@include nwayo-scalable-icon-styles('legacy/grid.svg',     'store', $color:$common-text-color);
+}
+
+@mixin store-list-image {
+	@include nwayo-scalable-icon-styles('legacy/list.svg',     'store', $color:$common-text-color);
+}
+
+@mixin store-more-image {
+	@include nwayo-scalable-icon-styles('legacy/list.svg',     'store', $color:$common-text-color);
+}
+
+@mixin store-present-image {
+	@include nwayo-scalable-icon-styles('legacy/present.svg',  'store', $color:$common-text-color);
+}
+
+@mixin store-success-image {
+	@include nwayo-scalable-icon-styles('legacy/success.svg',  'store', $color:$common-success-text-color);
+}
+
+@mixin store-update-image {
+	@include nwayo-scalable-icon-styles('legacy/update.svg',   'store', $color:$common-text-color);
+}
+
+@mixin store-warning-image {
+	@include nwayo-scalable-icon-styles('legacy/warning.svg',  'store', $color:$common-warning-text-color);
+}
+
+@mixin store-checkmark-image($state:default, $states: (
+	default: $common-text-color,
+	button:  $common-button-text-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/checkmark.svg', 'store', $state, $states);
+}
+
+@mixin store-compare-empty-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-text-var1-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/compare-empty.svg', 'store', $state, $states);
+}
+
+@mixin store-edit-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/edit.svg', 'store', $state, $states);
+}
+
+@mixin store-help-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-link-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/help.svg', 'store', $state, $states);
+}
+
+@mixin store-remove-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-text-var1-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/remove.svg', 'store', $state, $states);
+}
+
+@mixin store-star-image($state:default, $states: (
+	default: $common-bg-var1-color,
+	active:  $common-text-color,
+	review:  $common-review-star-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/star.svg', 'store', $state, $states);
+}
+
+@mixin store-wishlist-empty-image($state:default, $states: (
+	default: $common-text-color,
+	hover:   $common-text-var1-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/wishlist-empty.svg', 'store', $state, $states);
+}
+
+@mixin store-triangle-image($direction, $state:default, $states: (
+	default: $common-text-color
+)) {
+	@include nwayo-scalable-icon-colored-states-styles('legacy/triangle.svg', 'store', $state, $states);
+
+	@if $direction == down {
+		transform: rotate(180deg);
+	} @else if $direction != up {
+		@warn 'Specify a $direction';
+	}
+}

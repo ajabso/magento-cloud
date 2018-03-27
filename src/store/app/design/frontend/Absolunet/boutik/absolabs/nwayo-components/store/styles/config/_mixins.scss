@@ -1,0 +1,103 @@
+//-------------------------------------
+//-- Store - Config - Mixins
+//-------------------------------------
+
+@mixin store-toolbox-styles($pointer-offset) {
+	position: absolute;
+	display: none;
+	box-sizing: border-box;
+	border: common-border();
+	margin-top: .25em;
+	box-shadow: 0 .3em .3em -.2em darken($common-border-color, 5%);
+	background: $common-bg-color;
+
+	// Pointer
+	&::before, &::after {
+		content: '';
+		position: absolute;
+	}
+
+	&::before {
+		@include nwayo-arrow-styles(up, .625em, $common-border-color);
+		top: -.625em;
+		right: $pointer-offset - .125em;
+	}
+
+	&::after {
+		@include nwayo-arrow-styles(up, .5em, $common-bg-color);
+		top: -.5em;
+		right: $pointer-offset;
+	}
+}
+
+//-- Button as a link
+@mixin store-button-as-link-styles {
+	@include m2legacy-button-link-styles();  // TODO: Convertir le m2legacy
+	border-radius: 0;
+	font-size: inherit;
+	font-weight: $common-text-base-weight;
+
+	&:active, &:not(:focus) {
+		box-shadow: none;
+	}
+}
+
+//-- Excl/Incl tax
+@mixin store-incl-excl-tax-styles {
+	.price-including-tax, .price-excluding-tax, .weee {
+		display: inline-block;
+		font-size: $common-text-small-size;
+		white-space: nowrap;
+	}
+
+	.price-including-tax + .price-excluding-tax {
+		display: inline-block;
+		font-size: $common-text-micro-size;
+
+		&::before {
+			content: '(' attr(data-label) ': ';
+		}
+
+		&::after {
+			content: ')';
+		}
+	}
+}
+
+//-- Reset image alignment in container
+@mixin store-imagewrapper-reset-styles {
+	height: auto;
+	padding: 0 !important;
+
+	.product-image-photo {
+		position: static;
+	}
+}
+
+//-- Product options list
+@mixin store-product-options-list-styles {
+	dt {
+		float: left;
+		clear: left;
+		margin: 0 .625em .3125em 0;
+
+		&::after {
+			content: ': ';
+		}
+	}
+
+	dd {
+		display: inline-block;
+		float: left;
+		margin: 0 0 .3125em;
+	}
+}
+
+//-- Page block title
+@mixin store-block-title-styles {
+	margin-bottom: 1em;
+
+	> strong {
+		@include store-h3-styles();
+	}
+}

@@ -1,0 +1,157 @@
+//-------------------------------------
+//-- Store customer - Dashboard account
+//-------------------------------------
+
+body.account {
+	.page-main {
+		padding-bottom: 2.5em;
+
+		.page-title-wrapper {
+			text-align: center;
+
+			.page-title {
+				margin-right: 0;
+			}
+		}
+
+		.sidebar-main {
+			.account-nav {
+				display: none;
+			}
+		}
+
+		form {
+			.fieldset {
+				> .legend {
+					width: 100%;
+					padding-bottom: .4em;
+					border-bottom: common-border(2);
+					margin-bottom: .7em;
+					color: $common-text-color;
+					font-size: $common-text-medium-size;
+					font-weight: $common-text-fattest-weight;
+					text-transform: uppercase;
+					line-height: 1.15;
+				}
+			}
+		}
+
+		.actions-toolbar {
+			padding-top: 1.25em;
+			border-top: common-border();
+
+			.back {
+				margin-top: 0;
+			}
+		}
+
+		.order-summary-container {
+			padding: 1.7em;
+			border: common-border();
+			margin-bottom: 1.7em;
+			font-size: $common-text-tiny-size;
+
+			.actions-toolbar {
+				padding: 0;
+				border: 0;
+				margin: 0;
+			}
+		}
+
+		.order-details-items {
+			padding-bottom: 0;
+		}
+
+		table {
+			font-size: $common-text-tiny-size;
+
+			thead {
+				th {
+					padding-left: 0;
+					font-size: $common-text-base-size;
+					font-weight: $common-text-fatter-weight;
+					line-height: 1.125;
+				}
+			}
+
+			tbody {
+				tr {
+					@media #{bp(medium down)} {
+						&.item-parent {
+							.qty {
+								display: none !important;
+							}
+						}
+
+						&.item-options-container {
+							td {
+								&.price, &.subtotal {
+									display: none !important;
+								}
+							}
+						}
+					}
+
+					&.options-label {
+						display: none !important;
+					}
+
+					&.item-options-container {
+						.value {
+							.price {
+								display: block;
+							}
+						}
+					}
+				}
+
+				td {
+					padding-left: 0;
+
+					.product-item-name {
+						font-weight: $common-text-fattest-weight;
+						text-align: left;
+					}
+
+					.price {
+						color: $common-price-color;
+					}
+
+					&.qty {
+						.title {
+							display: none;
+						}
+					}
+
+					strong, b {
+						font-weight: $common-text-fattest-weight;
+					}
+
+					dt {
+						float: left;
+						margin-right: .5em;
+						font-weight: $common-text-fattest-weight;
+					}
+
+					dd {
+						margin: 0;
+
+						&::after {
+							clear: both;
+						}
+					}
+				}
+			}
+		}
+
+		.order-title {
+			strong {
+				color: $common-text-color;
+				font-size: $common-text-medium-size;
+				font-weight: $common-text-fattest-weight;
+				text-transform: uppercase;
+				line-height: 1.15;
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+//-------------------------------------
+//-- Store UI - Breadcrumbs
+//-------------------------------------
+
+.breadcrumbs {
+	padding: 0 1em;
+	margin: 0 0 1.25em;
+
+	.items {
+		@include nwayo-list-inline-styles();
+		color: $storeui-breadcrumbs-text-color;
+		font-size: $common-text-base-size;
+	}
+
+	.item {
+		margin: 0;
+	}
+
+	a {
+		color: $storeui-breadcrumbs-link-color;
+		text-decoration: none;
+
+		&:visited {
+			color: $storeui-breadcrumbs-link-color;
+			text-decoration: none;
+		}
+
+		&:hover {
+			color: $storeui-breadcrumbs-link-hover-color;
+			text-decoration: underline;
+		}
+
+		&:active {
+			color: $storeui-breadcrumbs-link-hover-color;
+			text-decoration: underline;
+		}
+	}
+
+	strong {
+		font-weight: $common-text-base-weight;
+	}
+
+	.item:not(:last-child)::after {
+		content: '/';
+		color: $storeui-breadcrumbs-text-color;
+	}
+}

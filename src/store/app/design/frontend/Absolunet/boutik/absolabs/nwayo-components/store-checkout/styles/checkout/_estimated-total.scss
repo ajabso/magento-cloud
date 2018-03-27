@@ -1,0 +1,41 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Estimated total
+//-------------------------------------
+
+.opc-estimated-wrapper {
+	@include nwayo-clearfix-styles();
+	padding: 1.25em 0;
+	margin: 0 0 1em;
+
+	@media #{bp(large)} {
+		display: none;
+	}
+
+	.estimated-block {
+		float: left;
+		font-size: $common-text-small-size;
+		font-weight: $common-text-fatter-weight;
+
+		.estimated-label {
+			display: block;
+			margin: 0 0 .33em;
+		}
+	}
+
+	.minicart-wrapper {
+		.counter {
+			padding-left: 1em;
+		}
+
+		.action {
+			&.showcart {
+				margin-top: .25em;
+
+				&::before {
+					color: $common-text-color;
+				}
+
+			}
+		}
+	}
+}

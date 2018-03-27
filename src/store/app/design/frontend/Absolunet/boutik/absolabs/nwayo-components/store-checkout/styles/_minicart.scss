@@ -1,0 +1,258 @@
+//-------------------------------------
+//-- Store checkout - Minicart
+//-------------------------------------
+
+.block-minicart {
+	.block-title {
+		display: none;
+	}
+
+	li {
+		margin: 0;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.items-total {
+		float: left;
+		margin: 0 .66em;
+
+		.count {
+			font-weight: $common-text-fatter-weight;
+		}
+	}
+
+	.subtotal {
+		margin: 0 .66em .66em;
+		text-align: right;
+
+		.label::after {
+			content: ': ';
+		}
+	}
+
+	.amount .price-wrapper:first-child .price {
+		font-size: $common-text-medium-size;
+		font-weight: $common-text-fatter-weight;
+	}
+
+	.subtitle {
+		display: none;
+
+		&.empty {
+			display: block;
+			padding: 2em 0 1.25em;
+			font-size: $common-text-small-size;
+			text-align: center;
+		}
+	}
+
+	.text.empty {
+		text-align: center;
+	}
+
+	.block-content > .actions {
+		margin-top: 1em;
+		text-align: center;
+
+		> .primary {
+			margin: 0 .66em 1em;
+
+			.action {
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&.primary {
+					@include common-button-styles($size: large);
+					width: 100%;
+					margin-bottom: .5em;
+				}
+			}
+		}
+	}
+
+	.block-category-link, .block-product-link, .block-cms-link, .block-banners {
+		margin: 1em 0 0;
+		text-align: center;
+	}
+
+	.minicart-widgets {
+		margin-top: 1em;
+	}
+
+	.minicart-items-wrapper {
+		overflow-x: auto;
+		max-height: 20em;
+		padding: 1em;
+		border: common-border();
+		border-right: 0;
+		border-left: 0;
+		margin: 0 -1.25em;
+
+		.minicart-items {
+			@include nwayo-list-reset-styles();
+
+			.product-item {
+				width: xy-cell-size();
+				padding: 1.25em 0;
+
+				&:first-child {
+					padding-top: 0;
+				}
+
+				&:not(:first-child) {
+					border-top: common-border();
+				}
+
+				> .product {
+					@include nwayo-clearfix-styles();
+				}
+			}
+
+			.product-image-wrapper {
+				@include store-imagewrapper-reset-styles();
+			}
+
+			.product-item-pricing .label {
+				display: inline-block;
+				width: 3em;
+			}
+
+			.price-minicart {
+				margin-bottom: .33em;
+			}
+
+			.product {
+				> .product-item-photo, > .product-image-container {
+					float: left;
+				}
+
+				.toggle {
+					position: relative;
+					display: block;
+					cursor: pointer;
+
+					&::after {
+						@include nwayo-pseudo-image-styles(1em);
+						@include store-arrowhead-image(down);
+						display: inline-block;
+						overflow: hidden;
+						vertical-align: middle;
+						margin-left: .5em;
+					}
+				}
+
+				&.active > .toggle::after {
+					@include store-arrowhead-image(up);
+				}
+
+				.actions {
+					float: right;
+					margin: -1.5em 0 0;
+					text-align: right;
+
+					> .primary, > .secondary {
+						display: inline;
+					}
+				}
+
+				&.options .tooltip.toggle {
+					display: block;
+
+					&::after {
+						@include nwayo-pseudo-image-styles(1em);
+						@include store-arrowhead-image(down);
+						display: block;
+						overflow: hidden;
+						margin: -.18em 0 0 -.33em;
+					}
+
+					> span {
+						@include nwayo-visually-hidden-styles();
+					}
+
+					.details {
+						display: none;
+					}
+				}
+			}
+
+			.product-item-name {
+				margin: 0 0 .66em;
+				font-weight: $common-text-base-weight;
+
+				a {
+					color: $common-primary-color;
+				}
+			}
+
+			.product-item-details {
+				padding-left: 5.5em;
+
+				.price {
+					font-weight: $common-text-fatter-weight;
+				}
+
+				.price-including-tax, .price-excluding-tax {
+					margin: .33em 0 0;
+				}
+
+				.weee[data-label] {
+					font-size: $common-text-micro-size;
+
+					.label {
+						display: none;
+					}
+				}
+
+				.details-qty {
+					margin-top: .66em;
+				}
+			}
+
+			.details-qty, .price-minicart {
+				.label::after {
+					content: ': ';
+				}
+			}
+
+			.item-qty {
+				width: 2.5em;
+				margin-right: .66em;
+				text-align: center;
+			}
+
+			.update-cart-item {
+				vertical-align: top;
+				font-size: $common-text-micro-size;
+			}
+
+			.subtitle {
+				display: none;
+			}
+
+			.action {
+				&.edit, &.delete {
+					@include nwayo-pseudo-image-styles(1em);
+					display: inline-block;
+					overflow: hidden;
+
+					> span {
+						@include nwayo-visually-hidden-styles();
+					}
+				}
+
+				&.edit {
+					@include store-settings-image();
+				}
+
+				&.delete {
+					@include store-trash-image();
+				}
+			}
+		}
+	}
+}

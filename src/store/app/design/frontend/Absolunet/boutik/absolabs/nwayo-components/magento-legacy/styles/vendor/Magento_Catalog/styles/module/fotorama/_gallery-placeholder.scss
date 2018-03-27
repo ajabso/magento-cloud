@@ -1,0 +1,14 @@
+.gallery-placeholder {
+    .loading-mask {
+        position: static;
+        padding: 0 0 50%;
+    }
+
+    .loader {
+        position: absolute;
+        height: $fotorama-spinner-size;
+        width: $fotorama-spinner-size;
+		margin-top: $fotorama-spinner-size / -2;
+		margin-left: $fotorama-spinner-size / -2;
+    }
+}

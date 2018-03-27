@@ -1,0 +1,291 @@
+//-------------------------------------
+//-- Store UI - Form
+//-------------------------------------
+
+.fieldset {
+	padding: 0;
+	border: 0;
+	margin: 0 0 2.5em;
+	letter-spacing: -.031em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	// > * {
+	// 	letter-spacing: normal;
+	// }
+
+	> .legend {
+		float: left;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0 0 .5em;
+		margin: 0 0 1em;
+		font-size: $common-text-medium-size;
+		font-weight: $common-text-slim-weight;
+		line-height: 1.2;
+
+		+ br {
+			display: block;
+			clear: both;
+			overflow: hidden;
+			visibility: hidden;
+			height: 0;
+		}
+	}
+
+	> .field {
+		&, .fields & {
+			margin: 0 0 1.25em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			> .label {
+				display: inline-block;
+				margin: 0 0 .5em;
+				font-weight: $common-text-fat-weight;
+
+				+ br {
+					display: none;
+				}
+			}
+
+			.choice {
+				input {
+					vertical-align: top;
+				}
+			}
+
+			.fields.group {
+				@include nwayo-clearfix-styles();
+
+				.field {
+					float: left;
+					box-sizing: border-box;
+				}
+
+				&.group-2 .field {
+					width: 50% !important;
+				}
+
+				&.group-3 .field {
+					width: 33.3% !important;
+				}
+
+				&.group-4 .field {
+					width: 25% !important;
+				}
+
+				&.group-5 .field {
+					width: 20% !important;
+				}
+			}
+
+			.addon {
+				display: inline-flex;
+				flex-wrap: nowrap;
+				width: 100%;
+				padding: 0;
+
+				textarea, select, input {
+					display: inline-block;
+					flex-basis: 100%;
+					order: 2;
+					width: auto;
+					margin: 0;
+				}
+
+				.addbefore, .addafter {
+					@include storeui-form-input-text-styles();
+					display: inline-block;
+					vertical-align: middle;
+					order: 3;
+					width: auto;
+					white-space: nowrap;
+				}
+
+				.addbefore {
+					float: left;
+					order: 1;
+				}
+			}
+
+			.additional {
+				margin-top: .625em;
+			}
+
+
+			// stylelint-disable selector-class-pattern
+			&.required > .label, &._required > .label {
+				&::after {
+					content: '*';
+					margin: 0 0 0 .3em;
+					color: $storeui-form-required-color;
+					font-size: $common-text-tiny-size;
+				}
+			}
+			// stylelint-enable selector-class-pattern
+
+			.note {
+				padding: 0;
+				margin: .2em 0 0;
+				font-size: $common-text-tiny-size;
+			}
+
+			&.no-label > .label {
+				@include nwayo-visually-hidden-styles();
+			}
+
+			&.choice .label {
+				display: inline;
+				font-weight: $common-text-base-weight;
+			}
+
+			.column:not(.main) .label {
+				font-weight: $common-text-base-weight;
+			}
+
+			.field.choice {
+				margin-bottom: .625em;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			input[type='file'] {
+				margin: .3em 0;
+			}
+		}
+	}
+}
+
+.legend {
+	+ .fieldset, + div {
+		clear: both;
+	}
+
+	strong {
+		margin-left: .3em;
+	}
+}
+
+fieldset.field {
+	padding: 0;
+	border: 0;
+}
+
+.field {
+	&.date {
+		.control {
+			position: relative;
+			box-sizing: border-box;
+		}
+
+		input {
+			width: calc(100% - 2em);
+			margin-right: .625em;
+		}
+
+		.time-picker {
+			display: inline-block;
+			margin-top: .625em;
+			white-space: nowrap;
+		}
+	}
+
+	.message {
+		&.warning {
+			margin-top: .625em;
+		}
+	}
+
+	.tooltip {
+		@include storeui-tooltips-base-styles(form);
+
+		.tooltip-content {
+			min-width: 12.5em;
+			white-space: normal;
+		}
+	}
+
+}
+
+.field-error, div.mage-error[generated] {
+	margin-top: .5em;
+}
+
+.field-error {
+	color: $storeui-form-error-color;
+	font-size: $common-text-tiny-size;
+}
+
+input, select {
+	&:focus ~ .tooltip .tooltip-content {
+		display: block;
+	}
+}
+
+// stylelint-disable selector-class-pattern
+._has-datepicker ~ .ui-datepicker-trigger {
+	@include common-button-reset-styles();
+	display: inline-block;
+	vertical-align: middle;
+
+	&::before {
+		@include nwayo-pseudo-image-styles(1.5em);
+		@include store-calendar-image();
+		display: block;
+		overflow: hidden;
+	}
+
+	&:focus {
+		outline: 0;
+		box-shadow: none;
+	}
+
+	> span {
+		@include nwayo-visually-hidden-styles();
+	}
+}
+// stylelint-enable selector-class-pattern
+
+
+//-- Sidebar forms
+.sidebar .fieldset {
+	margin: 0;
+
+	> .field:not(.choice), .fields > .field {
+		&:not(:last-child) {
+			margin: 0 0 1.25em;
+		}
+
+		.label {
+			width: 100%;
+			padding: 0 0 .3em;
+			margin: 0 0 .25em;
+			text-align: left;
+		}
+
+		.control {
+			width: 100%;
+		}
+	}
+}
+
+
+//-- Desktop
+@media #{bp(large)} {
+	.fieldset {
+		.legend {
+			margin-left: 0;
+		}
+
+		> .field {
+			margin: 0 0 1.8em;
+		}
+	}
+}

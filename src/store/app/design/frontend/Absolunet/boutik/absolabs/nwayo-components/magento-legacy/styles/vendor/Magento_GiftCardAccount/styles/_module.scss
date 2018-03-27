@@ -1,0 +1,33 @@
+.giftcard-account {
+	.please-wait {
+		display: none;
+	}
+
+	.form-giftcard-redeem {
+		.giftcard.info {
+			margin-bottom: rem-calc(30);
+		}
+	}
+}
+
+.opc-wrapper {
+	.form-giftcard-account {
+		max-width: rem-calc(500);
+
+		.field {
+			margin: rem-calc(0 0 20);
+
+			.label {
+				@include nwayo-visually-hidden-styles();
+			}
+		}
+	}
+
+	.giftcard-account-info {
+		margin: rem-calc(0 0 20);
+
+		.giftcard-account-number {
+			margin: rem-calc(0 0 10);
+		}
+	}
+}

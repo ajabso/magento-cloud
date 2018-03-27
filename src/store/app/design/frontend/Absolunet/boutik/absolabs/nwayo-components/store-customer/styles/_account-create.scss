@@ -1,0 +1,50 @@
+//-------------------------------------
+//-- Store customer - Account create
+//-------------------------------------
+body.customer-account-create,
+body.customer-account-login,
+body.customer-account-createpassword,
+body.customer-account-forgotpassword {
+	.page-wrapper {
+		overflow-x: hidden;
+	}
+
+	.page-main {
+		position: relative;
+		padding-bottom: 2em;
+
+		@media #{bp(medium down)} {
+			.columns {
+				float: none;
+			}
+		}
+
+		.page-title-wrapper {
+			text-align: center;
+		}
+
+		.block {
+			padding: 1em 1.25em;
+
+			&.block-customer-login,
+			&.block-new-customer {
+				border: common-border();
+			}
+
+			&.boutik-createaccount-form,
+			&.boutik-createpassword-form,
+			&.boutik-forgotpassword-form {
+				border: common-border();
+				margin: 0 auto;
+
+				@media #{bp(medium)} {
+					width: 40em;
+				}
+
+				.form.create.account {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

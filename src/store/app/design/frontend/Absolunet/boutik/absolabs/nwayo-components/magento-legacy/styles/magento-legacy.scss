@@ -1,0 +1,43 @@
+//-------------------------------------
+//-- Magento legacy
+//-------------------------------------
+
+// Modules
+@import 'components/magento-legacy/styles/vendor/Magento_AdvancedCheckout/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Braintree/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Bundle/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_CatalogEvent/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Downloadable/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GiftCard/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GiftCardAccount/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GiftMessage/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GiftRegistry/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GiftWrapping/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_GroupedProduct/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Invitation/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Msrp/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_MultipleWishlist/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Multishipping/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Newsletter/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Paypal/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_ProductVideo/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Review/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Reward/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Rma/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Sales/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_SalesRule/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_SendFriend/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Swatches/styles/swatches';
+@import 'components/magento-legacy/styles/vendor/Magento_Vault/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Weee/styles/module';
+@import 'components/magento-legacy/styles/vendor/Magento_Wishlist/styles/module';
+
+
+// Widgets
+@import 'components/magento-legacy/styles/vendor/Magento_AdvancedCheckout/styles/widgets';
+@import 'components/magento-legacy/styles/vendor/Magento_Banner/styles/widgets';
+@import 'components/magento-legacy/styles/vendor/Magento_CatalogEvent/styles/widgets';
+@import 'components/magento-legacy/styles/vendor/Magento_MultipleWishlist/styles/widgets';
+
+// Modules
+@import 'components/magento-legacy/styles/vendor/Magento_Catalog/styles/module/gallery';

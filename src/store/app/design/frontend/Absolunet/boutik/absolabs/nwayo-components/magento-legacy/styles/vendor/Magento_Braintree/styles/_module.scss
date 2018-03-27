@@ -1,0 +1,186 @@
+//
+//  Common
+//  _____________________________________________
+
+.payment-method-braintree {
+
+	.hosted-date-wrap {
+		@include nwayo-clearfix-styles();
+	}
+
+	.hosted-control {
+		@include storeui-form-input-text-styles();
+		position: relative;
+		width: rem-calc(225);
+
+		&.braintree-hosted-fields-focused {
+			border-color: $braintree-focus__color;
+		}
+
+		&.braintree-hosted-fields-invalid:not(.braintree-hosted-fields-focused) {
+			border-color: $braintree-error__color;
+
+			& ~ .hosted-error {
+				height: auto;
+				opacity: 1;
+			}
+		}
+
+		&.braintree-hosted-fields-valid {
+			border-color: $braintree-success__color;
+		}
+
+		&.hosted-cid {
+			width: rem-calc(50);
+		}
+
+		&.hosted-date {
+			$distance: rem-calc(50);
+
+			float: left;
+			margin-bottom: rem-calc(7);
+			width: rem-calc(60);
+
+			&:first-of-type {
+				margin-right: $distance;
+
+				&::after {
+					content: '/';
+					display: inline;
+					padding-bottom: inherit;
+					padding-top: inherit;
+					position: absolute;
+					right: -$distance / 2;
+					top: rem-calc(5);
+				}
+			}
+		}
+	}
+
+	.field-tooltip {
+		right: 0;
+	}
+
+	.hosted-error {
+		clear: both;
+		color: $braintree-error__color;
+		font-size: rem-calc(12);
+		height: 0;
+		margin-top: rem-calc(7);
+		opacity: 0;
+	}
+}
+
+.braintree-paypal-logo {
+	margin-top: rem-calc(10);
+	text-align: center;
+}
+
+.braintree-paypal-account {
+	padding: $braintree-paypal-account__padding-vertical 0 $braintree-paypal-account__padding-vertical $braintree-paypal-account__padding-right;
+	position: relative;
+
+	display: inline-block;
+	&::before {
+		background-image: url('../Magento_Braintree/images/paypal-small.png');
+		background-position-x: 0;
+		background-position-y: 0;
+		line-height: $braintree-paypal-icon__height;
+		vertical-align: middle;
+		height: $braintree-paypal-icon__height;
+		width: $braintree-paypal-icon__width;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline-block;
+	}
+
+	&::before {
+		left: $braintree-paypal-account__padding-right / 2 - $braintree-paypal-icon__width / 2;
+		margin-top: -$braintree-paypal-icon__height / 2;
+		position: absolute;
+		top: 50%;
+	}
+
+	.payment-method-type {
+		font-weight: $common-text-fatter-weight;
+	}
+
+	.payment-method-description {
+		color: $m2legacy-color-gray34;
+	}
+}
+
+.braintree-paypal-fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.action-braintree-paypal-logo {
+	@include common-button-reset-styles();
+
+	img {
+		margin: 0;
+		width: rem-calc(114);
+	}
+}
+
+.payment-method {
+	.payment-method-content {
+		.actions-toolbar {
+			&.braintree-paypal-actions {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+//  My Account > Stored Payment Methods
+.account {
+	.table {
+		.col {
+			&.paypal-account {
+				img {
+					vertical-align: middle;
+				}
+
+				+ .actions {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.payment-method-braintree {
+		.cvv {
+			.field-tooltip {
+				left: rem-calc(60);
+			}
+		}
+	}
+
+	.braintree-paypal-account {
+		border-color: $m2legacy-color-gray80;
+		border-style: solid;
+		border-width: rem-calc(1 0);
+		display: inline-block;
+		width: 50%;
+	}
+
+	//  My Account > Stored Payment Methods
+	.account {
+		.table-credit-cards {
+			.col {
+				&.actions {
+					width: rem-calc(100);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+.fotorama__caption {
+	@extend .fotorama-gpu;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: $m2legacy-color-black;
+	font-size: rem-calc(14);
+	line-height: 1.5;
+	z-index: 12;
+
+	a {
+		color: $m2legacy-color-black;
+		text-decoration: none;
+		border-bottom: rem-calc(1) solid;
+		border-color: fade($m2legacy-color-black, .5);
+
+		&:hover {
+			color: $m2legacy-color-black;
+			border-color: fade($m2legacy-color-black, .5);
+		}
+	}
+
+	.fotorama__wrap--rtl & {
+		left: auto;
+		right: 0;
+	}
+
+	.fotorama__wrap--video &,
+	.fotorama__wrap--no-captions & {
+		display: none;
+	}
+}

@@ -1,0 +1,78 @@
+//  Newsletter subscription
+.block.newsletter {
+	margin-bottom: rem-calc(40);
+
+	.form.subscribe {
+		display: table;
+		width: 100%;
+	}
+
+	.fieldset {
+		display: table-cell;
+		margin: 0;
+		padding: 0;
+		vertical-align: top;
+	}
+
+	.field {
+		margin: 0;
+
+		.control {
+			display: block;
+
+			&::before {
+				@include nwayo-pseudo-image-styles(rem-calc(35));
+				@include store-envelope-image();
+				position: absolute;
+				display: inline-block;
+				overflow: hidden;
+			}
+		}
+	}
+
+	input {
+		padding-left: rem-calc(35);
+	}
+
+	.title {
+		display: none;
+	}
+
+	.label {
+		@include nwayo-visually-hidden-styles();
+	}
+
+	.actions {
+		display: table-cell;
+		vertical-align: top;
+		width: 1%;
+	}
+
+	.action.subscribe {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		margin-left: rem-calc(-1);
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.block.newsletter {
+		width: 32%;
+
+		.field {
+			margin-right: rem-calc(5);
+
+			.control {
+				width: 100%;
+			}
+		}
+
+		.action.subscribe {
+			border-radius: rem-calc(3);
+		}
+	}
+}

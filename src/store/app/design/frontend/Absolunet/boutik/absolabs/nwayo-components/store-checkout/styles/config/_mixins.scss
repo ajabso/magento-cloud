@@ -1,0 +1,171 @@
+//-------------------------------------
+//-- Store checkout - Config - Mixins
+//-------------------------------------
+
+//-- Shopping cart and payment summary block
+@mixin storecheckout-summary-block-styles() {
+	margin-bottom: 1em;
+
+	.title {
+		position: relative;
+		padding: 1em 2em 1em 0;
+		border-top: common-border();
+		margin-bottom: 0;
+		font-weight: $common-text-fat-weight;
+		cursor: pointer;
+
+		&::after {
+			content: '+';
+			position: absolute;
+			top: grid-column(50%);
+			right: 0;
+			width: 1.66em;
+			height: 1.66em;
+			border: common-border();
+			border-radius: 50%;
+			font-size: $common-text-medium-size;
+			text-align: center;
+			transform: translateY(-50%);
+		}
+
+		strong {
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-base-weight;
+		}
+	}
+
+	&.active .title::after {
+		content: '-';
+	}
+
+	.content {
+		text-align: left;
+	}
+}
+
+//-- Shopping cart sidebar and checkout sidebar totals
+@mixin storecheckout-sidebar-totals-styles() {
+	.mark {
+		padding-left: .33em;
+		font-weight: $common-text-base-weight;
+
+		strong {
+			font-weight: $common-text-base-weight;
+		}
+	}
+
+	.amount {
+		padding-right: .33em;
+		text-align: right;
+		white-space: nowrap;
+
+		strong {
+			font-weight: $common-text-base-weight;
+		}
+	}
+
+	.grand {
+		.mark, .amount {
+			padding-top: 1.33em;
+		}
+
+		.amount {
+			padding-right: .33em;
+			text-align: right;
+
+			strong {
+				font-weight: $common-text-fatter-weight;
+			}
+		}
+	}
+
+	.msrp {
+		margin-bottom: .66em;
+	}
+
+	.totals-tax {
+		&-summary {
+			.mark, .amount {
+				cursor: pointer;
+			}
+
+			.amount .price {
+				position: relative;
+				display: block;
+
+				&::before {
+					@include nwayo-pseudo-image-styles(1em);
+					@include store-expand-image();
+					display: inline-block;
+					overflow: hidden;
+					width: 1.1em;
+					height: 1.1em;
+					margin: 0 1em -.2em 0;
+				}
+			}
+
+			&.expanded {
+				.mark, .amount {
+					border-bottom: 0;
+				}
+
+				.amount .price::before {
+					@include store-unexpand-image();
+				}
+			}
+		}
+
+		&-details {
+			display: none;
+
+			&.shown {
+				display: table-row;
+				background-color: $storecheckout-cartsummary-item-bg-color;
+
+				.mark, .amount {
+					padding: .3em .5em;
+					font-size: $common-text-tiny-size;
+				}
+			}
+		}
+	}
+
+	.table-caption {
+		display: none;
+	}
+}
+
+//-- Checkout title
+@mixin storecheckout-checkout-title-styles() {
+	margin-bottom: 1em;
+	color: $common-text-color;
+	font-family: $common-title-font;
+	font-size: $common-title-big-size;
+	font-weight: $common-text-fat-weight;
+
+	@media #{bp(small down)} {
+		margin-bottom: .5em;
+		font-size: $common-title-small-size;
+	}
+}
+
+//-- Checkout Tooltip Content (position: top)
+@mixin storecheckout-tooltip-content-position-top-styles() {
+	top: 2.25em;
+	right: .66em;
+	left: auto;
+
+	&::before, &::after {
+		@include nwayo-arrow-styles(up, $common-text-nano-size, $common-alt-color);
+		top: 0;
+		right: .66em;
+		left: auto;
+		border-bottom-color: $common-base-color;
+		margin-top: -1.25em;
+	}
+
+	&::after {
+		top: .06em;
+		border-bottom-color: $common-base-color;
+	}
+}

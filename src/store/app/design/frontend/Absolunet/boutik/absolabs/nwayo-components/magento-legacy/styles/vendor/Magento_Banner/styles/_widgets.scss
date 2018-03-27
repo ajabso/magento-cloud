@@ -1,0 +1,21 @@
+.block-banners,
+.block-banners-inline {
+	margin-bottom: rem-calc(40);
+
+	.banner-items {
+		@include nwayo-list-reset-styles();
+	}
+
+	.banner-item {
+		display: block;
+	}
+
+	.banner-item-content {
+		margin-bottom: rem-calc(20);
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}

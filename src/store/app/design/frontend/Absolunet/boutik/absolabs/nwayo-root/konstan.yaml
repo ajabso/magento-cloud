@@ -1,0 +1,82 @@
+#-------------------------------------
+#-- konstan
+#-------------------------------------
+data:
+
+  #-- Responsive breakpoints
+  dimension:
+    small:    600
+    medium:   900
+    large:   1200
+    xlarge:  1500
+
+    xsmall:   450
+    nav:      750
+    max:     1500
+
+
+  #-- Transition speeds in ms
+  transition:
+    hover:     100
+    ui:        300
+    animation: 500
+
+
+  #-- Colors
+  color:
+
+    # Base
+    black:                    '#000000'
+    white:                    '#ffffff'
+    gray-light:               '#f3f3f3'
+
+    # Brand
+    brand-sockeye:            '#ff5252'
+    brand-victoria:           '#2b2d3c'
+
+    # Main
+    main-cold-water:          '#3c475d'
+    main-cold-water-alt:      '#808a9f'
+
+    # Grey
+    myst:                     '#b1c0c7'
+    greyhound:                '#68738b'
+    toundra:                  '#e2e9ed'
+    white-rabbit-in-the-snow: '#f2f6f7'
+
+    # Messages
+    success:                  '#4fb980'
+    warning:                  '#ffd061'
+    error:                    '#d66161'
+
+    # UI
+    review-star:              '#fecf8b'
+
+
+  #-- Fonts
+  font:
+    base: 'Lato'
+    alt:  'Poppins'
+
+
+  #-- Misc utils
+  util:
+    emptyimage: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+
+
+
+
+
+
+#-- konstan output options
+options:
+
+  scripts:
+    exclude:
+      - font.base
+      - font.alt
+
+
+  styles:
+    exclude:
+      - util.emptyimage

@@ -1,0 +1,128 @@
+//
+//  Catalog Events
+//  ---------------------------------------------
+
+.block-category-event {
+	background: $catalog-event-background-color;
+	color: $catalog-event-color;
+	padding: rem-calc(10 0 15);
+	text-align: center;
+
+	&.block:last-child {
+		margin-bottom: rem-calc(10);
+	}
+
+	.block-title {
+		margin: rem-calc(0 0 10);
+
+		strong {
+			font-size: rem-calc(15);
+			font-weight: $common-text-slim-weight;
+		}
+	}
+
+	.ticker {
+		@include nwayo-list-reset-styles();
+
+		li {
+			display: none;
+			margin: rem-calc(0 15);
+		}
+
+		.value {
+			font-size: rem-calc(18);
+			font-weight: $common-text-slim-weight;
+		}
+
+		.label {
+			font-size: rem-calc(10);
+			display: block;
+			text-transform: lowercase;
+		}
+	}
+
+	.dates {
+		display: table;
+		margin: 0 auto;
+
+		.start,
+		.end {
+			display: table-cell;
+			vertical-align: top;
+		}
+
+		.date {
+			font-size: rem-calc(18);
+		}
+
+		.time {
+			display: block;
+		}
+
+		.start {
+			padding-right: rem-calc(40);
+			position: relative;
+
+			&::after {
+				font-size: rem-calc(18);
+				content: '\2013';
+				display: block;
+				position: absolute;
+				right: rem-calc(15);
+				top: 0;
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.block-category-event {
+		&.block:last-child {
+			margin-bottom: rem-calc(30);
+			padding: rem-calc(10 0 30);
+		}
+
+		.block-title {
+			margin: 0;
+
+			strong {
+				font-size: rem-calc(24);
+			}
+		}
+
+		.ticker {
+			li {
+				display: none;
+				margin: rem-calc(0 50);
+			}
+
+			.value {
+				font-size: rem-calc(60);
+			}
+
+			.label {
+				font-size: rem-calc(14);
+				text-transform: none;
+			}
+		}
+
+		.dates {
+			.date {
+				font-size: rem-calc(50);
+			}
+
+			.start {
+				padding-right: rem-calc(50);
+
+				&::after {
+					font-size: rem-calc(50);
+					right: rem-calc(10);
+				}
+			}
+		}
+	}
+}

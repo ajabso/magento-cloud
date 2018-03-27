@@ -1,0 +1,11 @@
+//-------------------------------------
+//-- Store - Config - Selectors
+//-------------------------------------
+
+$store-header-selector:                 '.page-header';
+$store-header-fixednav-selector:        $store-header-selector + ' .panel.wrapper';
+
+$store-header-mainnav-selector:         $store-header-selector + ' .header.wrapper';
+$store-header-mainnav-logo-selector:    $store-header-selector + ' .logo';
+$store-header-mainnav-toggle-selector:  $store-header-selector + ' .nav-toggle';
+$store-header-mainnav-wrapper-selector: $store-header-selector + ' .nav-sections';

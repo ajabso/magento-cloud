@@ -1,0 +1,38 @@
+//
+//  Buttons
+//  ---------------------------------------------
+.button {
+	.inner-wrapper {
+		td:hover {
+			background-color: $m2legacy-color-blue2 !important;
+		}
+
+		a:active,
+		td:active {
+			background-color: $m2legacy-color-blue2 !important;
+		}
+	}
+
+	a:active,
+	a:hover,
+	a:visited {
+		//  Undo general link hover state
+		border: 1px solid $m2legacy-color-blue2;
+		color: $m2legacy-color-white !important;
+		text-decoration: none !important;
+	}
+}
+
+@media #{$storeemail-xsmall-down-media} {
+	.button {
+		.inner-wrapper {
+			width: 100% !important;
+
+			td {
+				a {
+					font-size: $common-text-medium-size;
+				}
+			}
+		}
+	}
+}

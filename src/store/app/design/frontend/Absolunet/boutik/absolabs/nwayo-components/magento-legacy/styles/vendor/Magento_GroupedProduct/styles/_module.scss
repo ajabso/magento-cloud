@@ -1,0 +1,65 @@
+.table.grouped {
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border-top: common-border();
+			}
+		}
+	}
+
+	> caption + thead,
+	> colgroup + thead,
+	> thead:first-child {
+		> tr:first-child {
+			> th,
+			> td {
+				border-top: 0;
+			}
+		}
+	}
+
+	> tbody + tbody {
+		border-top: common-border();
+	}
+
+	> thead > tr > th {
+		border-bottom: 0;
+	}
+
+	.product-item-name {
+		font-weight: $common-text-base-weight;
+	}
+
+	.price-box {
+		.price {
+			font-size: $common-text-base-size;
+		}
+	}
+
+	.control {
+		.qty {
+			width: 3em;
+			text-align: center;
+		}
+	}
+
+	.stock.unavailable {
+		font-weight: $common-text-base-weight;
+		margin: 0;
+		text-transform: none;
+		white-space: nowrap;
+	}
+
+	.row-tier-price {
+		td {
+			border-top: 0;
+		}
+
+		.prices-tier {
+			margin: rem-calc(0 -10 10);
+		}
+	}
+}

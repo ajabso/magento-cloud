@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <remove src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+        <!-- Containers -->
+        <referenceContainer name="content">
+            <container name="product.info.container" htmlTag="div" htmlClass="product info container" before="-" />
+            <referenceContainer name="product.info.media" htmlClass="product info media" />
+            <referenceContainer name="product.info.main" htmlClass="product info main product-info-main" />
+            <referenceContainer name="product.info.options.wrapper.bottom">
+                <container name="product.info.promotion" htmlTag="div" htmlClass="product info promotion" after="product.info.addtocart" />
+            </referenceContainer>
+            <container name="product.info.aside" htmlTag="div" htmlClass="product info aside" after="product.info.detailed" />
+        </referenceContainer>
+
+        <!-- Overview -->
+        <move element="product.info.media" destination="product.info.container" before="-" />
+        <move element="product.info.main" destination="product.info.container" after="product.info.media" />
+        <move element="page.main.title" destination="product.info.main" before="-" />
+        <move element="product.info.review" destination="product.info.main" before="page.main.title" />
+        <move element="product.info.stock.sku" destination="product.info.addtocart" before="-" />
+        <move element="absolunet.promotion.freeshpping.js" destination="product.info.promotion" after="product.info.addtocart" />
+        <move element="absolunet.promotion.freeshpping.ajax" destination="product.info.promotion" after="product.info.addtocart" />
+
+        <!-- Related/UpSell -->
+        <move element="content.aside" destination="product.info.aside" before="-" />
+    </body>
+</page>

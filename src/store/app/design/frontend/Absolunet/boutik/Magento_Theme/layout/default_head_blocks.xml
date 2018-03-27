@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+    	<css src="/build/store/styles/main.css" src_type="url"/>
+        <css src="/build/store/styles/print.css" media="print" src_type="url"/>
+
+        <remove src="css/styles-m.css"/>
+        <remove src="css/styles-l.css"/>
+        <remove src="css/print.css"/>
+        <meta name="format-detection" content="telephone=no"/>
+
+        <link rel="shortcut icon"    src_type="url" src="/build/store/icons/store/favicon.ico"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-57.png"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-72.png"  sizes="72x72"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-76.png"  sizes="76x76"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-114.png" sizes="114x114"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-120.png" sizes="120x120"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-144.png" sizes="144x144"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-152.png" sizes="152x152"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-167.png" sizes="167x167"/>
+        <link rel="apple-touch-icon" src_type="url" src="/build/store/icons/store/touch-180.png" sizes="180x180"/>
+        <link rel="image_src"        src_type="url" src="/build/store/icons/store/touch-512.png"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-64.png"  sizes="64x64"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-96.png"  sizes="96x96"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-192.png" sizes="192x192"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-195.png" sizes="195x195"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-196.png" sizes="196x196"/>
+        <link rel="icon"             src_type="url" src="/build/store/icons/store/icon-228.png" sizes="228x228"/>
+
+        <meta name="msapplication-square70x70logo"   content="/build/store/icons/store/tile-small.png"/>
+        <meta name="msapplication-square150x150logo" content="/build/store/icons/store/tile-medium.png"/>
+        <meta name="msapplication-wide310x150logo"   content="/build/store/icons/store/tile-wide.png"/>
+        <meta name="msapplication-square310x310logo" content="/build/store/icons/store/tile-large.png"/>
+    </head>
+</page>

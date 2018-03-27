@@ -1,0 +1,74 @@
+//---------------------------------------------------
+//-- Store catalog - Product sizechart
+//---------------------------------------------------
+
+.sizechart-link {
+	color: $common-link-color;
+	font-family: $common-title-font;
+	font-size: $common-text-tiny-size;
+	font-weight: $common-text-fat-weight;
+	text-transform: uppercase;
+}
+
+.sizechart-popup {
+	text-align: center;
+
+	.sizechart-content {
+		padding: 1em 0;
+
+		h1, h2, h3, h4, h6 {
+			color: $common-text-color;
+		}
+
+		p {
+			margin-bottom: 2em;
+			color: $common-text-var7-color;
+			font-size: $common-text-base-size;
+		}
+
+		table {
+			border: 0;
+			margin: 0 0 2em;
+
+			tr {
+				border: common-border($color: $common-bg-var3-color);
+
+				th, td {
+					padding: 1em .625em;
+				}
+
+				th {
+					border: 0;
+					background-color: $common-bg-var3-color;
+					color: $common-text-color;
+					font-family: $common-title-font;
+					font-size: $common-text-tiny-size;
+					font-weight: $common-text-fat-weight;
+					text-align: center;
+					text-transform: uppercase;
+
+					&:first-child {
+						text-align: left;
+					}
+				}
+
+				td {
+					border: 0;
+					background-color: $common-bg-color;
+					color: $common-text-var6-color;
+					font-size: $common-text-tiny-size;
+					text-align: center;
+
+					&:first-child {
+						color: $common-text-color;
+						font-family: $common-title-font;
+						font-size: $common-text-tiny-size;
+						font-weight: $common-text-fat-weight;
+						text-align: left;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+}

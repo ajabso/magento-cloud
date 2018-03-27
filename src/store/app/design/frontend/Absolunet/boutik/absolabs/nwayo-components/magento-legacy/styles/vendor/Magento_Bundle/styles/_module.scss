@@ -1,0 +1,145 @@
+.bundle-actions {
+	margin: rem-calc(10 0);
+	.action.primary {
+		@include common-button-styles($size:large);
+	}
+}
+
+.bundle-options-container {
+	clear: both;
+	margin-bottom: rem-calc(40);
+
+	.legend.title {
+		@include store-h2-styles();
+	}
+
+	.product-add-form {
+		display: none;
+	}
+
+	.input-text.qty {
+		width: 3em;
+		text-align: center;
+	}
+
+	.product-options-wrapper {
+		margin-bottom: rem-calc(30);
+	}
+
+	.action.back {
+		margin-bottom: rem-calc(30);
+	}
+
+	.price-box {
+		.price {
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-fatter-weight;
+		}
+	}
+
+	.price-notice {
+		@include store-incl-excl-tax-styles();
+	}
+
+	.block-bundle-summary {
+		background: $m2legacy-color-gray91;
+		box-sizing: border-box;
+		padding: rem-calc(10 20);
+
+		> .title > strong {
+			@include store-h2-styles();
+		}
+
+		.bundle-summary {
+			margin-top: rem-calc(30);
+
+			&.empty {
+				display: none;
+			}
+
+			> .subtitle {
+				@include store-h3-styles();
+				display: block;
+			}
+		}
+
+		.bundle.items {
+			@include nwayo-list-reset-styles();
+
+			> li {
+				margin-bottom: rem-calc(10);
+			}
+		}
+
+		.box-tocart {
+			.actions {
+				display: inline-block;
+				margin-bottom: rem-calc(10);
+			}
+
+			.action.primary {
+				@include common-button-styles($size:large);
+			}
+		}
+
+		.product-addto-links {
+			> .action {
+				@include common-button-styles($size:small);
+				border-radius: .2em;
+				vertical-align: top;
+			}
+		}
+	}
+	.nested {
+		.field.qty {
+			.label {
+				font-weight: $common-text-fat-weight;
+				margin: rem-calc(0 0 5);
+				display: inline-block;
+			}
+
+			margin-top: rem-calc(20);
+		}
+	}
+
+	p.required {
+		color: $m2legacy-color-red;
+	}
+
+	.product-options-bottom {
+		clear: left;
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.bundle-options-container {
+		.legend.title {
+			margin-left: 0;
+		}
+
+		.bundle-options-wrapper,
+		.product-options-wrapper {
+			float: left;
+			width: 57%;
+		}
+
+		.block-bundle-summary {
+			float: right;
+			position: relative;
+			width: 40%;
+		}
+
+		.bundle-options-wrapper,
+		.block-bundle-summary {
+			.page-layout-2columns-left &,
+			.page-layout-2columns-right &,
+			.page-layout-3columns & {
+				width: 48%;
+			}
+		}
+	}
+}

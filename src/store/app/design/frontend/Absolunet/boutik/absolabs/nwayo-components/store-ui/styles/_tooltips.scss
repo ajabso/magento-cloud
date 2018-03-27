@@ -1,0 +1,49 @@
+//-------------------------------------
+//-- Store UI - Tooltips
+//-------------------------------------
+
+.tooltip.wrapper {
+	@include storeui-tooltips-base-styles();
+
+	.tooltip.content {
+		dl {
+			margin-bottom: 0;
+		}
+
+		dd {
+			white-space: normal;
+		}
+
+		.subtitle {
+			display: inline-block;
+			margin-bottom: 1em;
+			font-size: $common-text-base-size;
+			font-weight: $common-text-base-weight;
+		}
+
+		.label {
+			margin-top: .625em;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.values {
+			margin: 0;
+		}
+	}
+}
+
+.ui-tooltip {
+	position: absolute;
+	z-index: 9999;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+}
+
+
+//-- Mobile
+@media #{$common-xsmall-down-media} {
+	.tooltip.wrapper .tooltip.content {
+		min-width: 6.25em;
+	}
+}

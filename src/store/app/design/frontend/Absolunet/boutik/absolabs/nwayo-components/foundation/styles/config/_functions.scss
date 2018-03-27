@@ -1,0 +1,7 @@
+//-------------------------------------
+//-- Foundation - Config - Functions
+//-------------------------------------
+
+@function bp($arguments) {
+	@return 'screen and ' + breakpoint($arguments);
+}

@@ -1,0 +1,238 @@
+//---------------------------------------------------
+//-- Store catalog - Product
+//---------------------------------------------------
+
+.product.info {
+	&.container {
+		@include xy-grid();
+		max-width: 100%;
+	}
+
+	//-- Medias
+	&.media {
+		width: xy-cell-size();
+
+		@media #{bp(large)} {
+			width: xy-cell-size(1 of 2);
+		}
+
+		//-- Fotorama
+		// TODO: Related to MAGENTO_FOTORAMA module
+		.fotorama__stage { // stylelint-disable-line selector-class-pattern
+			border: common-border();
+		}
+	}
+
+	//-- Information
+	&.main {
+		width: xy-cell-size();
+
+		@media #{bp(large)} {
+			@include xy-gutters($gutter-type:padding);
+			width: xy-cell-size(1 of 2);
+		}
+
+		.page-title-wrapper {
+			clear: both;
+
+			.page-title {
+				@include store-h2-styles();
+			}
+		}
+
+		//-- Reviews / Ratings
+		// TODO: Related to MAGENTO_REVIEWS module
+		.product-reviews-summary {
+			float: right;
+		}
+	}
+
+	.stock {
+		&.available, &.unavailable {
+			display: inline-block;
+			vertical-align: top;
+			font-weight: $common-text-fatter-weight;
+			text-transform: uppercase;
+		}
+
+		&.available {
+			color: $common-success-text-color;
+		}
+
+		&.unavailable {
+			color: $common-warning-text-color;
+		}
+	}
+
+	&.promotion {
+		padding: 1.5em 0;
+		border-top: common-border();
+		border-bottom: common-border();
+	}
+
+	//-- Container Detailed (Tabs)
+	&.detailed {
+		clear: both;
+		width: xy-cell-size();
+		margin-top: 2em;
+		margin-bottom: 2em;
+
+		.additional-attributes {
+			> thead, > tbody, > tfoot {
+				> tr {
+					&:not(:last-child) {
+						border-bottom: common-border();
+					}
+
+					> th {
+						padding: .5em 1em .5em 0;
+					}
+
+					> td {
+						padding: .5em 0 .5em 1em;
+					}
+				}
+			}
+		}
+	}
+}
+
+.box-tocart {
+	margin: 1.5em 0;
+
+	.input-text.qty {
+		width: 4em;
+		height: 3em;
+		text-align: center;
+	}
+
+	.action {
+		&.tocart {
+			@include common-button-styles($size:large, $action:cart);
+		}
+	}
+}
+
+.product-social-links {
+	margin: 1.5em 0;
+
+	.action {
+		@include common-button-reset-styles();
+
+		&::before {
+			@include nwayo-pseudo-image-styles(2em);
+			display: inline-block;
+			overflow: hidden;
+			vertical-align: middle;
+			margin: 0;
+		}
+
+		&.towishlist {
+			@include common-button-styles($type:secondary, $size:small, $action:wishlist);
+
+			&::before {
+				@include store-wishlist-empty-image();
+			}
+		}
+
+		&.tocompare {
+			@include common-button-styles($type:secondary, $size:small, $action:compare);
+
+			&::before {
+				@include store-compare-empty-image();
+			}
+		}
+
+		&.mailto {
+			@include common-button-styles($type:secondary, $size:small);
+		}
+	}
+}
+
+//-- Configurable options
+// TODO: Neet to be placed into Swtaches Modules
+.swatch-opt {
+	margin: 0;
+}
+
+.swatch-attribute {
+	margin: 1.5em 0;
+
+	&-label::after {
+		content: ':';
+		display: inline-block;
+	}
+
+	&-selected-option {
+		padding-left: .5em;
+	}
+
+	&.color,
+	&.size {
+		.swatch-option {
+			position: static;
+
+			&.color,
+			&.text {
+				min-width: $storecatalog-swatches-size;
+				max-width: $storecatalog-swatches-size;
+				min-height: $storecatalog-swatches-size;
+				max-height: $storecatalog-swatches-size;
+				padding-top: $storecatalog-swatches-size / 3;
+				border: common-border($width: $storecatalog-swatches-border-width, $color: $common-bg-color);
+				border-radius: $storecatalog-swatches-border-radius;
+				outline: 0;
+				box-shadow: 0 0 0 $storecatalog-swatches-border-width $common-border-color;
+				font-size: $common-text-small-size;
+				text-align: center;
+
+				&.selected,
+				&:not(.disabled):hover {
+					outline: 0;
+					box-shadow: 0 0 0 $storecatalog-swatches-border-width $common-border-var1-color;
+				}
+			}
+		}
+	}
+}
+
+.product-options-wrapper {
+	.fieldset-product-options-inner {
+		.legend {
+			display: inline-block;
+			float: none;
+			padding: 0;
+			border: 0;
+			margin: 0 0 .5em;
+			font-size: $common-text-small-size;
+			font-weight: $common-text-fatter-weight;
+		}
+
+		//  Date & Time custom option (Affect Time that goes only after Date)
+		input.datetime-picker ~ select.datetime-picker {
+			margin-top: 1em;
+		}
+
+		// No control over selector
+		// stylelint-disable selector-class-pattern
+		&.required, &._required {
+			.legend::after {
+				content: '*';
+				margin: 0 0 0 .5em;
+				color: $common-required-color;
+				font-size: $common-text-tiny-size;
+			}
+		}
+		// stylelint-enable selector-class-pattern
+	}
+
+	.field {
+		.note {
+			display: block;
+		}
+	}
+}
+
+.ui-dialog-titlebar-close {
+	@include store-button-as-link-styles();
+}

@@ -1,0 +1,12 @@
+//---------------------------------------------------
+//-- Store catalog - Config - Mixins
+//---------------------------------------------------
+
+@mixin storecatalog-pricing-details-styles() {
+	padding: $storecatalog-listing-padding 0;
+	background-color: $common-bg-var3-color;
+	color: $common-text-color;
+	font-size: $common-text-small-size;
+	font-weight: $common-text-fat-weight;
+	line-height: $common-text-lineheight;
+}

@@ -1,0 +1,5 @@
+Code,Postion,Priority,"Calculate Subtotal","Customer Tax Class Ids","Product Tax Class Ids","Tax Rates Code"
+CA-GST,1,1,1,3,2,"CA-BC-GST,CA-AB-GST,CA-MB-GST,CA-NT-GST,CA-NU-GST,CA-QC-GST,CA-SK-GST,CA-YK-GST"
+CA-HST,1,2,1,3,2,"CA-NB-HST,CA-NL-HST,CA-NS-HST,CA-ON-HST,CA-PE-HST"
+CA-PST,2,3,1,3,2,"CA-BC-PST,CA-MB-PST,CA-SK-PST"
+CA-QST,2,4,1,3,2,"CA-QC-QST"

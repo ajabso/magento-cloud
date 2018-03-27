@@ -1,0 +1,28 @@
+//-------------------------------------
+//-- Store checkout - Checkout - Modals
+//-------------------------------------
+
+.checkout-index-index .modal-popup {
+	.field-tooltip .field-tooltip-content {
+		@include storecheckout-tooltip-content-position-top-styles();
+	}
+
+	@media #{bp(large)} {
+		.form-shipping-address {
+			max-width: 37.5em;
+		}
+
+		.modal-footer .action-save-address {
+			float: right;
+			margin: 0 0 0 .66em;
+		}
+	}
+
+	@media #{bp(xlarge)} {
+		.modal-inner-wrap {
+			left: 50%;
+			width: 50em;
+			margin-left: -25em;
+		}
+	}
+}

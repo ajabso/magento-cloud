@@ -1,0 +1,40 @@
+//
+//  Variables
+//  _____________________________________________
+
+$desktop-popup-width         : rem-calc(380);
+$desktop-popup-margin-left   : -(($desktop-popup-width + rem-calc(44)) / 2);
+$desktop-popup-position-left : 50%;
+$desktop-popup-position-top  : 20%;
+
+
+
+
+
+
+
+//
+//  Dropdown items - create new
+//  ---------------------------------------------
+
+@mixin abs-dropdown-items-new {
+	.items .item:last-child {
+		&:hover {
+			background: $m2legacy-color-gray91;
+		}
+	}
+
+	.action.new {
+		display: inline-block;
+
+		&::before {
+			@include nwayo-pseudo-image-styles(rem-calc(10));
+			@include store-expand-image();
+			display: inline-block;
+			overflow: hidden;
+			vertical-align: middle;
+			margin-right: rem-calc(5);
+			margin-left: rem-calc(-17);
+		}
+	}
+}

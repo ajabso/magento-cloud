@@ -1,0 +1,15 @@
+//-------------------------------------
+//-- Store UI - Buttons
+//-------------------------------------
+
+.action.primary, .button, .action-primary {
+	@include common-button-styles();
+}
+
+.button.cta {
+	@include common-button-styles($type:cta);
+}
+
+.action-secondary {
+	@include common-button-styles($type:secondary);
+}

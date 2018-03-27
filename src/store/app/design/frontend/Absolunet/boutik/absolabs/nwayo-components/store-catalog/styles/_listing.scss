@@ -1,0 +1,340 @@
+//---------------------------------------------------
+//-- Store catalog - Listing
+//---------------------------------------------------
+
+//-- Category view
+.category-image {
+	min-height: 8.75em;
+	margin-bottom: 0;
+	background-position: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	@media #{bp(medium)} {
+		min-height: 15em;
+	}
+
+	@media #{bp(large)} {
+		min-height: 18.75em;
+	}
+
+	@media #{bp(xlarge)} {
+		min-height: 28.125em;
+	}
+
+	.image {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.category-description {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.products {
+	margin: $storecatalog-listing-margin 0;
+}
+
+.product {
+	&-items {
+		@include nwayo-list-reset-styles();
+	}
+
+	//-- Product
+	&-item {
+		display: inline-block;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: xy-cell-size(1 of 2);
+		padding: $common-column-gutter-size / 2;
+
+		//-- Layout
+		.page-layout-1column & {
+			width: xy-cell-size(1 of 2);
+
+			@media #{bp(medium)} {
+				width: xy-cell-size(1 of 3);
+			}
+
+			@media #{bp(large)} {
+				width: xy-cell-size(1 of 4);
+			}
+
+			@media #{bp(xlarge)} {
+				width: xy-cell-size(1 of 6);
+			}
+		}
+
+		.page-layout-3column & {
+			width: xy-cell-size(1 of 2);
+
+			@media #{bp(medium)} {
+				width: xy-cell-size(1 of 3);
+			}
+
+			@media #{bp(large)} {
+				width: xy-cell-size(1 of 2);
+			}
+
+			@media #{bp(xlarge)} {
+				width: xy-cell-size(1 of 4);
+			}
+		}
+
+		.products-grid & {
+			width: xy-cell-size(1 of 2);
+
+			@media #{bp(medium)} {
+				width: xy-cell-size(1 of 3);
+			}
+
+			@media #{bp(large)} {
+				width: xy-cell-size(1 of 3);
+			}
+
+			@media #{bp(xlarge)} {
+				width: xy-cell-size(1 of 4);
+			}
+		}
+
+		.products-list & {
+			display: inline-table;
+			width: xy-cell-size();
+			table-layout: fixed;
+
+			@media #{bp(medium)} {
+				width: xy-cell-size();
+			}
+
+			@media #{bp(large)} {
+				width: xy-cell-size(1 of 2);
+			}
+
+			@media #{bp(xlarge)} {
+				width: xy-cell-size(1 of 2);
+			}
+		}
+
+		//-- Card
+		&-info {
+			position: relative;
+			border: common-border();
+			text-align: center;
+
+			.products-list & {
+				display: table-row;
+				text-align: left;
+			}
+		}
+
+		&-discount {
+			position: absolute;
+			top: $storecatalog-listing-margin;
+			right: $storecatalog-listing-margin;
+			z-index: common-zindex(content, 10);
+			width: 4em;
+			height: 4em;
+			border-radius: 2em;
+			background-color: $common-bg-var1-color;
+			text-align: center;
+
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				color: $common-text-var1-color;
+				font-size: $common-text-base-size;
+				font-weight: $common-text-fat-weight;
+				line-height: $common-content-lineheight;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&-photo {
+			.products-list & {
+				display: table-cell;
+				vertical-align: top;
+			}
+
+			.product-image-container {
+				display: inline-block;
+				max-width: 100%;
+
+				&, img {
+					min-width: 100%;
+				}
+
+				.product-image-wrapper {
+					position: relative;
+					z-index: common-zindex(content);
+					display: block;
+					overflow: hidden;
+					height: 0;
+				}
+
+				.product-image-photo {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					display: block;
+					max-width: 100%;
+					height: auto;
+					margin: auto;
+				}
+			}
+		}
+
+
+		&-details {
+			padding: $storecatalog-listing-padding;
+
+			.products-list & {
+				display: table-cell;
+				vertical-align: top;
+			}
+		}
+
+		[class^='swatch-opt-'], [class*=' swatch-opt-'] {
+			display: none;
+
+			@media #{bp(large)} {
+				display: block;
+			}
+		}
+
+		&-options {
+			padding: $storecatalog-listing-padding;
+			border-bottom: common-border();
+			margin: $storecatalog-listing-margin 0;
+			color: $common-text-color;
+			text-transform: lowercase;
+
+			@media #{bp(large)} {
+				display: none;
+			}
+		}
+
+		&-manufacturer {
+			display: block;
+			margin: $storecatalog-listing-margin 0;
+			color: $common-text-color;
+			font-size: $common-text-small-size;
+		}
+
+		&-name {
+			display: block;
+			margin: $storecatalog-listing-margin 0;
+			font-size: $common-text-medium-size;
+			font-weight: $common-text-base-weight;
+			line-height: $common-text-lineheight;
+			word-wrap: break-word;
+			hyphens: auto;
+
+			> a:not(.action):not(.button) {
+				&, &:focus, &:visited, &:hover, &:active {
+					color: $common-text-color;
+					text-decoration: none;
+				}
+			}
+		}
+
+		&-stock {
+			@include storecatalog-pricing-details-styles();
+			display: none;
+		}
+
+		&-description {
+			margin: $storecatalog-listing-margin 0;
+
+			.more {
+				@include common-button-styles($type:secondary, $size:small);
+
+				&::after {
+					content: ' +';
+				}
+			}
+		}
+
+		&-actions {
+			display: table;
+			width: 100%;
+			padding: $storecatalog-listing-padding 0;
+			margin: $storecatalog-listing-margin 0;
+
+			.actions-primary {
+				display: block;
+
+				.action {
+					display: inline-block;
+
+					@media #{bp(small only)} {
+						width: 100%;
+					}
+				}
+
+				@media #{bp(medium)} {
+					display: table-cell;
+				}
+			}
+
+			.actions-secondary {
+				display: block;
+				padding-left: $storecatalog-listing-padding;
+
+				> button.action {
+					@include common-button-reset-styles();
+				}
+
+				> .action {
+					display: inline-block;
+
+					&::before {
+						@include nwayo-pseudo-image-styles(1.8em);
+						display: inline-block;
+						overflow: hidden;
+						vertical-align: middle;
+						margin: 0;
+					}
+
+					> span {
+						@include nwayo-visually-hidden-styles();
+					}
+
+					&.towishlist::before {
+						@include store-wishlist-empty-image();
+					}
+
+					&.tocompare::before {
+						@include store-compare-empty-image();
+					}
+				}
+
+				@media #{bp(medium)} {
+					display: table-cell;
+				}
+			}
+		}
+	}
+
+
+	//-- Reviews / Ratings
+	// TODO: Related to MAGENTO_REVIEWS module
+	&-reviews-summary {
+		display: none;
+		margin-right: auto;
+		margin-left: auto;
+
+		.action.add {
+			display: none;
+		}
+
+		@media #{bp(large)} {
+			display: table;
+		}
+	}
+}

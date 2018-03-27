@@ -1,0 +1,169 @@
+.form-create-return {
+	@include storeui-form-add-fields-styles();
+
+	.field {
+		.control > span,
+		address {
+			display: inline-block;
+			padding-top: rem-calc(6);
+		}
+	}
+
+	.additional {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.field:nth-last-child(2) {
+			margin-bottom: 0;
+		}
+
+		.field {
+			&:last-child {
+				margin-top: rem-calc(20);
+			}
+		}
+	}
+
+	.field.comment {
+		margin-top: rem-calc(55);
+	}
+}
+
+.block-returns-comments {
+	.returns-comments {
+		dt,
+		dd {
+			margin: 0;
+		}
+
+		dt {
+			font-weight: $common-text-base-weight;
+		}
+
+		dd {
+			margin-bottom: rem-calc(15);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.fieldset {
+		margin-bottom: rem-calc(20);
+	}
+}
+
+.return-status {
+	display: inline-block;
+	margin-bottom: rem-calc(20);
+}
+
+.magento-rma-returns-returns,
+.magento-rma-guest-returns,
+.magento-rma-returns-view {
+	.page-title-wrapper {
+		.page-title {
+			margin-right: rem-calc(25);
+		}
+	}
+}
+
+//
+//  Guest return view page
+//  ---------------------------------------------
+
+.magento-rma-guest-returns {
+	.column.main {
+		.block:not(.widget) {
+			@include m2legacy-account-blocks-styles();
+		}
+	}
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@media #{bp(medium down)} {
+	.form-create-return {
+		.fieldset {
+			> .actions-toolbar {
+				@include nwayo-clearfix-styles();
+			}
+		}
+	}
+
+	.account {
+		.column.main {
+			.returns-details-items {
+				.block-returns-tracking {
+					.block-title {
+						> .action.track {
+							display: block;
+							float: none;
+							margin: rem-calc(10 0 0);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.form-create-return {
+		@include storeui-form-add-fields-large-styles();
+		.additional {
+			.field:last-child {
+				margin-top: rem-calc(29);
+			}
+		}
+	}
+
+	//
+	//  Guest return view page
+	//  ---------------------------------------------
+
+	.magento-rma-guest-returns {
+		.column.main {
+			.block:not(.widget) {
+				.block-content {
+					@include nwayo-clearfix-styles();
+
+					.box {
+						width: 48.8%;
+						margin-bottom: rem-calc(20);
+
+						&:nth-child(odd) {
+							float: left;
+							clear: left;
+						}
+
+						&:nth-child(even) {
+							float: right;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.block-returns-tracking {
+		.block-title {
+			.action {
+				margin: rem-calc(0 0 0 30);
+			}
+
+			.actions-track {
+				float: right;
+				margin-top: rem-calc(12);
+			}
+		}
+	}
+}

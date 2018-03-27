@@ -1,0 +1,38 @@
+.fotorama__dot {
+	display: block;
+	position: relative;
+	top: rem-calc(12);
+	left: rem-calc(6);
+	width: rem-calc(4);
+	height: rem-calc(4);
+	border: rem-calc(1) solid $m2legacy-color-gray52;
+	border-radius: rem-calc(6);
+
+	.fotorama__nav__frame--dot:focus & {
+		box-shadow: none;
+		&::after {
+			border-radius: inherit;
+			bottom: $fotorama-inner-box-shadow;
+			box-shadow: $focus__box-shadow;
+			content: '';
+			left: $fotorama-inner-box-shadow;
+			position: absolute;
+			right: $fotorama-inner-box-shadow;
+			top: $fotorama-inner-box-shadow;
+			z-index: 1000;
+		}
+	}
+
+	.fotorama__nav__frame--thumb:focus &::after,
+	.fotorama__nav__frame--dot:focus &::after {
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+
+	.fotorama__active & {
+		background-color: $m2legacy-color-orange;
+		border-color: $m2legacy-color-orange;
+	}
+}

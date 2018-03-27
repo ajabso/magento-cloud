@@ -1,0 +1,34 @@
+{
+    "name": "absolunet/theme-frontend-boutik",
+    "description": "Thème Magento 2 de base de Absolunet",
+    "require": {
+        "php": "~5.6.0|^7.0.0"
+    },
+    "type": "magento2-theme",
+    "version": "2.0.1",
+    "license": [
+        "MIT"
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@bitbucket.org:absolunet/boutik-theme-frontend-boutik.git"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Absolunet\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "atelier",
+            "email": "atelier@absolunet.com",
+            "role": "Developer"
+        }
+    ]
+}

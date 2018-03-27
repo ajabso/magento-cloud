@@ -1,0 +1,45 @@
+//
+//  Sales Module Styles
+//  _____________________________________________
+
+@media #{$common-xsmall-down-media} {
+	//  Shrink order number in order email so it will fit on single line on small screens
+	.email-summary {
+		h1 {
+			font-size: $common-text-base-size * 1.5 !important; // 24 pixels
+		}
+	}
+}
+
+//
+//  Order Summary
+//  ----------------------------------------------
+
+@media #{$common-xsmall-down-media} {
+	//  Stack columns
+	.order-details {
+		.address-details,
+		.method-info {
+			display: block;
+			padding: $storeemail-padding 0 !important;
+			width: auto !important;
+
+			h3 {
+				margin-bottom: 5px !important;
+				margin-top: 0 !important;
+			}
+		}
+	}
+}
+
+//
+//  Items Table
+//  ----------------------------------------------
+
+.email-items {
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
+}

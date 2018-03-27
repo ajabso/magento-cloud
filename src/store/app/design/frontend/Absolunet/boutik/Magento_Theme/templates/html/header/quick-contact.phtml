@@ -1,0 +1,18 @@
+<?php
+/**
+ *
+ *
+ * @category    design
+ * @package     Absolunet_boutik
+ * @author      Maude Payette <mpayette@absolunet.com>
+ * @copyright   Copyright (c) 2017 Absolunet (http://www.absolunet.com)
+ * @link        http://www.absolunet.com
+ */
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+?>
+<div class="quick-contact">
+    <span class="message"><?php echo __('Boutik:Header:ContactUs'); ?></span>
+    <a href="tel:<?php echo preg_replace('/[^0-9]/', '', __('Boutik:Header:ContactUsPhone')) ?>" class="phonenumber"><span><?php echo __('Boutik:Header:ContactUsPhone') ?></span></a>
+</div>

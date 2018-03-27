@@ -1,0 +1,310 @@
+ .swatch-attribute-label {
+	font-weight: $common-text-fat-weight;
+	position: relative;
+}
+
+.swatch-attribute-label.required {
+	padding-right: rem-calc(10);
+}
+
+.swatch-attribute-label[data-required="1"]::after {
+	content: '*';
+	color: red;
+	position: absolute;
+	right: rem-calc(-11);
+	top: rem-calc(-2);
+	font-weight: $common-text-fat-weight;
+	font-size: 1em;
+}
+
+.swatch-attribute-selected-option {
+	color: #646464;
+	padding-left: rem-calc(17);
+}
+
+.swatch-attribute-options {
+	margin-top: rem-calc(10);
+}
+
+.swatch-option {
+	padding: rem-calc(1 2);
+	min-width: rem-calc(30);
+	max-width: rem-calc(90);
+	height: rem-calc(20);
+	float: left;
+	margin: rem-calc(0 10 5 0);
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	border: rem-calc(1) solid rgb(218, 218, 218);
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.swatch-option.text {
+	background: #f0f0f0;
+	color: #686868;
+	font-size: rem-calc(12);
+	font-weight: $common-text-fat-weight;
+	line-height: 1;
+	padding: rem-calc(4 8);
+	min-width: rem-calc(22);
+	margin-right: rem-calc(7);
+}
+
+.swatch-option.selected {
+	outline: rem-calc(2) solid #ff5501;
+	border: rem-calc(1) solid #fff;
+	color: #333;
+}
+
+.swatch-option.text.selected {
+	background-color: #fff !important;
+}
+
+.clearfix::after {
+	content: '';
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.swatch-attribute.size .swatch-option,
+.swatch-attribute.manufacturer .swatch-option {
+	background: rgb(240, 240, 240);
+	color: rgb(148, 148, 148);
+}
+
+
+.swatch-attribute.size .swatch-option.selected,
+.swatch-attribute.manufacturer .swatch-option.selected {
+	color: black;
+	background: #fff;
+	border: rem-calc(1) solid #fff;
+}
+
+
+.swatch-option:not(.disabled):hover {
+	outline: rem-calc(1) solid #999;
+	border: rem-calc(1) solid #fff;
+	color: #333;
+}
+
+.swatch-option.image:not(.disabled):hover,
+.swatch-option.color:not(.disabled):hover {
+	outline: rem-calc(2) solid #ee0000;
+	border: rem-calc(1) solid #fff;
+}
+
+.swatch-option.disabled {
+	cursor: default;
+}
+
+.swatch-option.disabled::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: linear-gradient(
+		to left top,
+		rgba( 255, 255, 255, 0) 0%,
+		rgba( 255, 255, 255, 0) 42%,
+		rgba( 255, 255, 255, 1) 43%,
+		rgba( 255, 255, 255, 1) 46%,
+		rgba( 255, 82, 22, 1) 47%,
+		rgba( 255, 82, 22, 1) 53%,
+		rgba( 255, 255, 255, 1) 54%,
+		rgba( 255, 255, 255, 1) 57%,
+		rgba( 255, 255, 255, 0) 58%,
+		rgba( 255, 255, 255, 0) 100%
+	);
+}
+
+.swatch-option-tooltip {
+	max-width: rem-calc(140);
+	max-height: 100%;
+	min-height: rem-calc(20);
+	min-width: rem-calc(20);
+	position: absolute;
+	padding: rem-calc(5);
+	background: #fff;
+	color: rgb(148, 148, 148);
+	border: rem-calc(1) solid #adadad;
+	display: none;
+	z-index: 999;
+	text-align: center;
+}
+
+.swatch-option-tooltip .corner,
+.swatch-option-tooltip-layered .corner {
+	left: 40%;
+	position: absolute;
+	bottom: 0;
+	height: rem-calc(5);
+}
+
+.swatch-option-tooltip .corner::after,
+.swatch-option-tooltip-layered .corner::after {
+	content: '';
+	position: relative;
+	top: rem-calc(5);
+	left: rem-calc(-16);
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: rem-calc(7 7.5 0 7.5);
+	border-color: #fff transparent transparent transparent;
+	font-size: rem-calc(1);
+}
+
+.swatch-option-tooltip .corner::before,
+.swatch-option-tooltip-layered .corner::before {
+	content: '';
+	position: relative;
+	top: rem-calc(6);
+	left: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: rem-calc(8 8.5 0 8.5);
+	border-color: #adadad transparent transparent transparent;
+	font-size: rem-calc(1);
+}
+
+.swatch-option-tooltip .image,
+.swatch-option-tooltip-layered .image {
+	display: block;
+	height: rem-calc(130);
+	width: rem-calc(130);
+	margin: 0 auto;
+}
+
+.swatch-option-tooltip .title {
+	max-width: rem-calc(140);
+	min-height: rem-calc(20);
+	max-height: rem-calc(200);
+	color: rgb(40, 40, 40);
+	text-align: center;
+	display: block;
+	overflow: hidden;
+}
+
+.swatch-opt {
+	margin: rem-calc(20 0);
+}
+
+.swatch-more {
+	display: inline-block;
+	margin: rem-calc(2 0);
+	text-decoration: none !important;
+	position: static;
+	z-index: 1;
+}
+
+// Layered Features
+.swatch-option-link-layered {
+	position: relative;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.swatch-option-link-layered:focus > div {
+	box-shadow: rem-calc(0 0 3 1) #68a8e0;
+}
+
+.swatch-option-tooltip-layered {
+	width: rem-calc(140);
+	position: absolute;
+	background: #fff;
+	color: rgb(148, 148, 148);
+	border: rem-calc(1) solid #adadad;
+	display: none;
+	z-index: 999;
+	left: rem-calc(-47);
+}
+
+.swatch-visual-tooltip-layered {
+	height: rem-calc(160);
+	top: rem-calc(-170);
+}
+
+.swatch-textual-tooltip-layered {
+	height: rem-calc(30);
+	top: rem-calc(-40);
+}
+
+.swatch-option-link-layered:hover > .swatch-option-tooltip-layered {
+	display: block;
+}
+
+.swatch-attribute-options .swatch-option-tooltip-layered .title {
+	width: 100%;
+	height: rem-calc(20);
+	position: absolute;
+	bottom: rem-calc(-5);
+	left: 0;
+	color: rgb(40, 40, 40);
+	text-align: center;
+	margin-bottom: rem-calc(10);
+}
+
+.swatch-option-disabled::after {
+	content: '';
+	position: absolute;
+	width: rem-calc(42);
+	height: rem-calc(2);
+	background: red;
+	transform: rotate(-30deg);
+	z-index: 995;
+	left: rem-calc(-4);
+	top: rem-calc(10);
+}
+
+.swatch-option-disabled {
+	outline: none !important;
+	cursor: default;
+	border: 0;
+}
+
+// Bugfix for Add To Cart button
+.swatch-opt-listing {
+	margin-bottom: rem-calc(10);
+}
+
+.swatch-input {
+	left: rem-calc(-1000);
+	position: absolute;
+	visibility: hidden;
+}
+
+// Loaders
+.photo.image {
+	&.swatch-option-loading {
+		content: url(nwayo-assets-path('Magento_Swatches/loader-2.gif', 'magento-legacy', 'images'));
+	}
+}
+
+.product-image-container {
+	.product-image-wrapper {
+		&.swatch-option-loading {
+			&::before {
+				@include storeui-loaders-loading-image();
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 2em;
+				height: 2em;
+				margin-top: -1em;
+				margin-left: -1em;
+			}
+
+			.product-image-photo {
+				content: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+			}
+		}
+	}
+}

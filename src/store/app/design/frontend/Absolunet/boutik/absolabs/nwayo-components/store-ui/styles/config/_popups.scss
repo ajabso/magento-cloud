@@ -1,0 +1,94 @@
+//-------------------------------------
+//-- Store UI - Config - Popups
+//-------------------------------------
+
+$storeui-popups-border-color: $common-border-color;
+
+
+
+//-- Popup (lib-popup)
+@mixin storeui-popups-base-styles($type) {
+
+	// multiple-wishlist
+	$position:        fixed;
+	$position-right:  0;
+	$position-bottom: 0;
+	$margin-top:      false;
+	$content-margin:  false;
+
+	@if $type == msrp {
+		$position:        absolute;
+		$position-right:  false;
+		$position-bottom: false;
+		$margin-top:      .625em;
+		$content-margin:  .625em 0 0;
+	}
+
+	//
+	position: $position;
+	top: 0;
+
+	@if ($position-right) {
+		right: $position-right;
+	}
+
+	@if ($position-bottom) {
+		bottom: $position-bottom;
+	}
+
+	//
+	left: 0;
+	z-index: 1001;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+	display: none;
+	opacity: 0;
+	width: 100%;
+	padding: 1.375em;
+	border: common-border();
+
+	@if ($margin-top) {
+		margin-top: $margin-top;
+	}
+
+	//
+	box-shadow: 0 .2em .2em rgba($common-shadow-color, .15);
+	background: $common-bg-color;
+	transition: opacity $common-ui-transition linear;
+
+	.popup-header {
+		padding-right: 1.375em;
+		margin: 0 0 1.5em;
+
+		.title {
+			@include store-h3-styles();
+		}
+	}
+
+	@if ($content-margin) {
+		.popup-content {
+			margin: $content-margin;
+		}
+	}
+
+	.popup-actions .action.close {
+		@include common-button-reset-styles();
+		position: absolute;
+		top: .625em;
+		right: .625em;
+		display: inline-block;
+
+		&::before {
+			@include nwayo-pseudo-image-styles(1.4em);
+			@include store-remove-image();
+			display: inline-block;
+			overflow: hidden;
+		}
+
+		> span {
+			@include nwayo-visually-hidden-styles();
+		}
+	}
+
+	&.active {
+		opacity: 1;
+	}
+}

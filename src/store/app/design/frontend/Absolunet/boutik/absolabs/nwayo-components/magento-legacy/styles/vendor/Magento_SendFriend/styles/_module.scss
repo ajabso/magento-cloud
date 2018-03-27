@@ -1,0 +1,32 @@
+.form.send.friend {
+	@include storeui-form-add-fields-styles();
+}
+
+.action.mailto.friend {
+	display: inline-block;
+	margin-left: rem-calc(-7);
+
+	&::before {
+		@include nwayo-pseudo-image-styles(rem-calc(28));
+		@include store-envelope-image();
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: top;
+	}
+
+	span {
+		display: inline-block;
+		vertical-align: top;
+		line-height: rem-calc(28);
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.form.send.friend {
+		@include storeui-form-add-fields-large-styles();
+	}
+}

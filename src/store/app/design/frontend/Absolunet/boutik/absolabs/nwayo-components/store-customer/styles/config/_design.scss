@@ -1,0 +1,15 @@
+//-------------------------------------
+//-- Store customer - Config - Design
+//-------------------------------------
+
+$storecustomer-bg-color:                  $common-bg-color;
+$storecustomer-delimiter-color:           $common-text-color;
+$storecustomer-navitem-hover-color:       $common-text-color;
+$storecustomer-required-color:            $common-error-text-color;
+$storecustomer-border:                    common-border();
+
+$storecustomer-password-default-color:    $common-bg-var1-color;
+$storecustomer-password-weak-color:       lighten($common-error-text-color, 20%);
+$storecustomer-password-medium-color:     lighten($common-warning-text-color, 20%);
+$storecustomer-password-strong-color:     lighten($konstan-color-success, 20%);
+$storecustomer-password-verystrong-color: $konstan-color-success;

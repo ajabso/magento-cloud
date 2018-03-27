@@ -1,0 +1,72 @@
+//-------------------------------------
+//-- Store UI - Config - Modals
+//-------------------------------------
+
+$storeui-modals-overlay-color:    rgba($common-bg-var2-color, .55);
+$storeui-modals-bg-color:         $common-bg-var1-color;
+$storeui-modals-bg-wrapper-color: $common-bg-color;
+
+$storeui-modals-border:           common-border();
+$storeui-modals-shadow:           0 0 .75em .125em rgba($common-shadow-color, .35);
+
+$storeui-modals-transition:       $common-ui-transition;
+
+
+
+//-- Modal (lib-modal)
+@mixin storeui-modals-modal-styles {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: common-zindex(offcanvas) !important;
+	visibility: hidden;
+	opacity: 0;
+	min-width: 0;
+	transition: visibility 0s $storeui-modals-transition, opacity $storeui-modals-transition ease;
+
+	// stylelint-disable selector-class-pattern
+	&._show {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity $storeui-modals-transition ease;
+
+		.modal-inner-wrap {
+			transform: translate(0, 0);
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	.modal-inner-wrap {
+		opacity: 1;
+		box-shadow: $storeui-modals-shadow;
+		background-color: $storeui-modals-bg-wrapper-color;
+		pointer-events: auto;
+	}
+}
+
+
+
+//-- Modal slide (lib-modal-slide)
+@mixin storeui-modals-slide-styles {
+	left: 2.75em;
+	z-index: 900;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+
+	// stylelint-disable selector-class-pattern
+	&._show {
+		.modal-inner-wrap {
+			transform: translateX(0);
+		}
+	}
+	// stylelint-enable selector-class-pattern
+
+	.modal-inner-wrap {
+		position: static;
+		overflow-y: auto;
+		width: auto;
+		height: 100%;
+		transform: translateX(100%);
+		transition: transform $storeui-modals-transition ease-in-out;
+	}
+}

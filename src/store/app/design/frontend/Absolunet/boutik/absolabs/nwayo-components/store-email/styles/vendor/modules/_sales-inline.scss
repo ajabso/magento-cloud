@@ -1,0 +1,280 @@
+//
+//  Sales Module Styles - Inline
+//  _____________________________________________
+
+.email-summary {
+	h1 {
+		margin-bottom: 5px;
+	}
+}
+
+//
+//  Order Summary
+//  ----------------------------------------------
+
+.order-details {
+	width: 100%;
+
+	tr {
+		> .address-details,
+		> .method-info {
+			padding: $storeemail-padding $storeemail-padding $storeemail-padding 0;
+			width: 50%;
+
+			h3 {
+				margin-top: 0;
+			}
+		}
+
+		//  Prevent extra spacing on Payment & Shipping Method row
+		& + .method-info {
+			> td {
+				padding: 0 0 $storeemail-padding;
+			}
+		}
+	}
+
+	.payment-method {
+		margin-bottom: 10px;
+
+		.title {
+			font-weight: $common-text-base-weight;
+		}
+
+		.data.table {
+			> caption {
+				display: none;
+			}
+
+			th {
+				padding-right: $storeemail-padding;
+			}
+		}
+	}
+}
+
+//  Remove address and phone number link color on iOS
+.address-details a {
+	color: $m2legacy-color-gray20 !important;
+	cursor: default !important;
+	text-decoration: none !important;
+}
+
+//
+//  Shipment Tracking
+//  ----------------------------------------------
+
+.shipment-track {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	max-width: 100%;
+
+	th {
+		text-align: left;
+	}
+
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				vertical-align: top;
+			}
+		}
+	}
+
+	> thead > tr {
+		> th,
+		> td {
+			vertical-align: bottom;
+		}
+	}
+
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				padding: 0 .675em;
+			}
+		}
+	}
+
+	thead,
+	tbody {
+		> tr {
+			> th,
+			> td {
+				background-color: $m2legacy-color-gray95;
+				padding: $storeemail-padding;
+				width: 50%;
+			}
+
+			& + tr {
+				th,
+				td {
+					padding-top: 0;
+				}
+			}
+		}
+	}
+}
+
+//
+//  Items Table
+//  ----------------------------------------------
+
+.email-items {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	max-width: 100%;
+
+	th {
+		text-align: left;
+	}
+
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				vertical-align: top;
+			}
+		}
+	}
+
+	> thead > tr {
+		> th,
+		> td {
+			vertical-align: bottom;
+		}
+	}
+
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				padding: 0 .675em;
+			}
+		}
+	}
+
+	border: common-border();
+
+	thead,
+	tfoot {
+		> tr {
+			> th,
+			> td {
+				background-color: $m2legacy-color-gray95
+			}
+		}
+	}
+
+	> thead,
+	> tbody {
+		> tr {
+			> th {
+				padding: $storeemail-padding;
+			}
+
+			> td {
+				padding: $storeemail-padding;
+
+				&.message-gift {
+					border-top: none;
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border-top: common-border();
+			}
+
+			& + tr {
+				> th,
+				> td {
+					border-top: 0;
+				}
+			}
+		}
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.product-name {
+		font-weight: $common-text-fatter-weight;
+		margin-bottom: $storeemail-padding / 2;
+	}
+
+	.has-extra .sku {
+		margin-bottom: $storeemail-padding;
+	}
+
+	.item-info {
+		dl {
+			margin-bottom: 0;
+			padding-left: $storeemail-padding * 2;
+
+			dt,
+			dd {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			dd {
+				padding-left: $storeemail-padding;
+			}
+		}
+	}
+
+	.item-qty {
+		text-align: center;
+	}
+
+	.item-price {
+		text-align: right;
+	}
+
+	.item-extra {
+		padding-top: 0;
+	}
+
+	.order-totals {
+		> tr {
+			> th {
+				font-weight: $common-text-base-weight;
+			}
+
+			> th,
+			> td {
+				padding: $storeemail-padding;
+				text-align: right;
+			}
+
+			& + tr {
+				th,
+				td {
+					padding-top: 0;
+				}
+			}
+		}
+
+		.price {
+			white-space: nowrap;
+		}
+	}
+}

@@ -1,0 +1,49 @@
+//-------------------------------------
+//-- Store - Fonts
+//-------------------------------------
+
+//-- Lato
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-100',                 'store', $weight:$nwayo-thin-weight);
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-100italic',           'store', $weight:$nwayo-thin-weight, $style:italic);
+
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-300',                 'store', $weight:$nwayo-light-weight);
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-300italic',           'store', $weight:$nwayo-light-weight, $style:italic);
+
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-regular',             'store', $weight:$nwayo-normal-weight);
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-italic',              'store', $weight:$nwayo-normal-weight, $style:italic);
+
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-700',                 'store', $weight:$nwayo-bold-weight);
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-700italic',           'store', $weight:$nwayo-bold-weight, $style:italic);
+
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-900',                 'store', $weight:$nwayo-black-weight);
+@include nwayo-load-font-styles('Lato', 'lato-v14-latin-900italic',           'store', $weight:$nwayo-black-weight, $style:italic);
+
+
+
+//-- Poppins
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-100',            'store', $weight:$nwayo-thin-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-100italic',      'store', $weight:$nwayo-thin-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-200',            'store', $weight:$nwayo-extralight-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-200italic',      'store', $weight:$nwayo-extralight-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-300',            'store', $weight:$nwayo-light-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-300italic',      'store', $weight:$nwayo-light-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-regular',        'store', $weight:$nwayo-normal-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-italic',         'store', $weight:$nwayo-normal-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-500',            'store', $weight:$nwayo-medium-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-500italic',      'store', $weight:$nwayo-medium-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-600',            'store', $weight:$nwayo-semibold-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-600italic',      'store', $weight:$nwayo-semibold-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-700',            'store', $weight:$nwayo-bold-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-700italic',      'store', $weight:$nwayo-bold-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-800',            'store', $weight:$nwayo-extrabold-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-800italic',      'store', $weight:$nwayo-extrabold-weight, $style:italic);
+
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-900',            'store', $weight:$nwayo-black-weight);
+@include nwayo-load-font-styles('Poppins', 'poppins-v5-latin-900italic',      'store', $weight:$nwayo-black-weight, $style:italic);

@@ -1,0 +1,40 @@
+<?php
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+<?php // Absolunet custom code ?>
+<div class="footer-newsletter">
+    <div class="newsletter-container">
+        <div class="text">
+            <div class="title">
+                <span><?= $block->escapeHtml(__('Sign Up for Our Newsletter')) ?></span>
+            </div>
+            <div class="subtitle">
+                <span><?= $block->escapeHtml(__('Be among the first to see our latest offers and events to come')) ?></span>
+            </div>
+        </div>
+        <div class="form-container">
+            <?php // /Absolunet custom code ?>
+            <form class="form subscribe"
+                  novalidate
+                  action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+                  method="post"
+                  data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                  id="newsletter-validate-detail">
+                <div class="field newsletter">
+                    <?php // Absolunet custom code ?>
+                    <div class="control">
+                        <input name="email" type="email" id="newsletter"
+                               placeholder="<?= $block->escapeHtmlAttr(__('Email Address')) ?>"
+                               data-validate="{required:true, 'validate-email':true}"/>
+                    </div>
+                    <?php // /Absolunet custom code ?>
+                </div>
+                <div class="actions">
+                    <button class="action subscribe primary" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit">
+                        <span><?= $block->escapeHtml(__('Subscribe')) ?></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

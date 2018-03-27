@@ -1,0 +1,53 @@
+.form-add-invitations {
+	@include storeui-form-add-fields-styles();
+	.action {
+		&.add {
+			display: inline-block;
+			width: auto;
+			padding: rem-calc(2 0);
+			line-height: normal;
+
+			&::before {
+				@include nwayo-pseudo-image-styles(rem-calc(31));
+				@include store-expand-image();
+				display: inline-block;
+				overflow: hidden;
+				vertical-align: top;
+				margin: 0;
+			}
+
+			> span {
+				@include nwayo-visually-hidden-styles();
+			}
+		}
+	}
+}
+
+@media #{bp(medium down)} {
+	.form-add-invitations {
+		.additional,
+		.field.text {
+			margin-top: rem-calc(20);
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(large)} {
+	.form-add-invitations {
+		@include storeui-form-add-fields-large-styles();
+		.additional,
+		.field.text {
+			margin-top: rem-calc(29);
+		}
+	}
+
+	.table-invitations {
+		.col {
+			width: 50%;
+		}
+	}
+}

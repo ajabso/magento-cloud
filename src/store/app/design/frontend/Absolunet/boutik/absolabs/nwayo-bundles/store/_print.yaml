@@ -1,0 +1,10 @@
+#-------------------------------------
+#-- Store - Print
+#-------------------------------------
+
+#-- Styles
+styles:
+  collections:
+    print:
+      - components/store/styles/config
+      - components/store/styles/print

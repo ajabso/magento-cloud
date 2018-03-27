@@ -1,0 +1,69 @@
+//-------------------------------------
+//-- Store UI - Popup
+//-------------------------------------
+
+//  Popup working with dropdown dialog
+.ui-dialog.popup .action.close {
+	@include common-button-reset-styles();
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1001;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+	display: inline-block;
+	width: 2.5em;
+	height: 2.5em;
+
+	&::before {
+		@include nwayo-pseudo-image-styles(1.375em);
+		@include store-remove-image();
+		display: inline-block;
+		overflow: hidden;
+	}
+
+	> span {
+		@include nwayo-visually-hidden-styles();
+	}
+}
+
+.popup-pointer {
+	position: absolute;
+	top: -.875em;
+	margin-left: -.875em;
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-bottom-style: solid;
+	}
+
+	&::before {
+		top: .15em;
+		left: .15em;
+		z-index: 99;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+		border-width: .375em;
+		border-style: solid;
+		border-color: transparent transparent $storeui-popups-border-color;
+	}
+
+	&::after {
+		top: 0;
+		left: .05;
+		z-index: 98;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+		border-width: .5em;
+		border-style: solid;
+		border-color: transparent transparent $storeui-popups-border-color;
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media #{bp(medium)} {
+	.ui-dialog.popup {
+		width: 26em;
+	}
+}

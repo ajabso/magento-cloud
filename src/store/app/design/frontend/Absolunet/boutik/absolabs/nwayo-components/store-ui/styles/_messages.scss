@@ -1,0 +1,43 @@
+//-------------------------------------
+//-- Store UI - Messages
+//-------------------------------------
+
+.message {
+	&.global {
+		&.noscript, &.cookie, &.demo {
+			@include storeui-messages-block-styles();
+		}
+
+		&.cookie {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 3;  // stylelint-disable-line scale-unlimited/declaration-strict-value, TODO: remplacer par common-zindex()
+
+			.actions {
+				margin-top: .625em;
+			}
+		}
+
+		&.demo {
+			text-align: center;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&.info, &.warning, &.notice {
+		@include storeui-messages-block-styles();
+	}
+
+	&.error {
+		@include storeui-messages-block-styles(error);
+	}
+
+	&.success {
+		@include storeui-messages-block-styles(success);
+	}
+}

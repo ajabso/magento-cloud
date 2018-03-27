@@ -1,0 +1,36 @@
+<!-- ko foreach: getRegion('before_details') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<div class="product-item-details">
+    <!-- // Absolunet custom code -->
+    <div class="product-item-details-inner">
+        <div class="product-item-info">
+            <div class="product-item-name" data-bind="text: $parent.name"></div>
+            <!-- ko if: (JSON.parse($parent.options).length > 0)-->
+            <div class="item-options">
+                <!--ko foreach: JSON.parse($parent.options)-->
+                <ul>
+                    <li class="label" data-bind="text: label"></li>
+                    <!-- ko if: ($data.full_view)-->
+                    <li class="value" data-bind="html: full_view"></li>
+                    <!-- /ko -->
+                    <!-- ko ifnot: ($data.full_view)-->
+                    <li class="value" data-bind="html: value"></li>
+                    <!-- /ko -->
+                </ul>
+                <!-- /ko -->
+            </div>
+            <!-- /ko -->
+            <ul class="item-qty">
+                <li class="label"><!-- ko i18n: 'Qty' --><!-- /ko --></li>
+                <li class="value" data-bind="text: $parent.qty"></li>
+            </ul>
+        </div>
+        <div class="product-item-price">
+            <!-- ko foreach: getRegion('after_details') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- // /Absolunet custom code -->
+</div>

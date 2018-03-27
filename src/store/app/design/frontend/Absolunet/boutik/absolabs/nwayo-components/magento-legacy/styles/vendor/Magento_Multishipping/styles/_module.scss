@@ -1,0 +1,438 @@
+.multicheckout {
+	.title {
+		margin-bottom: rem-calc(30);
+
+		strong {
+			font-weight: $common-text-base-weight;
+		}
+	}
+
+	.table-wrapper {
+		margin-bottom: 0;
+
+		.action.delete {
+			display: inline-block;
+		}
+
+		.col {
+			.qty {
+				display: inline-block;
+
+				.input-text {
+					width: 3em;
+					text-align: center;
+				}
+			}
+
+			.label {
+				@include nwayo-visually-hidden-styles();
+			}
+
+			&.item {
+				.action.edit {
+					font-weight: $common-text-base-weight;
+					margin-left: rem-calc(10);
+				}
+			}
+		}
+	}
+
+	&:not(.address) {
+		.table-wrapper {
+			.product-item-name {
+				margin: 0;
+			}
+		}
+	}
+
+	> .actions-toolbar {
+		margin-top: rem-calc(40);
+	}
+
+	.actions-toolbar {
+		> .secondary {
+			display: block;
+
+			.action {
+				margin-bottom: rem-calc(25);
+
+				&.back {
+					display: block;
+					margin-left: 0;
+				}
+			}
+		}
+
+		> .primary {
+			margin-right: rem-calc(10);
+		}
+	}
+
+	.action.primary {
+		@include common-button-styles($size:large);
+	}
+
+	.item-options {
+		@include store-product-options-list-styles();
+		@include nwayo-clearfix-styles();
+		margin: rem-calc(10 0 0);
+	}
+
+	@include m2legacy-account-blocks-styles();
+
+	.block {
+		@include nwayo-clearfix-styles();
+
+		.methods-shipping {
+			.item-content {
+				.fieldset {
+					> .legend {
+						@include nwayo-visually-hidden-styles();
+					}
+
+					> .legend + br {
+						display: none;
+					}
+
+					> .field {
+						&::before {
+							display: none;
+						}
+
+						.control {
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.block-title,
+	.block-content .title {
+		border-bottom: common-border();
+		padding-bottom: rem-calc(10);
+
+		strong {
+			font-weight: $common-text-base-weight;
+
+			span {
+				color: $m2legacy-color-gray66;
+			}
+		}
+	}
+
+	.block-content {
+		@include nwayo-clearfix-styles();
+		.title {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+	}
+
+	&.order-review {
+		.block-title > strong {
+			font-size: rem-calc(24);
+		}
+
+		.block-shipping {
+			.block-content:not(:last-child) {
+				margin-bottom: rem-calc(40);
+			}
+		}
+	}
+
+	.box-title {
+		span {
+			margin-right: rem-calc(10);
+		}
+
+		> .action {
+			margin: 0;
+		}
+	}
+
+	.box-shipping-method {
+		.price {
+			font-weight: $common-text-fatter-weight;
+		}
+	}
+
+	.box-billing-method {
+		.fieldset {
+			margin: 0;
+
+			.legend.box-title {
+				margin: rem-calc(0 0 5);
+			}
+		}
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	.checkout-review .grand.totals {
+		font-size: $common-title-size;
+		margin-bottom: rem-calc(40);
+
+		.mark {
+			font-weight: $common-text-base-weight;
+		}
+	}
+}
+
+[class^='multishipping-'] {
+	.nav-sections,
+	.nav-toggle {
+		display: none;
+	}
+
+	.logo {
+		margin-left: 0;
+	}
+}
+
+.multishipping-checkout-success {
+	.nav-sections {
+		display: block;
+	}
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@media #{bp(small down)} {
+	.multicheckout {
+		.data.table {
+			.address {
+				&::before {
+					margin-bottom: rem-calc(5);
+				}
+			}
+		}
+
+		.product-item-name,
+		.price-including-tax,
+		.price-excluding-tax {
+			display: inline-block;
+		}
+
+		.block-content .box {
+			&:not(:last-child) {
+				margin-bottom: rem-calc(40);
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.order-review {
+			.box-items {
+				.data.table {
+					thead {
+						display: block;
+
+						tr {
+							display: block;
+						}
+
+						.col.item {
+							display: block;
+							padding: 0;
+						}
+					}
+				}
+			}
+
+			.data.table {
+				tbody tr {
+					&:not(:last-child) {
+						border-bottom: common-border();
+					}
+
+					@include nwayo-clearfix-styles();
+
+					.col {
+						&.item {
+							&::before {
+								display: none;
+							}
+						}
+
+						&.qty,
+						&.price,
+						&.subtotal {
+							box-sizing: border-box;
+							float: left;
+							text-align: center;
+							white-space: nowrap;
+							width: 33%;
+
+							&::before {
+								content: attr(data-th) ':';
+								display: block;
+								font-weight: $common-text-fatter-weight;
+								padding-bottom: rem-calc(10);
+							}
+						}
+					}
+
+					.product-item-name {
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.actions-toolbar {
+			.action {
+				margin-bottom: rem-calc(25);
+			}
+
+			> .primary {
+				margin-bottom: rem-calc(25);
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+@media #{bp(medium)} {
+	.multicheckout {
+		.actions-toolbar {
+			.column:not(.sidebar-main) & {
+				margin-left: 0;
+			}
+
+			.secondary {
+				float: none;
+				margin-top: rem-calc(11);
+				text-align: right;
+
+				.action {
+					margin-left: rem-calc(10);
+
+					&.back {
+						display: block;
+						float: left;
+					}
+				}
+			}
+		}
+
+		.item-options {
+			margin: rem-calc(20 0 0);
+		}
+
+		.block-content .box {
+			margin-bottom: 0;
+		}
+
+		.block-shipping {
+			.box {
+				box-sizing: border-box;
+				float: left;
+				width: 25%;
+			}
+
+			.box-shipping-method {
+				padding-left: rem-calc(25);
+				padding-right: rem-calc(25);
+				width: 50%;
+
+				.fieldset {
+					.legend {
+						margin-left: 0;
+					}
+
+					.field {
+						&::before {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		.block-billing {
+			@include nwayo-clearfix-styles();
+			.box-billing-address {
+				box-sizing: border-box;
+				float: left;
+				width: 25%;
+			}
+
+			.box-billing-method {
+				box-sizing: border-box;
+				float: left;
+				padding-left: rem-calc(25);
+				width: 50%;
+			}
+		}
+
+		&.form.address {
+			.table-wrapper {
+				.applicable {
+					margin: rem-calc(7 0 0);
+				}
+			}
+		}
+
+		&.order-review {
+			.box-items {
+				clear: left;
+				float: none;
+				padding-top: rem-calc(40);
+				width: auto;
+			}
+
+			.col.item {
+				width: 75%;
+			}
+		}
+
+		//  Payment methods
+		.methods-payment {
+			.item-content > .fieldset {
+				width: auto;
+
+				.field {
+					&.cvv {
+						display: inline-block;
+						width: auto;
+					}
+				}
+			}
+
+			.fieldset > .field:not(.choice) {
+				> .label {
+					float: none;
+					margin-bottom: rem-calc(8);
+					text-align: left;
+					width: auto;
+				}
+
+				&:not(.cvv) {
+					.control {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media #{bp(medium down)} {
+	.multishipping-checkout-success {
+		.nav-toggle {
+			display: block;
+		}
+
+		.logo {
+			margin-left: rem-calc(40);
+		}
+	}
+}
