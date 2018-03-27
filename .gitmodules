@@ -1,3 +1,6 @@
 [submodule "app/code/Absolunet/Cli"]
 	path = app/code/Absolunet/Cli
 	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-cli.git
+[submodule "app/design/frontend/Absolunet/boutik"]
+	path = app/design/frontend/Absolunet/boutik
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-theme-frontend-boutik.git
