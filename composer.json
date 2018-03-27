@@ -19,7 +19,7 @@
     "require": {
         "magento/magento-cloud-metapackage": "2.2.3",
         "composer/composer": "@alpha",
-        "msp/devtools": "^0.2.0"
+        "msp/devtools": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",

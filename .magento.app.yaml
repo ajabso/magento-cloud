@@ -79,7 +79,7 @@ hooks:
     # We run deploy hook after your application has been deployed and started.
     deploy: |
         php ./vendor/bin/m2-ece-deploy
-        
+
 # Default Magento 2 cron jobs
 crons:
     cronrun:

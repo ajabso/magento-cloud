@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e1d43d4227d8c202616fc4682b299db",
+    "content-hash": "624b5654b9f41eeb51581f7fa4b76445",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -9865,22 +9865,22 @@
         },
         {
             "name": "msp/devtools",
-            "version": "0.2.4",
+            "version": "1.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/magespecialist/m2-MSP_DevTools.git",
-                "reference": "b03f857a42ce697f8835bb51700f3653fd4ace28"
+                "reference": "fe4f84e86c191f482d7b23e08497131c23c40c7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/magespecialist/m2-MSP_DevTools/zipball/b03f857a42ce697f8835bb51700f3653fd4ace28",
-                "reference": "b03f857a42ce697f8835bb51700f3653fd4ace28",
+                "url": "https://api.github.com/repos/magespecialist/m2-MSP_DevTools/zipball/fe4f84e86c191f482d7b23e08497131c23c40c7a",
+                "reference": "fe4f84e86c191f482d7b23e08497131c23c40c7a",
                 "shasum": ""
             },
             "require": {
                 "magento/magento-composer-installer": "*",
                 "msp/common": "*",
-                "php": "~5.5.0|~5.6.0|~7.0.0"
+                "php": "^7.0|^7.1"
             },
             "type": "magento2-module",
             "autoload": {
@@ -9895,7 +9895,17 @@
             "license": [
                 "OSL 3.0"
             ],
-            "time": "2017-02-28T16:48:08+00:00"
+            "authors": [
+                {
+                    "name": "Riccardo Tempesta",
+                    "email": "riccardo.tempesta@magespecialist.it"
+                },
+                {
+                    "name": "Lorenzo Stramaccia",
+                    "email": "lorenzo.stramaccia@magespecialist.it"
+                }
+            ],
+            "time": "2018-01-25T11:38:31+00:00"
         },
         {
             "name": "nesbot/carbon",
