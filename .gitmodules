@@ -37,9 +37,6 @@
 [submodule "app/code/Absolunet/SampleDataMedia"]
 	path = app/code/Absolunet/SampleDataMedia
 	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-sample-data-media.git
-[submodule "app/code/Absolunet/Storelocator"]
-	path = app/code/Absolunet/Storelocator
-	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-storelocator.git
 [submodule "app/code/Absolunet/SwitcherCms"]
 	path = app/code/Absolunet/SwitcherCms
 	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-switchercms.git
