@@ -30,7 +30,6 @@
         "magento/module-review-sample-data": "^100.1.0",
         "magento/module-swatches-sample-data": "^100.1.0",
         "magento/sample-data-media": "^100.1.0",
-        "amasty/shopby": "2.6.0",
         "pragmarx/google2fa": "^2.0"
     },
     "require-dev": {
