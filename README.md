@@ -1,2 +1,2 @@
 # magento-cloud
-dev-master 2.2.3
+master 2.2.3
