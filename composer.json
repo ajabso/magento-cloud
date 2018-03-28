@@ -10,12 +10,28 @@
         "repo": {
             "type": "composer",
             "url": "https://repo.magento.com"
+        },
+        "amasty": {
+            "type": "composer",
+            "url": "https://composer.amasty.com/enterprise/"
         }
     },
     "require": {
         "magento/magento-cloud-metapackage": "2.2.3",
         "composer/composer": "@alpha",
-        "msp/devtools": "^1.0"
+        "mgtcommerce/module-mgtdevelopertoolbar": "^1.0",
+        "magento/module-bundle-sample-data": "^100.1.0",
+        "magento/module-catalog-sample-data": "^100.1.0",
+        "magento/module-grouped-product-sample-data": "^100.1.0",
+        "magento/module-downloadable-sample-data": "^100.1.0",
+        "magento/module-configurable-sample-data": "^100.1.0",
+        "magento/module-gift-card-sample-data": "^100.1.0",
+        "magento/module-theme-sample-data": "^100.1.0",
+        "magento/module-review-sample-data": "^100.1.0",
+        "magento/module-swatches-sample-data": "^100.1.0",
+        "magento/sample-data-media": "^100.1.0",
+        "amasty/shopby": "2.6.0",
+        "pragmarx/google2fa": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",

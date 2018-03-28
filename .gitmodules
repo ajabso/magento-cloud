@@ -4,3 +4,51 @@
 [submodule "app/design/frontend/Absolunet/boutik"]
 	path = app/design/frontend/Absolunet/boutik
 	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-theme-frontend-boutik.git
+[submodule "app/code/Absolunet/AbsoMQ"]
+	path = app/code/Absolunet/AbsoMQ
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-absomq.git
+[submodule "app/code/Absolunet/Catalog"]
+	path = app/code/Absolunet/Catalog
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-catalog.git
+[submodule "app/code/Absolunet/Checkout"]
+	path = app/code/Absolunet/Checkout
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-checkout.git
+[submodule "app/code/Absolunet/Core"]
+	path = app/code/Absolunet/Core
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-core.git
+[submodule "app/code/Absolunet/DeliveryDate"]
+	path = app/code/Absolunet/DeliveryDate
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-delivery-date.git
+[submodule "app/code/Absolunet/FlowHistory"]
+	path = app/code/Absolunet/FlowHistory
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-flowhistory.git
+[submodule "app/code/Absolunet/Footer"]
+	path = app/code/Absolunet/Footer
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-footer.git
+[submodule "app/code/Absolunet/NavSimple"]
+	path = app/code/Absolunet/NavSimple
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-nav-simple.git
+[submodule "app/code/Absolunet/Promotion"]
+	path = app/code/Absolunet/Promotion
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-promotion.git
+[submodule "app/code/Absolunet/SampleData"]
+	path = app/code/Absolunet/SampleData
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-sample-data.git
+[submodule "app/code/Absolunet/SampleDataMedia"]
+	path = app/code/Absolunet/SampleDataMedia
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-sample-data-media.git
+[submodule "app/code/Absolunet/Storelocator"]
+	path = app/code/Absolunet/Storelocator
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-storelocator.git
+[submodule "app/code/Absolunet/SwitcherCms"]
+	path = app/code/Absolunet/SwitcherCms
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-switchercms.git
+[submodule "app/code/Absolunet/System"]
+	path = app/code/Absolunet/System
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-system.git
+[submodule "app/code/Absolunet/TargetRule"]
+	path = app/code/Absolunet/TargetRule
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-targetrule.git
+[submodule "app/code/Absolunet/Widget"]
+	path = app/code/Absolunet/Widget
+	url = https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/boutik-widget.git
