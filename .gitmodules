@@ -49,3 +49,6 @@
 [submodule "app/code/Absolunet/Widget"]
 	path = app/code/Absolunet/Widget
 	url = git@bitbucket.org:absolunet/boutik-widget.git
+[submodule "app/code/Absolunet/Moneris"]
+	path = app/code/Absolunet/Moneris
+	url = git@bitbucket.org:absolunet/boutik-moneris.git
