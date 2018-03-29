@@ -1,0 +1,5 @@
+#!/usr/bin/env php
+<?php
+exec('cp .gitmodules.bak .gitmodules');
+exec('rm .gitmodules.bak');
+exec('rm -Rf ./absolunet');

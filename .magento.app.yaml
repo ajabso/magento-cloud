@@ -74,8 +74,9 @@ mounts:
 hooks:
     # We run build hooks before your application has been packaged.
     build: |
+        php ./absolunet/magento/m2-ece-prebuild
         php ./vendor/bin/m2-ece-build
-        rm -Rf ./absolunet
+        php ./absolunet/magento/m2-ece-postbuild
     # We run deploy hook after your application has been deployed and started.
     deploy: |
         php ./vendor/bin/m2-ece-deploy

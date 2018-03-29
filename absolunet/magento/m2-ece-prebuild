@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+exec('cp .gitmodules .gitmodules.bak');
+
+$gitSubmodules = file_get_contents('.gitmodules');
+
+$gitSubmodules = str_replace('git@bitbucket.org:absolunet/', 'https://boutikpuller:a6QL7mHaApNFsVN78vUM@bitbucket.org/absolunet/', $gitSubmodules);
+
+echo $gitSubmodules;
